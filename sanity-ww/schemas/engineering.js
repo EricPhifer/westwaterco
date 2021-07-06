@@ -1,8 +1,8 @@
 import { GrHome as icon } from 'react-icons/gr';
 
 export default {
-  name: 'homepage',
-  title: 'Home',
+  name: 'engineering',
+  title: 'Engineering',
   type: 'document',
   icon,
   fields: [
