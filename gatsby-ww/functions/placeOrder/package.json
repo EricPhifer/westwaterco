@@ -1,0 +1,14 @@
+{
+  "author": "",
+  "dependencies": {
+    "nodemailer": "^6.4.17"
+  },
+  "description": "",
+  "license": "ISC",
+  "main": "confirmation.js",
+  "name": "confirmation",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
