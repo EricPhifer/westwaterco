@@ -5,7 +5,7 @@ dotenv.config({ path: '.env' });
 export default {
   siteMetadata: {
     title: 'WestWater Engineering',
-    siteUrl: 'https://westwaterco.com',
+    siteUrl: 'https://www.westwaterco.com',
     description: 'Consulting engineers and scientists.',
   },
   plugins: [

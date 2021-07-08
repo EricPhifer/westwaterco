@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const FooterStyles = styled.div`
   --columns: 1;
+  background-color: rgba(200, 224, 247, 1);
+  min-height: 5vh;
   ul {
     display: grid;
     grid-template-areas:

@@ -40,7 +40,7 @@
   ],
   "license": "UNLICENSED",
   "main": "package.json",
-  "name": "eric-phifer-llc-backend",
+  "name": "westwater-backend",
   "private": true,
   "scripts": {
     "lint": "eslint .",

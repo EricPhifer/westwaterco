@@ -1,45 +1,47 @@
 import { graphql, Link } from 'gatsby';
-import SanityImage from 'gatsby-plugin-sanity-image';
+// import SanityImage from 'gatsby-plugin-sanity-image';
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
+import logo from '../assets/images/logo.png';
 
 const HomeStyles = styled.div`
-  .heroBG {
-    margin: 0;
-    padding: 0;
-    h1 {
-      text-align: center;
-      font-size: 4rem;
-      text-shadow: 1px 1px 15px whitesmoke;
-      font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
-        sans-serif;
+  text-align: center;
+  .hero {
+    display: grid;
+    grid-template-areas:
+      '. . . . logo logo logo logo . . . .'
+      '. . . . title title title title . . . .'
+      '. . . . tagline tagline tagline tagline . . . .'
+      '. . . . links links links links . . . .';
+    .logoContainer {
+      place-self: center center;
     }
-    img {
-      padding: 2rem 25% 2rem 25%;
+    .heroLogo {
+      width: 35rem;
+      height: 35rem;
+      background-image: url(${logo});
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
-  }
-  .homeContent {
-    padding: 1rem;
-    border-left: 10px black groove;
-    border-bottom: 2px black groove;
-    margin: 3rem;
-    h3 {
-      text-align: left;
-      padding-bottom: 0.5rem;
-      padding-left: 1rem;
-      text-decoration: underline;
+    #logo {
+      grid-area: logo;
     }
-    div {
-      margin-left: 2rem;
-      margin-right: 2rem;
+    #title {
+      grid-area: title;
     }
-    button {
-      margin-left: 4rem;
-      margin-top: 1rem;
+    #tagline {
+      grid-area: tagline;
     }
-    a {
-      text-decoration: none;
+    #links {
+      grid-area: links;
+    }
+    #projectLink {
+      grid-area: projectLink;
+    }
+    #contactLink {
+      grid-area: contactLink;
     }
   }
   @media (max-width: 400px) {
@@ -66,52 +68,49 @@ export default function HomePage({ data }) {
   return (
     <>
       <SEO title="Home Page" />
-      {homepage.map((home) => (
-        <HomeStyles key={home.id}>
-          <div className="heroBG">
-            <h1>{home.welcome}</h1>
-            <SanityImage
-              {...home.image}
-              alt="Welcome Page Image"
-              height={500}
-              style={{
-                width: '50%',
-                height: '50%',
-                objectFit: 'cover',
-                auto: 'format',
-              }}
-            />
+      <HomeStyles>
+        <div className="hero">
+          <div id="logo" className="logoContainer">
+            <div className="heroLogo" />
           </div>
-          {home.contents.map((info) => (
-            <div className="homeContent">
-              <h3>{info.heading}</h3>
-              <div>{info.content}</div>
-              <button type="button">
-                <Link to={info.contentURL}>Check it out here</Link>
-              </button>
-            </div>
-          ))}
-        </HomeStyles>
-      ))}
+          <div id="title" className="heroTitle">
+            Consulting Engineers and Scientists
+          </div>
+          <div id="tagline" className="heroTagline">
+            We'll handle the engineering and environmental consulting needs you
+            have for your project.
+          </div>
+          <ul id="links" className="heroLinks">
+            <li id="projectLink">
+              <Link to="/projects" role="button">
+                <span className="buttonesqe">
+                  <span>See Our Projects</span>
+                </span>
+              </Link>
+            </li>
+            <li id="contactLink">
+              <Link to="/about#contact" role="button">
+                <span className="buttonesqe">
+                  <span>Contact Us</span>
+                </span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </HomeStyles>
     </>
   );
 }
 
 export const query = graphql`
   query {
-    home: allSanityHome {
+    home: allSanityHomepage {
       nodes {
         id
         contents {
           content
           contentURL
           heading
-        }
-        image {
-          asset {
-            id
-          }
-          ...ImageWithPreview
         }
         welcome
       }

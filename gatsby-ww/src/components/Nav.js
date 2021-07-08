@@ -2,26 +2,40 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import bg from '../assets/images/bg.png';
+import gsa from '../assets/images/gsa.jpg';
 
 const NavStyles = styled.nav`
-  width: 100vh;
-  position: fixed;
-  margin-bottom: 3rem;
+  width: 100vw;
+  position: relative;
+  padding: 1rem 0;
+  background-color: rgba(84, 89, 95, 0.3);
+  color: #fff;
   .navContainer {
     margin: 0 2rem 0 2rem;
-    text-align: center;
     list-style: none;
     display: grid;
-    grid-template-areas: 'logo . . engineering . environmental . projects . about . gsa';
-    font-variant: small-caps;
+    gap: 1rem;
+    grid-template-areas: 'logo . . . engineering environmental projects about . . . gsa';
   }
   .navLink {
-    place-self: center;
-    text-align: center;
+    place-self: start right;
+    &:hover {
+      transform: translateY(8px);
+    }
+    transition: transform 0.4s ease-in-out;
+    a {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      text-decoration: none;
+      position: relative;
+      &[aria-current='page'] {
+        color: var(--red);
+      }
+    }
   }
   .logo {
     grid-area: logo;
-    width: 9rem;
+    width: 20rem;
     height: 7rem;
     justify-self: center;
     align-self: center;
@@ -30,6 +44,25 @@ const NavStyles = styled.nav`
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+  }
+  .gsaContainer {
+    place-self: start right;
+  }
+  .gsa {
+    width: 20rem;
+    height: 5rem;
+    background-image: url(${gsa});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .contract-num {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    font-variant: small-caps;
   }
   #engineering {
     grid-area: engineering;
@@ -45,28 +78,6 @@ const NavStyles = styled.nav`
   }
   #gsa {
     grid-area: gsa;
-  }
-  a {
-    font-size: 2rem;
-    text-decoration: none;
-    position: relative;
-    &:after {
-      content: '';
-      border-bottom: 2px solid black;
-      left: 50%;
-      position: absolute;
-      top: 110%;
-      transition: all 0.2s ease-in-out;
-      width: 0;
-    }
-
-    &:hover:after {
-      left: 0;
-      width: 100%;
-    }
-    &[aria-current='page'] {
-      color: var(--red);
-    }
   }
 
   @media (max-width: 900px) {
@@ -126,8 +137,8 @@ export default function Nav() {
         <div className="navLink" id="about">
           <Link to="/about">About Us</Link>
         </div>
-        <div className="navLink" id="gsa">
-          <img src="#" />
+        <div className="gsaContainer" id="gsa">
+          <div className="gsa" />
           <div className="contract-num">Contract#47QRAA20D002M</div>
         </div>
       </div>

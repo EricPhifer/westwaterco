@@ -1,11 +1,7 @@
 {
-  "root": true,
   "api": {
     "dataset": "production",
     "projectId": "iyuyckwx"
-  },
-  "project": {
-    "name": "Eric Phifer LLC"
   },
   "env": {
     "development": {
@@ -31,5 +27,9 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/google-maps-input"
-  ]
+  ],
+  "project": {
+    "name": "WestWater Engineering"
+  },
+  "root": true
 }
