@@ -3,6 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterStyles = styled.div`
+  position: relative;
+  margin: 0;
+  width: 100vw;
+  padding: 0.5rem 0 0.5rem 0;
+  line-height: 1.35;
   --columns: 1;
   background-color: rgba(200, 224, 247, 1);
   min-height: 5vh;
@@ -14,6 +19,7 @@ const FooterStyles = styled.div`
       '. . . . . priv priv . . . . .';
     text-align: center;
     font-size: 1.4rem;
+    color: gray;
     list-style-type: none;
   }
   a {

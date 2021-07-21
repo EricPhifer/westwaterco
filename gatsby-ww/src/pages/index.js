@@ -1,15 +1,26 @@
+import React from 'react';
 import { graphql, Link } from 'gatsby';
 // import SanityImage from 'gatsby-plugin-sanity-image';
-import React from 'react';
 import styled from 'styled-components';
 import { FaRegArrowAltCircleDown } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import logo from '../assets/images/logo.png';
+import homeBG from '../assets/images/homeBG.jpg';
+
+const BGStyles = styled.div`
+  padding-top: 75px;
+  background-image: url(${homeBG});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+`;
 
 const HomeStyles = styled.div`
   text-align: center;
-  height: 89vh;
   .hero {
+    width: 100vw;
+    height: 100vh;
     display: grid;
     grid-template-areas:
       '. . . . logo logo logo logo . . . .'
@@ -35,19 +46,15 @@ const HomeStyles = styled.div`
       grid-area: title;
     }
     .heroTitle {
-      font-size: 4rem;
+      font-size: 3.5rem;
       text-transform: uppercase;
-      text-shadow: 0px 0px 2px #f7f9fb;
-      font-weight: 500;
+      font-weight: 450;
     }
     #tagline {
       grid-area: tagline;
     }
     .heroTagline {
-      font-size: 2rem;
-      text-shadow: #fff 2px 2px 5px;
-      margin-top: 0;
-      margin-bottom: 0.9rem;
+      font-size: 1.65rem;
     }
     #links {
       grid-area: links;
@@ -61,7 +68,7 @@ const HomeStyles = styled.div`
       padding-left: 0;
       li {
         display: inline-block;
-        margin: 2.3rem 0 5rem 2.2rem;
+        margin: 2.3rem 2.25rem 5rem 0;
         -webkit-transition: all 0.3s;
         -o-transition: all 0.3s;
         transition: all 0.3s;
@@ -129,6 +136,70 @@ const HomeStyles = styled.div`
       }
     }
   }
+  .whiteOverlay {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .mainSection {
+    a {
+      text-decoration: none;
+      text-align: center;
+      font-size: 3.6rem;
+    }
+    .engineeringSection {
+      padding: 1.5% 1%;
+      p {
+        color: black;
+        font-size: 1.75rem;
+        text-align: left;
+      }
+      a {
+        color: black;
+      }
+      .contentContainer {
+        margin: 3% 1%;
+        padding: 3%;
+        background-color: rgba(158, 174, 155, 1);
+        border-radius: 10px;
+        border: 10px black double;
+      }
+    }
+    .environmentalSection {
+      padding: 1.5% 1%;
+      p {
+        color: white;
+        font-size: 1.75rem;
+        text-align: left;
+      }
+      a {
+        color: rgba(18, 164, 89, 1);
+      }
+      .contentContainer {
+        margin: 3% 1%;
+        padding: 3%;
+        background-color: rgba(18, 164, 89, 1);
+        border-radius: 10px;
+        border: 10px white double;
+      }
+    }
+    .aboutSection {
+      padding: 1.5% 1%;
+      p {
+        color: rgba(35, 113, 141, 1);
+        font-size: 1.75rem;
+        text-align: left;
+      }
+      a {
+        color: rgba(35, 113, 141, 1);
+      }
+      .contentContainer {
+        margin: 3% 1%;
+        padding: 3%;
+        background-color: white;
+        border-radius: 10px;
+        border: 10px rgba(35, 113, 141, 1) double;
+      }
+    }
+  }
 `;
 
 export default function HomePage({ data }) {
@@ -136,41 +207,101 @@ export default function HomePage({ data }) {
   return (
     <>
       <SEO title="Home Page" />
-      <HomeStyles>
-        <div className="hero">
-          <div id="logo" className="logoContainer">
-            <div className="heroLogo" />
-          </div>
-          <div id="title" className="heroTitle">
-            Consulting Engineers and Scientists
-          </div>
-          <p id="tagline" className="heroTagline">
-            We'll handle the engineering and environmental consulting needs you
-            have for your project.
-          </p>
-          <ul id="links" className="heroLinks">
-            <li id="projectLink">
-              <Link to="/projects" role="button" className="buttonesque">
-                <span>
-                  <span>See Our Projects</span>
-                </span>
-              </Link>
-            </li>
-            <li id="contactLink">
-              <Link to="/about#contact" role="button" className="buttonesque">
-                <span>
-                  <span>Contact Us</span>
-                </span>
-              </Link>
-            </li>
-          </ul>
-          <div id="icon" className="iconContainer">
-            <div className="heroIcon">
-              <FaRegArrowAltCircleDown />
+      <BGStyles>
+        <HomeStyles>
+          <div className="hero">
+            <div id="logo" className="logoContainer">
+              <div className="heroLogo" />
+            </div>
+            <div id="title" className="heroTitle">
+              Consulting Engineers and Scientists
+            </div>
+            <p id="tagline" className="heroTagline">
+              We'll handle the engineering and environmental consulting needs
+              you have for your project.
+            </p>
+            <ul id="links" className="heroLinks">
+              <li id="projectLink">
+                <Link to="/projects" role="button" className="buttonesque">
+                  <span>
+                    <span>See Our Projects</span>
+                  </span>
+                </Link>
+              </li>
+              <li id="contactLink">
+                <Link to="/about#contact" role="button" className="buttonesque">
+                  <span>
+                    <span>Contact Us</span>
+                  </span>
+                </Link>
+              </li>
+            </ul>
+            <div id="icon" className="iconContainer">
+              <div className="heroIcon">
+                <FaRegArrowAltCircleDown />
+              </div>
             </div>
           </div>
-        </div>
-      </HomeStyles>
+          <div className="whiteOverlay">
+            <div className="mainSection">
+              {/* Repeatable title, link and array content here */}
+              <div className="engineeringSection">
+                <Link to="/home.link" className="linkSection">
+                  <div className="sectionTitle">Engineering</div>
+                  <div className="contentContainer">
+                    <p className="content">
+                      Our engineering department specializes in the drinking
+                      water and domestic wastewater utility services. <br />
+                      <br />
+                      Services include field investigations, data collection,
+                      long-range planning, feasibility studies, permitting,
+                      preliminary design, preparation of Plans and
+                      Specifications, contract administration and construction
+                      inspection.
+                    </p>{' '}
+                  </div>
+                </Link>
+              </div>
+              {/* Repeatable title, link and array content here */}
+              <div className="environmentalSection">
+                <Link to="/home.link" className="linkSection">
+                  <div className="sectionTitle">Environmental</div>
+                  <div className="contentContainer">
+                    <p className="content">
+                      Our diverse environmental staff of biologists, resource
+                      specialists, GIS analysts, hydrologists, and geologists
+                      allows us to foresee potential project hurdles related to
+                      natural resource issues and to identify workable
+                      solutions.{' '}
+                    </p>{' '}
+                  </div>
+                </Link>
+              </div>
+              {/* Repeatable title, link and array content here */}
+              <div className="aboutSection">
+                <Link to="/home.link" className="linkSection">
+                  <div className="sectionTitle">About Us</div>
+                  <div className="contentContainer">
+                    <p className="content">
+                      WestWater Engineering was founded in 1979 to provide
+                      planning and design services for drinking water and
+                      domestic wastewater systems. <br /> <br /> Growing and
+                      diversified client needs led to development of expertise
+                      in related fields of environmental science. <br /> <br />
+                      The ability to fully integrate engineering design and
+                      environmental resources allows us to carry a project
+                      through from planning and permitting to design and our
+                      ability to work as a project team with other consultants,
+                      regulatory agencies, and clients allows us to achieve
+                      project goals in a timely and cost effective manner.
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </HomeStyles>
+      </BGStyles>
     </>
   );
 }

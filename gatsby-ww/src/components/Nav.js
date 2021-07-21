@@ -5,10 +5,13 @@ import bg from '../assets/images/bg.png';
 import gsa from '../assets/images/gsa.jpg';
 
 const NavStyles = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
   width: 100vw;
-  position: relative;
-  padding: 1rem 0;
-  background-color: rgba(84, 89, 95, 0.3);
+  padding: 0.75rem 0;
+  background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   .navContainer {
     margin: 0 2rem 0 2rem;
@@ -19,23 +22,24 @@ const NavStyles = styled.nav`
   }
   .navLink {
     place-self: start right;
+    margin-top: 0.75rem;
     &:hover {
       transform: translateY(8px);
     }
     transition: transform 0.4s ease-in-out;
     a {
       margin-top: 2rem;
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       text-decoration: none;
       position: relative;
       &[aria-current='page'] {
-        color: var(--red);
+        color: var(--blue);
       }
     }
   }
   .logo {
     grid-area: logo;
-    width: 20rem;
+    width: 15rem;
     height: 7rem;
     justify-self: center;
     align-self: center;
@@ -49,8 +53,8 @@ const NavStyles = styled.nav`
     place-self: start right;
   }
   .gsa {
-    width: 20rem;
-    height: 5rem;
+    width: 15rem;
+    height: 3.95rem;
     background-image: url(${gsa});
     background-size: contain;
     background-repeat: no-repeat;

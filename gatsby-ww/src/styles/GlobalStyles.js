@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #ffc600;
     --white: #fff;
     --grey: #efefef;
+    --blue: rgba(56, 198, 247);
   }
 
   html {
@@ -43,11 +44,6 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  .gatsby-image-wrapper img[src*=base64\\,] {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: pixelated;
-  }
-
   /* Scrollbar Styles */
   body::-webkit-scrollbar {
     width: 12px;
@@ -67,14 +63,6 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 6px;
     border: 3px solid var(--white);
   }
-
-  hr {
-    border: 0;
-    height: 8px;
-    background-image: url(${stripes});
-    background-size: 1500px;
-  }
-
   img {
     max-width: 100%;
   }
