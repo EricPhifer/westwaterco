@@ -139,7 +139,7 @@ export default function Nav() {
           <Link to="/projects">Projects</Link>
         </div>
         <div className="navLink" id="about">
-          <Link to="/about">About Us</Link>
+          <Link to="/about#about-us">About Us</Link>
         </div>
         <div className="gsaContainer" id="gsa">
           <div className="gsa" />

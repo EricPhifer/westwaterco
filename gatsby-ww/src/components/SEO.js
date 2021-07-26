@@ -33,6 +33,7 @@ export default function SEO({ children, location, description, title, image }) {
         key="ogsitename"
       />
       <meta property="og:description" content={description} key="ogdesc" />
+      <script src="https://www.google.com/recaptcha/api.js" async defer />
       {children}
     </Helmet>
   );

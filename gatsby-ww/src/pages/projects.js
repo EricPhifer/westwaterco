@@ -185,6 +185,14 @@ export default function Projects({ data }) {
               </div>
             </Link>
           </div>
+          <div className="imgContainer">
+            <Link to="#">
+              <div className="image" />
+              <div className="hoverOverlay">
+                <span className="projectTitle">Project Title</span>
+              </div>
+            </Link>
+          </div>
         </GridStyles>
         <div className="bottomGap" />
       </ProjectStyles>

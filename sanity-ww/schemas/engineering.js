@@ -1,4 +1,4 @@
-import { GrHome as icon } from 'react-icons/gr';
+import { FcEngineering as icon } from 'react-icons/fc';
 
 export default {
   name: 'engineering',
@@ -7,35 +7,62 @@ export default {
   icon,
   fields: [
     {
-      name: 'welcome',
-      title: 'Welcome Message',
+      name: 'name',
+      title: 'Board Members Name',
       type: 'string',
+      description: 'Name of the Board Member',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 100,
+      },
     },
     {
       name: 'image',
-      title: 'Welcome Image',
+      title: 'Image',
       type: 'image',
       options: {
         hotspot: true,
       },
     },
     {
-      name: 'contents',
-      title: 'Content',
-      type: 'array',
-      of: [
-        {
-          name: 'HomeContent',
-          title: 'Title & Content to Display',
-          type: 'HomeContent',
-        },
-      ],
+      name: 'position',
+      title: 'Position in HOA',
+      type: 'string',
+      description: 'What is the Board Members position in the HOA?',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      description: 'Tell us a bit about this person.',
+    },
+    {
+      name: 'email',
+      title: 'Email',
+      type: 'email',
+      description: 'Email Address for Board Member',
+    },
+    {
+      name: 'phone',
+      title: 'Phone Number',
+      type: 'string',
+      description: 'Phone Number for Board Member',
     },
   ],
   preview: {
     select: {
-      title: 'welcome',
+      title: 'name',
       media: 'image',
+      subtitle: 'position',
     },
   },
 };
+
+const boardMembers = 'boardMembers';
+
+export { boardMembers };

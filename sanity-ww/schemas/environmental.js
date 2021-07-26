@@ -1,4 +1,4 @@
-import { GrHome as icon } from 'react-icons/gr';
+import { FaQuestionCircle as icon } from 'react-icons/fa';
 
 export default {
   name: 'environmental',
@@ -7,35 +7,32 @@ export default {
   icon,
   fields: [
     {
-      name: 'welcome',
-      title: 'Welcome Message',
+      name: 'question',
+      title: 'Question',
       type: 'string',
+      description: 'What is the question?',
     },
     {
-      name: 'image',
-      title: 'Welcome Image',
-      type: 'image',
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
       options: {
-        hotspot: true,
+        source: 'question',
+        maxLength: 100,
       },
     },
     {
-      name: 'contents',
-      title: 'Content',
-      type: 'array',
-      of: [
-        {
-          name: 'HomeContent',
-          title: 'Title & Content to Display',
-          type: 'HomeContent',
-        },
-      ],
+      name: 'answer',
+      title: 'Answer',
+      type: 'string',
+      description: 'What is the answer to the question?',
     },
   ],
   preview: {
     select: {
-      title: 'welcome',
+      title: 'question',
       media: 'image',
+      subtitle: 'answer',
     },
   },
 };

@@ -40,6 +40,79 @@ const EngStyles = styled.div`
     #serviceScroll {
       grid-area: services;
     }
+    .scrollList {
+      &::before {
+        content: 'Long-range Planning';
+        animation: scroll 30s ease-in-out 1s infinite;
+        transition: opacity scroll 0.5s;
+      }
+    }
+    @keyframes scroll {
+      0% {
+        content: 'Long-Range Planning';
+        opacity: 1;
+      }
+      6% {
+        opacity: 0;
+      }
+      12% {
+        content: 'Preliminary Design';
+        opacity: 1;
+      }
+      18% {
+        opacity: 0;
+      }
+      24% {
+        content: 'Construction Inspection';
+        opacity: 1;
+      }
+      30% {
+        opacity: 0;
+      }
+      36% {
+        content: 'Data Collection';
+        opacity: 1;
+      }
+      42% {
+        opacity: 0;
+      }
+      48% {
+        content: 'Feasibility Studies';
+        opacity: 1;
+      }
+      54% {
+        opacity: 0;
+      }
+      60% {
+        content: 'Permitting';
+        opacity: 1;
+      }
+      66% {
+        opacity: 0;
+      }
+      72% {
+        content: 'Field Investigations';
+        opacity: 1;
+      }
+      78% {
+        opacity: 0;
+      }
+      84% {
+        content: 'Contract Administration';
+        opacity: 1;
+      }
+      90% {
+        opacity: 0;
+      }
+    }
+    @keyframes flip {
+      from {
+        transform: rotate3d(0deg);
+      }
+      to {
+        transform: rotate3d(180deg);
+      }
+    }
     .heroServices {
       font-size: 2.5rem;
     }
@@ -52,7 +125,6 @@ const EngStyles = styled.div`
     }
     .heroTagline {
       font-size: 1.65rem;
-      text-shadow: #fff 1px 1px 5px;
       padding: 0 2rem;
     }
     #icon {
@@ -197,7 +269,7 @@ export default function EngPage({ data }) {
               wastewater utility services.
             </p>
             <p id="serviceScroll" className="heroServices">
-              Services Include: Content{' '}
+              Services Include: <span className="scrollList"> </span>
             </p>
             <p id="tagline2" className="heroTagline">
               We can also assist in plant operations and preparation of

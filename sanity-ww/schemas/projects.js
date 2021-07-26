@@ -1,4 +1,4 @@
-import { GrHome as icon } from 'react-icons/gr';
+import { AiOutlineClockCircle as icon } from 'react-icons/ai';
 
 export default {
   name: 'projects',
@@ -7,35 +7,94 @@ export default {
   icon,
   fields: [
     {
-      name: 'welcome',
-      title: 'Welcome Message',
+      name: 'name',
+      title: 'Name of Person that Called the Meeting to Order',
       type: 'string',
     },
     {
-      name: 'image',
-      title: 'Welcome Image',
-      type: 'image',
+      name: 'meetingStart',
+      title: 'Date & Time of Meeting Start',
+      type: 'datetime',
       options: {
-        hotspot: true,
+        timeFormat: 'h:mmA',
+        dateFormat: 'dddd, MMMM Do YYYY',
+        timeZone: 'America/Denver',
       },
     },
     {
-      name: 'contents',
-      title: 'Content',
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'meetingStart',
+        maxLength: 100,
+      },
+    },
+    {
+      name: 'teleconference',
+      title: 'Via Video Chat?',
+      type: 'boolean',
+    },
+    {
+      name: 'members',
+      title: 'Members in Attendance',
+      type: 'string',
+    },
+    {
+      name: 'contributors',
+      title: 'Number of People who Contributed Proxy Information',
+      type: 'number',
+    },
+    {
+      name: 'insertReport',
+      title: 'Treasurers Report',
+      type: 'string',
+    },
+    {
+      name: 'oldBusiness',
+      title: 'Old Business Notes',
       type: 'array',
-      of: [
-        {
-          name: 'HomeContent',
-          title: 'Title & Content to Display',
-          type: 'HomeContent',
-        },
-      ],
+      of: [{ type: 'text' }],
+    },
+    {
+      name: 'newBusiness',
+      title: 'New Business Notes',
+      type: 'array',
+      of: [{ type: 'text' }],
+    },
+    {
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: `Enter tags with comma & space between keyword phrases.`,
+      options: {
+        layout: 'tags',
+      },
+    },
+    {
+      name: 'endTime',
+      title: 'Time Meeting Ended',
+      type: 'datetime',
+      options: {
+        timeFormat: 'h:mmA',
+        dateFormat: 'dddd, MMMM Do YYYY',
+      },
     },
   ],
   preview: {
     select: {
-      title: 'welcome',
+      title: 'title',
+      date: 'meetingStart',
       media: 'image',
+    },
+    prepare(selection) {
+      const { date } = selection;
+      return {
+        title: `${date.split('-')[1]} / ${date.split('-')[2].slice(0, 2)} / ${
+          date.split('-')[0]
+        }`,
+      };
     },
   },
 };

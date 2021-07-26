@@ -1,7 +1,7 @@
 {
   "api": {
     "dataset": "production",
-    "projectId": "iyuyckwx"
+    "projectId": "1oaoktsj"
   },
   "env": {
     "development": {
@@ -14,10 +14,6 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
-    },
-    {
-      "name": "part:@sanity/desk-tool/structure",
-      "path": "./sidebar.js"
     }
   ],
   "plugins": [

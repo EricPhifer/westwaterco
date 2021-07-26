@@ -1,6 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import bg from '../assets/images/bg.svg';
-import stripes from '../assets/images/stripes.svg';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -13,14 +11,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-image: url(${bg});
-    background-size: 450px;
-    background-attachment: fixed;
+    background-color: white;
     font-size: 10px;
   }
 
   body {
     font-size: 2rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   fieldset {

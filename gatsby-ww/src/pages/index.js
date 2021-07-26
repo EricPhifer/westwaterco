@@ -246,7 +246,7 @@ export default function HomePage({ data }) {
             <div className="mainSection">
               {/* Repeatable title, link and array content here */}
               <div className="engineeringSection">
-                <Link to="/home.link" className="linkSection">
+                <Link to="/engineering" className="linkSection">
                   <div className="sectionTitle">Engineering</div>
                   <div className="contentContainer">
                     <p className="content">
@@ -264,7 +264,7 @@ export default function HomePage({ data }) {
               </div>
               {/* Repeatable title, link and array content here */}
               <div className="environmentalSection">
-                <Link to="/home.link" className="linkSection">
+                <Link to="/environmental" className="linkSection">
                   <div className="sectionTitle">Environmental</div>
                   <div className="contentContainer">
                     <p className="content">
@@ -279,7 +279,7 @@ export default function HomePage({ data }) {
               </div>
               {/* Repeatable title, link and array content here */}
               <div className="aboutSection">
-                <Link to="/home.link" className="linkSection">
+                <Link to="/about#about-us" className="linkSection">
                   <div className="sectionTitle">About Us</div>
                   <div className="contentContainer">
                     <p className="content">

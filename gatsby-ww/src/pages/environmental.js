@@ -55,8 +55,54 @@ const EnvironmentalStyles = styled.div`
     #staffScroll {
       grid-area: staff;
     }
+    .heroStaff {
+      &::before {
+        content: 'biologists';
+        opacity: 1;
+        transition: opacity scroll 0.5s;
+        animation: scroll 15s ease-in-out 2s infinite;
+      }
+    }
+    @keyframes scroll {
+      0% {
+        content: 'biologists';
+        opacity: 1;
+      }
+      10% {
+        opacity: 0;
+      }
+      20% {
+        content: 'resource specialists';
+        opacity: 1;
+      }
+      30% {
+        opacity: 0;
+      }
+      40% {
+        content: 'GIS analysts';
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      60% {
+        content: 'hydrologists';
+        opacity: 1;
+      }
+      70% {
+        opacity: 0;
+      }
+      80% {
+        content: 'geologists';
+        opacity: 1;
+      }
+      90% {
+        opacity: 0;
+      }
+    }
     #tagline1 {
       grid-area: tagline1;
+      padding: 0 20vw;
     }
     #tagline2 {
       grid-area: tagline2;
@@ -64,7 +110,6 @@ const EnvironmentalStyles = styled.div`
     }
     .heroTagline {
       font-size: 1.65rem;
-      text-shadow: #fff 1px 1px 5px;
       padding: 0 2rem;
     }
     #icon {
@@ -461,7 +506,7 @@ export default function EnvironmentalPage() {
               Professional Environmental Consulting
             </div>
             <p id="tagline1" className="heroTagline">
-              <span className="heroStaff">Our Staff of Content </span>
+              Our staff of <span className="heroStaff"> </span>
               allow us to carry projects through from conceptual design to
               project completion and monitoring.
             </p>
