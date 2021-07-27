@@ -1,4 +1,4 @@
-import { FaQuestionCircle as icon } from 'react-icons/fa';
+import { GiTreeBranch as icon } from 'react-icons/gi';
 
 export default {
   name: 'environmental',
@@ -7,32 +7,20 @@ export default {
   icon,
   fields: [
     {
-      name: 'question',
-      title: 'Question',
+      name: 'title',
+      title: 'Section Title',
       type: 'string',
-      description: 'What is the question?',
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'question',
-        maxLength: 100,
-      },
-    },
-    {
-      name: 'answer',
-      title: 'Answer',
-      type: 'string',
-      description: 'What is the answer to the question?',
+      name: 'contents',
+      title: 'Content',
+      type: 'array',
+      of: [{ type: 'text' }],
     },
   ],
   preview: {
     select: {
-      title: 'question',
-      media: 'image',
-      subtitle: 'answer',
+      title: 'title',
     },
   },
 };

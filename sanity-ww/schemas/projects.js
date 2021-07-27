@@ -1,4 +1,5 @@
-import { AiOutlineClockCircle as icon } from 'react-icons/ai';
+import { AiOutlineProject as icon } from 'react-icons/ai';
+import Gallery from '../components/Gallery';
 
 export default {
   name: 'projects',
@@ -7,93 +8,58 @@ export default {
   icon,
   fields: [
     {
-      name: 'name',
-      title: 'Name of Person that Called the Meeting to Order',
+      name: 'mainTitle',
+      title: 'Main Title',
       type: 'string',
-    },
-    {
-      name: 'meetingStart',
-      title: 'Date & Time of Meeting Start',
-      type: 'datetime',
-      options: {
-        timeFormat: 'h:mmA',
-        dateFormat: 'dddd, MMMM Do YYYY',
-        timeZone: 'America/Denver',
-      },
+      description: 'Title that will go immediately below image',
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'meetingStart',
+        source: 'mainTitle',
         maxLength: 100,
       },
     },
     {
-      name: 'teleconference',
-      title: 'Via Video Chat?',
+      name: 'isEngineering',
+      title: 'Is this an Engineering project?',
       type: 'boolean',
     },
     {
-      name: 'members',
-      title: 'Members in Attendance',
-      type: 'string',
-    },
-    {
-      name: 'contributors',
-      title: 'Number of People who Contributed Proxy Information',
-      type: 'number',
-    },
-    {
-      name: 'insertReport',
-      title: 'Treasurers Report',
-      type: 'string',
-    },
-    {
-      name: 'oldBusiness',
-      title: 'Old Business Notes',
+      name: 'mainContent',
+      title: 'Main Content',
       type: 'array',
       of: [{ type: 'text' }],
+      description: 'Content that will go immediately below image',
     },
+
     {
-      name: 'newBusiness',
-      title: 'New Business Notes',
-      type: 'array',
-      of: [{ type: 'text' }],
-    },
-    {
-      name: 'tags',
-      title: 'Tags',
-      type: 'array',
-      of: [{ type: 'string' }],
-      description: `Enter tags with comma & space between keyword phrases.`,
+      name: 'image',
+      title: 'Image',
+      type: 'image',
       options: {
-        layout: 'tags',
+        hotspot: 'true',
       },
     },
     {
-      name: 'endTime',
-      title: 'Time Meeting Ended',
-      type: 'datetime',
-      options: {
-        timeFormat: 'h:mmA',
-        dateFormat: 'dddd, MMMM Do YYYY',
-      },
+      name: 'Gallery',
+      title: 'Gallery',
+      type: 'gallery',
     },
   ],
   preview: {
     select: {
-      title: 'title',
-      date: 'meetingStart',
+      title: 'mainTitle',
       media: 'image',
     },
-    prepare(selection) {
-      const { date } = selection;
+    prepare: ({ isEngineering, title, media }) => {
+      const isEng = isEngineering ? 'Engineering' : 'Environmental';
       return {
-        title: `${date.split('-')[1]} / ${date.split('-')[2].slice(0, 2)} / ${
-          date.split('-')[0]
-        }`,
+        title,
+        subtitle: isEng,
+        media,
       };
     },
   },

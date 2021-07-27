@@ -7,62 +7,33 @@ export default {
   icon,
   fields: [
     {
-      name: 'name',
-      title: 'Board Members Name',
+      name: 'mainTitle',
+      title: 'Main Title',
       type: 'string',
-      description: 'Name of the Board Member',
+      description: 'Title that will go immediately below image',
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 100,
-      },
-    },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: 'position',
-      title: 'Position in HOA',
-      type: 'string',
-      description: 'What is the Board Members position in the HOA?',
-    },
-    {
-      name: 'description',
-      title: 'Description',
+      name: 'mainContent',
+      title: 'Main Content',
       type: 'text',
-      description: 'Tell us a bit about this person.',
+      description: 'Content that will go immediately below image',
     },
     {
-      name: 'email',
-      title: 'Email',
-      type: 'email',
-      description: 'Email Address for Board Member',
-    },
-    {
-      name: 'phone',
-      title: 'Phone Number',
-      type: 'string',
-      description: 'Phone Number for Board Member',
+      name: 'serviceBreakdown',
+      title: 'Breakdown of Services',
+      type: 'array',
+      of: [
+        {
+          name: 'EngServices',
+          title: 'Engineering Services',
+          type: 'EngServices',
+        },
+      ],
     },
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'image',
-      subtitle: 'position',
+      title: 'mainTitle',
     },
   },
 };
-
-const boardMembers = 'boardMembers';
-
-export { boardMembers };

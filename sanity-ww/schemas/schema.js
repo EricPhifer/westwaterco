@@ -13,12 +13,14 @@ import engineering from './engineering';
 import environmental from './environmental';
 import projects from './projects';
 import about from './about';
+import Gallery from '../components/Gallery';
+import EngServices from '../components/EngServices';
 
 
 export default createSchema({
-  // We name our schema
+  // name the schema
   name: 'default',
-  // Then proceed to concatenate our document type
+  // concatenating document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     engineering,
@@ -28,5 +30,7 @@ export default createSchema({
     privacyPolicy,
     projects,
     about,
+    Gallery,
+    EngServices,
   ]),
 });

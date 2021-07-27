@@ -59,11 +59,11 @@ const EnvironmentalStyles = styled.div`
       &::before {
         content: 'biologists';
         opacity: 1;
-        transition: opacity scroll 0.5s;
-        animation: scroll 15s ease-in-out 2s infinite;
+        transition: opacity staffScroll 0.5s;
+        animation: staffScroll 15s ease-in-out 2s infinite;
       }
     }
-    @keyframes scroll {
+    @keyframes staffScroll {
       0% {
         content: 'biologists';
         opacity: 1;

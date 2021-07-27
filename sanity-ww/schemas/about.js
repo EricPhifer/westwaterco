@@ -1,4 +1,4 @@
-import { AiOutlineDollarCircle as icon } from 'react-icons/ai';
+import { FcAbout as icon } from 'react-icons/fc';
 
 export default {
   name: 'about',
@@ -7,64 +7,35 @@ export default {
   icon,
   fields: [
     {
-      name: 'dateGenerated',
-      title: 'Date & Time of Report',
-      type: 'datetime',
-      options: {
-        timeFormat: 'h:mmA',
-        dateFormat: 'dddd, MMMM Do YYYY',
-        timeZone: 'America/Denver',
-      },
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'dateGenerated',
-        maxLength: 100,
-      },
-    },
-    {
-      name: 'treasurersName',
-      title: 'Treasurers Name',
+      name: 'name',
+      title: 'Name',
       type: 'string',
     },
     {
-      name: 'totalBalance',
-      title: 'Total Balance',
-      type: 'number',
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: 'true',
+      },
     },
     {
-      name: 'expenses',
-      title: 'Expenses',
+      name: 'position',
+      title: 'Position',
       type: 'string',
     },
     {
-      name: 'notes',
-      title: 'Notes on this months budget',
-      type: 'text',
-    },
-    {
-      name: 'approvedBudget',
-      title: 'Was budget approved?',
-      type: 'boolean',
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of: [{ type: 'text' }],
     },
   ],
   preview: {
     select: {
-      title: 'title',
-      description: 'treasurersName',
-      date: 'dateGenerated',
+      title: 'name',
+      subtitle: 'position',
       media: 'image',
-    },
-    prepare(selection) {
-      const { date } = selection;
-      return {
-        title: `${date.split('-')[1]} / ${date.split('-')[2].slice(0, 2)} / ${
-          date.split('-')[0]
-        }`,
-      };
     },
   },
 };

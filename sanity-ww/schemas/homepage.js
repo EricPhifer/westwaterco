@@ -1,4 +1,4 @@
-import { FcEngineering as icon } from 'react-icons/fc';
+import { AiOutlineHome as icon } from 'react-icons/ai';
 
 export default {
   name: 'homepage',
@@ -21,7 +21,6 @@ export default {
   preview: {
     select: {
       title: 'title',
-      media: 'image',
     },
   },
 };

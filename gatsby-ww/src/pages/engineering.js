@@ -43,11 +43,11 @@ const EngStyles = styled.div`
     .scrollList {
       &::before {
         content: 'Long-range Planning';
-        animation: scroll 30s ease-in-out 1s infinite;
-        transition: opacity scroll 0.5s;
+        animation: serviceScroll 30s ease-in-out 1s infinite;
+        transition: opacity serviceScroll 0.5s;
       }
     }
-    @keyframes scroll {
+    @keyframes serviceScroll {
       0% {
         content: 'Long-Range Planning';
         opacity: 1;
