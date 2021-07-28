@@ -17,6 +17,11 @@ export default {
       type: 'array',
       of: [{ type: 'text' }],
     },
+    {
+      name: 'pageUrl',
+      title: 'Page to Link to:',
+      type: 'url',
+    },
   ],
   preview: {
     select: {

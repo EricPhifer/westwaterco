@@ -42,7 +42,7 @@ const EngStyles = styled.div`
     }
     .scrollList {
       &::before {
-        content: 'Long-range Planning';
+        content: '';
         animation: serviceScroll 30s ease-in-out 1s infinite;
         transition: opacity serviceScroll 0.5s;
       }

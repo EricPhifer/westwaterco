@@ -57,7 +57,7 @@ const EnvironmentalStyles = styled.div`
     }
     .heroStaff {
       &::before {
-        content: 'biologists';
+        content: '';
         opacity: 1;
         transition: opacity staffScroll 0.5s;
         animation: staffScroll 15s ease-in-out 2s infinite;

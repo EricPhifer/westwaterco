@@ -309,15 +309,10 @@ export default function HomePage({ data }) {
 export const query = graphql`
   query {
     home: allSanityHomepage {
-      nodes {
-        id
-        contents {
-          content
-          contentURL
-          heading
-        }
-        welcome
-      }
+    nodes {
+      id
+      contents
+      title
     }
   }
 `;

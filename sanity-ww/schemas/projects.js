@@ -26,6 +26,7 @@ export default {
       name: 'isEngineering',
       title: 'Is this an Engineering project?',
       type: 'boolean',
+      description: 'Select right for Engineering, left for Environmental',
     },
     {
       name: 'mainContent',
@@ -52,13 +53,14 @@ export default {
   preview: {
     select: {
       title: 'mainTitle',
+      isEngineering: 'isEngineering',
       media: 'image',
     },
-    prepare: ({ isEngineering, title, media }) => {
-      const isEng = isEngineering ? 'Engineering' : 'Environmental';
+    prepare(selection) {
+      const { title, media, isEngineering } = selection;
       return {
         title,
-        subtitle: isEng,
+        subtitle: isEngineering ? 'Engineering' : 'Environmental',
         media,
       };
     },

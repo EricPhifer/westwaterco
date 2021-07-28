@@ -10,11 +10,13 @@ export default {
       name: 'title',
       title: 'Section Title',
       type: 'string',
+      description: 'Title that will go immediately below image',
     },
     {
       name: 'contents',
       title: 'Content',
       type: 'array',
+      description: 'Content that will go immediately below image',
       of: [{ type: 'text' }],
     },
   ],
