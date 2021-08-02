@@ -204,13 +204,28 @@ export const query = graphql`
   query {
     projects: allSanityProjects {
       nodes {
+        mainContent
+        mainTitle
         id
-        contents {
-          content
-          contentURL
-          heading
+        Gallery {
+          display
+          zoom
+          images {
+            asset {
+              _id
+            }
+            ...ImageWithPreview
+          }
         }
-        welcome
+        image {
+          asset {
+            _id
+          }
+          ...ImageWithPreview
+        }
+        slug {
+          current
+        }
       }
     }
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-// import SanityImage from 'gatsby-plugin-sanity-image';
 import styled from 'styled-components';
 import { FaRegArrowAltCircleDown } from 'react-icons/fa';
 import SEO from '../components/SEO';
@@ -145,58 +144,63 @@ const HomeStyles = styled.div`
       text-align: center;
       font-size: 3.6rem;
     }
-    .engineeringSection {
-      padding: 1.5% 1%;
-      p {
-        color: black;
-        font-size: 1.75rem;
-        text-align: left;
+    .pageSection {
+      &:nth-child(1) {
+        /* engineering section style */
+        padding: 1.5% 1%;
+        p {
+          color: black;
+          font-size: 1.75rem;
+          text-align: left;
+        }
+        a {
+          color: black;
+        }
+        .contentContainer {
+          margin: 3% 1%;
+          padding: 3%;
+          background-color: rgba(158, 174, 155, 1);
+          border-radius: 10px;
+          border: 10px black double;
+        }
       }
-      a {
-        color: black;
+      &:nth-child(2) {
+        /* environmental section styling */
+        padding: 1.5% 1%;
+        p {
+          color: white;
+          font-size: 1.75rem;
+          text-align: left;
+        }
+        a {
+          color: rgba(18, 164, 89, 1);
+        }
+        .contentContainer {
+          margin: 3% 1%;
+          padding: 3%;
+          background-color: rgba(18, 164, 89, 1);
+          border-radius: 10px;
+          border: 10px white double;
+        }
       }
-      .contentContainer {
-        margin: 3% 1%;
-        padding: 3%;
-        background-color: rgba(158, 174, 155, 1);
-        border-radius: 10px;
-        border: 10px black double;
-      }
-    }
-    .environmentalSection {
-      padding: 1.5% 1%;
-      p {
-        color: white;
-        font-size: 1.75rem;
-        text-align: left;
-      }
-      a {
-        color: rgba(18, 164, 89, 1);
-      }
-      .contentContainer {
-        margin: 3% 1%;
-        padding: 3%;
-        background-color: rgba(18, 164, 89, 1);
-        border-radius: 10px;
-        border: 10px white double;
-      }
-    }
-    .aboutSection {
-      padding: 1.5% 1%;
-      p {
-        color: rgba(35, 113, 141, 1);
-        font-size: 1.75rem;
-        text-align: left;
-      }
-      a {
-        color: rgba(35, 113, 141, 1);
-      }
-      .contentContainer {
-        margin: 3% 1%;
-        padding: 3%;
-        background-color: white;
-        border-radius: 10px;
-        border: 10px rgba(35, 113, 141, 1) double;
+      &:nth-child(3) {
+        /* about us section styling */
+        padding: 1.5% 1%;
+        p {
+          color: rgba(35, 113, 141, 1);
+          font-size: 1.75rem;
+          text-align: left;
+        }
+        a {
+          color: rgba(35, 113, 141, 1);
+        }
+        .contentContainer {
+          margin: 3% 1%;
+          padding: 3%;
+          background-color: white;
+          border-radius: 10px;
+          border: 10px rgba(35, 113, 141, 1) double;
+        }
       }
     }
   }
@@ -244,60 +248,21 @@ export default function HomePage({ data }) {
           </div>
           <div className="whiteOverlay">
             <div className="mainSection">
-              {/* Repeatable title, link and array content here */}
-              <div className="engineeringSection">
-                <Link to="/engineering" className="linkSection">
-                  <div className="sectionTitle">Engineering</div>
-                  <div className="contentContainer">
-                    <p className="content">
-                      Our engineering department specializes in the drinking
-                      water and domestic wastewater utility services. <br />
-                      <br />
-                      Services include field investigations, data collection,
-                      long-range planning, feasibility studies, permitting,
-                      preliminary design, preparation of Plans and
-                      Specifications, contract administration and construction
-                      inspection.
-                    </p>{' '}
-                  </div>
-                </Link>
-              </div>
-              {/* Repeatable title, link and array content here */}
-              <div className="environmentalSection">
-                <Link to="/environmental" className="linkSection">
-                  <div className="sectionTitle">Environmental</div>
-                  <div className="contentContainer">
-                    <p className="content">
-                      Our diverse environmental staff of biologists, resource
-                      specialists, GIS analysts, hydrologists, and geologists
-                      allows us to foresee potential project hurdles related to
-                      natural resource issues and to identify workable
-                      solutions.{' '}
-                    </p>{' '}
-                  </div>
-                </Link>
-              </div>
-              {/* Repeatable title, link and array content here */}
-              <div className="aboutSection">
-                <Link to="/about#about-us" className="linkSection">
-                  <div className="sectionTitle">About Us</div>
-                  <div className="contentContainer">
-                    <p className="content">
-                      WestWater Engineering was founded in 1979 to provide
-                      planning and design services for drinking water and
-                      domestic wastewater systems. <br /> <br /> Growing and
-                      diversified client needs led to development of expertise
-                      in related fields of environmental science. <br /> <br />
-                      The ability to fully integrate engineering design and
-                      environmental resources allows us to carry a project
-                      through from planning and permitting to design and our
-                      ability to work as a project team with other consultants,
-                      regulatory agencies, and clients allows us to achieve
-                      project goals in a timely and cost effective manner.
-                    </p>
-                  </div>
-                </Link>
-              </div>
+              {homepage.map((home) => (
+                <div key={home.id} className="pageSection">
+                  <Link to={home.pageUrl} className="linkSection">
+                    <div className="sectionTitle">{home.title}</div>
+                    <div className="contentContainer">
+                      {home.contents.map((content) => (
+                        <p key={content} className="content">
+                          {' '}
+                          {content}
+                        </p>
+                      ))}
+                    </div>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </HomeStyles>
@@ -309,10 +274,12 @@ export default function HomePage({ data }) {
 export const query = graphql`
   query {
     home: allSanityHomepage {
-    nodes {
-      id
-      contents
-      title
+      nodes {
+        id
+        contents
+        title
+        pageUrl
+      }
     }
   }
 `;

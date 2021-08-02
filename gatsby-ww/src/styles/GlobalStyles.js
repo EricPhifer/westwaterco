@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-color: white;
+    background: rgba(247, 249, 251, 1);
     font-size: 10px;
   }
 

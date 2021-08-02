@@ -494,8 +494,8 @@ const MainStyles = styled.div`
   }
 `;
 
-export default function EnvironmentalPage() {
-  // const environmental = data.environmental.nodes;
+export default function EnvironmentalPage({ data }) {
+  const environmental = data.environmental.nodes;
   return (
     <>
       <SEO title="Environmental Consulting" />
@@ -522,34 +522,16 @@ export default function EnvironmentalPage() {
         </div>
       </EnvironmentalStyles>
       <MainStyles>
-        <div id="main" className="mainSection">
-          <h2 className="mainTitle">Our Environmental Consultants</h2>
-          <p className="mainContent">
-            We maintain close working relationships with Federal, State and
-            local regulatory agencies including the Bureau of Land Management
-            (BLM), U.S. Forest Service (USFS), U.S. Fish and Wildlife Service
-            (USFWS), Army Corps of Engineers (ACOE), and Colorado Parks and
-            Wildlife (CPW).
-          </p>
-          <p className="mainContent">
-            Many of our team members are former agency representatives from
-            Western Colorado, providing WestWater with a unique perspective and
-            ability to foresee and avoid potential project issues while focusing
-            on client and project needs.
-          </p>
-          <p className="mainContent">
-            WestWater has provided services related to oil and gas, oil shale,
-            nahcolite, coal, uranium exploration and development, agency
-            planning and resource enhancement, pipeline and power line projects,
-            road and highway improvement projects, recreational trail projects,
-            municipal water and sanitary sewer projects.
-          </p>
-          <p className="mainContent">
-            We have the ability to offer a full range of services with a high
-            level of performance, yet retain the personal service and efficiency
-            which are characteristic of a smaller firm. Some services we offer:
-          </p>
-        </div>
+        {environmental.map((env) => (
+          <div key={env.id} id="main" className="mainSection">
+            <h2 className="mainTitle">{env.title}</h2>
+            {env.contents.map((content) => (
+              <span key={content}>
+                <p className="mainContent">{content}</p>
+              </span>
+            ))}
+          </div>
+        ))}
         <div id="container" className="serviceContainer">
           <div className="serviceType">
             <h2 className="serviceTitle">Biological Surveys</h2>
@@ -772,12 +754,8 @@ export const query = graphql`
     environmental: allSanityEnvironmental {
       nodes {
         id
-        contents {
-          content
-          contentURL
-          heading
-        }
-        welcome
+        title
+        contents
       }
     }
   }

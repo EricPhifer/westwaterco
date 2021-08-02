@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { FaRegArrowAltCircleDown } from 'react-icons/fa';
+import SanityImage from 'gatsby-plugin-sanity-image';
 import SEO from '../components/SEO';
 import engBG from '../assets/images/engBG.jpg';
 
@@ -163,25 +164,32 @@ const EngStyles = styled.div`
 `;
 
 const MainStyles = styled.div`
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
   padding: 1rem;
   background: rgba(247, 249, 251, 1);
   color: rgba(83, 89, 95, 1);
-  display: grid;
-  grid-template-areas:
-    'main main main main main main main main main main main main '
-    'water water water water water water wastewater wastewater wastewater wastewater wastewater wastewater '
-    'admin admin admin admin admin admin other other other other other other '
-    '. . . . . link link . . . . . ';
-  gap: 1rem;
   h2 {
     text-align: center;
     text-decoration: none;
     font-size: 3rem;
+    padding-top: 1%;
   }
   p {
     text-align: center;
     font-size: 1.5rem;
     line-height: 1.5;
+  }
+  .serviceSection {
+    padding-top: 2%;
+    display: grid;
+    grid-template-areas:
+      '. water water water water water wastewater wastewater wastewater wastewater wastewater . '
+      '. admin admin admin admin admin other other other other other . '
+      '. . . . . link link . . . . . ';
+    gap: 2rem;
   }
   #main {
     grid-area: main;
@@ -189,21 +197,17 @@ const MainStyles = styled.div`
   .mainSection {
     padding: 0 0 2rem 0;
   }
-  #water {
+  #Water {
     grid-area: water;
   }
-  #wastewater {
+  #Wastewater {
     grid-area: wastewater;
   }
-  #admin {
+  #Contract {
     grid-area: admin;
   }
-  #other {
+  #Other {
     grid-area: other;
-  }
-  .serviceImage {
-    border: 1px black solid;
-    padding: 3rem 5rem;
   }
   #links {
     grid-area: link;
@@ -254,7 +258,7 @@ const MainStyles = styled.div`
 `;
 
 export default function EngPage({ data }) {
-  // const engineering = data.engineering.nodes;
+  const engineering = data.engineering.nodes;
   return (
     <>
       <SEO title="Engineering Consulting" />
@@ -285,73 +289,40 @@ export default function EngPage({ data }) {
         </div>
       </EngStyles>
       <MainStyles>
-        <div id="main" className="mainSection">
-          <h2 className="mainTitle">Our Engineering Consultants</h2>
-          <p className="mainContent">
-            Engineering services for our clients range from long-range capital
-            improvements planning, design, Plans and Specifications for
-            rehabilitation and/or replacement of existing system components,
-            monitoring flows, loading, or usage as compared to capacity and
-            reserve capacity, assistance with efficient and effective operation
-            and maintenance, compliance with permits and standards and oversight
-            of proposed developments.
-          </p>
-        </div>
-        <div id="water" className="serviceSection">
-          <div className="services">
-            <div className="serviceImage" />
-            <h2 className="serviceTitle">Water Systems</h2>
-            <p className="serviceContent">
-              We service source development, water storage, water treatment
-              plants and distribution. <br />
-              <br />
-              Among these include: surface and groundwater supplies, raw water
-              reservoirs, disinfection, pipe network analysis, capacity
-              analysis, watershed protection, among others.
-            </p>
+        {/* main title & content after image */}
+        {engineering.map((eng) => (
+          <div key={eng.id} id="main" className="mainSection">
+            <h2 className="mainTitle">{eng.mainTitle}</h2>
+            <p className="mainContent">{eng.mainContent}</p>
+            <div className="serviceSection">
+              {eng.serviceBreakdown.map((service) => (
+                <div key={service._key} id={service.serviceTitle.split(' ', 1)}>
+                  {/* subsection titles, images & contents */}
+                  <div className="services">
+                    <div className="serviceImage">
+                      <SanityImage
+                        {...service.image}
+                        alt={service.serviceTitle}
+                        style={{
+                          width: '100%',
+                          height: '500px',
+                          objectFit: 'cover',
+                          auto: 'format',
+                        }}
+                      />
+                    </div>
+                    <h2 className="serviceTitle">{service.serviceTitle}</h2>
+                    {service.serviceContent.map((content) => (
+                      <span key={content}>
+                        <p className="serviceContent">{content}</p>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div id="wastewater" className="serviceSection">
-          <div className="services">
-            <div className="serviceImage" />
-            <h2 className="serviceTitle">Wastewater Systems</h2>
-            <p className="serviceContent">
-              Servicing collection systems, sewage lift stations, treatment
-              plants and biosolids management. <br />
-              <br />
-              These include: inflow/infiltration assessment, preliminary
-              engineering report, 201 wastewater facilities management planning,
-              letter of intent and more.
-            </p>
-          </div>
-        </div>
-        <div id="admin" className="serviceSection">
-          <div className="services">
-            <div className="serviceImage" />
-            <h2 className="serviceTitle">
-              Contract Admin & Resident Inspection
-            </h2>
-            <p className="serviceContent">
-              Under administration and inspection includes: contract documents,
-              right-of-way permitting, submittals review, change orders/field
-              orders, coordinations with project engineer and testing agencies.
-            </p>
-          </div>
-        </div>
-        <div id="other" className="serviceSection">
-          <div className="services">
-            <div className="serviceImage" />
-            <h2 className="serviceTitle">Other Services</h2>
-            <p className="serviceContent">
-              Other services include irrigation systems, hydraulic design, flood
-              studies, storm drainage and streets & roadways.
-              <br />
-              <br />
-              These breakdown to include: on-farm systems, pump stations,
-              rainfall/runoff analysis, hydrology, alignment and grade.
-            </p>
-          </div>
-        </div>
+        ))}
         <ul id="links" className="serviceLinks">
           <li id="contactLink">
             <Link to="/about#contact" role="button" className="buttonesque">
@@ -370,13 +341,20 @@ export const query = graphql`
   query {
     engineering: allSanityEngineering {
       nodes {
+        mainTitle
+        mainContent
         id
-        contents {
-          content
-          contentURL
-          heading
+        serviceBreakdown {
+          _key
+          serviceContent
+          serviceTitle
+          image {
+            asset {
+              _id
+            }
+            ...ImageWithPreview
+          }
         }
-        welcome
       }
     }
   }

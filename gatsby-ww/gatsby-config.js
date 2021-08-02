@@ -12,6 +12,7 @@ export default {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-recaptcha',
+    'gatsby-plugin-portal',
     {
       resolve: 'gatsby-source-sanity',
       options: {

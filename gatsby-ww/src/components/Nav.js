@@ -5,6 +5,7 @@ import bg from '../assets/images/bg.png';
 import gsa from '../assets/images/gsa.jpg';
 
 const NavStyles = styled.nav`
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;

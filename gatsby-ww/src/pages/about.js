@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import {
   FaRegArrowAltCircleDown,
   FaRegArrowAltCircleRight,
 } from 'react-icons/fa';
+import SanityImage from 'gatsby-plugin-sanity-image';
 import SEO from '../components/SEO';
 import aboutBG from '../assets/images/aboutBG.jpg';
 import siteBG from '../assets/images/siteBG.jpg';
 import useForm from '../utils/useForm';
 import useContact from '../utils/useContact';
+import StaffModal from '../components/StaffModal';
+import StaffCarousel from '../components/StaffCarousel';
 
 const ContactStyles = styled.div`
   text-align: center;
@@ -159,7 +162,13 @@ const ContactStyles = styled.div`
 `;
 
 const StaffStyles = styled.div`
-  background-color: white;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(247, 249, 251, 1);
+  button {
+    padding: 0;
+  }
   h2 {
     color: rgba(83, 89, 95, 1);
     font-size: 3.5rem;
@@ -181,6 +190,7 @@ const StaffStyles = styled.div`
       position: relative;
       width: 250px;
       height: 300px;
+      margin-bottom: 10%;
       &:hover .hoverOverlay {
         opacity: 0.5;
       }
@@ -194,13 +204,23 @@ const StaffStyles = styled.div`
       height: 100%;
       width: 100%;
       opacity: 0;
-      transition: 0.5s ease-in-out;
-      background-color: blue;
+      transition: all 0.5s ease-in-out;
+      background-color: white;
+      cursor: pointer;
     }
     .image {
       width: 100%;
       height: 300px;
-      border: 1px black solid;
+    }
+    h4 {
+      color: black;
+      font-size: 2rem;
+    }
+    p {
+      padding-top: 0;
+      margin-top: 0;
+      color: black;
+      font-size: 1.2rem;
     }
   }
 `;
@@ -233,8 +253,12 @@ const MapStyles = styled.div`
   }
 `;
 
-export default function EngPage({ data }) {
-  // const engineering = data.engineering.nodes;
+export default function About({ data }) {
+  // set graphql to start at nodes for mapping
+  const about = data.about.nodes;
+  // set modal reference
+  const modalRef = useRef();
+  // set form values on submission
   const { values, updateValue } = useForm({
     name: '',
     phone: '',
@@ -354,31 +378,50 @@ export default function EngPage({ data }) {
           Meet Our Staff
         </h2>
         <div className="grid">
-          <div className="imgContainer">
-            <div className="image" />
-            <div className="hoverOverlay" />
-          </div>
-          <div className="imgContainer">
-            <div className="image" />
-            <div className="hoverOverlay" />
-          </div>
-          <div className="imgContainer">
-            <div className="image" />
-            <div className="hoverOverlay" />
-          </div>
-          <div className="imgContainer">
-            <div className="image" />
-            <div className="hoverOverlay" />
-          </div>
-          <div className="imgContainer">
-            <div className="image" />
-            <div className="hoverOverlay" />
-          </div>
-          <div className="imgContainer">
-            <div className="image" />
-            <div className="hoverOverlay" />
-          </div>
+          {about.map((staff) => (
+            <button
+              type="button"
+              onClick={() => modalRef.current.openStaffModal()}
+              key={staff.id}
+              className="imgContainer"
+            >
+              <div className="image">
+                <SanityImage
+                  {...staff.image}
+                  alt={staff.name}
+                  style={{
+                    width: '100%',
+                    height: '300px',
+                    objectFit: 'cover',
+                    auto: 'format',
+                  }}
+                />
+              </div>
+              <h4 className="staffName">{staff.name}</h4>
+              <p className="staffPosition">{staff.position}</p>
+              <div className="hoverOverlay" />
+            </button>
+          ))}
         </div>
+        <StaffModal ref={modalRef}>
+          {about.map((staff) => (
+            <div className="modalGrid">
+              <SanityImage
+                {...staff.image}
+                alt={staff.name}
+                style={{
+                  width: '100%',
+                  height: '300px',
+                  objectFit: 'cover',
+                  auto: 'format',
+                }}
+              />
+              {staff.description.map((description) => description)}
+              <p>{staff.name}</p>
+              <p>{staff.position}</p>
+            </div>
+          ))}
+        </StaffModal>
       </StaffStyles>
       <MapStyles>
         <h2 id="location" className="sectionTitle">
@@ -389,7 +432,7 @@ export default function EngPage({ data }) {
           width="80%"
           height="600"
           title="Google Map WestWater Engineering"
-          allowFullScreen="true"
+          allowFullScreen=""
           loading="lazy"
           className="gmap"
         />
@@ -401,14 +444,18 @@ export default function EngPage({ data }) {
 export const query = graphql`
   query {
     about: allSanityAbout {
+      totalCount
       nodes {
         id
-        contents {
-          content
-          contentURL
-          heading
+        name
+        position
+        description
+        image {
+          asset {
+            id
+          }
+          ...ImageWithPreview
         }
-        welcome
       }
     }
   }
