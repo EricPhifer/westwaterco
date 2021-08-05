@@ -12,7 +12,8 @@ import siteBG from '../assets/images/siteBG.jpg';
 import useForm from '../utils/useForm';
 import useContact from '../utils/useContact';
 import StaffModal from '../components/StaffModal';
-import StaffCarousel from '../components/StaffCarousel';
+import StaffPagination from '../components/StaffPagination';
+import StaffModalContent from '../components/StaffModalContent';
 
 const ContactStyles = styled.div`
   text-align: center;
@@ -253,7 +254,7 @@ const MapStyles = styled.div`
   }
 `;
 
-export default function About({ data }) {
+export default function About({ data, pageContext }) {
   // set graphql to start at nodes for mapping
   const about = data.about.nodes;
   // set modal reference
@@ -404,23 +405,21 @@ export default function About({ data }) {
           ))}
         </div>
         <StaffModal ref={modalRef}>
-          {about.map((staff) => (
-            <div className="modalGrid">
-              <SanityImage
-                {...staff.image}
-                alt={staff.name}
-                style={{
-                  width: '100%',
-                  height: '300px',
-                  objectFit: 'cover',
-                  auto: 'format',
-                }}
-              />
-              {staff.description.map((description) => description)}
-              <p>{staff.name}</p>
-              <p>{staff.position}</p>
-            </div>
-          ))}
+          <StaffModalContent />
+          <StaffPagination
+            pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
+            totalCount={data.about.totalCount}
+            currentPage={pageContext.currentPage || 1}
+            skip={pageContext.skip}
+            base="/staff"
+          />
+          {console.log(
+            `The skip value for this page is ${
+              pageContext.skip
+            }. Total count is ${data.about.totalCount}. Page size is ${parseInt(
+              process.env.GATSBY_PAGE_SIZE
+            )}. Current page is ${pageContext.currentPage || 1}.`
+          )}
         </StaffModal>
       </StaffStyles>
       <MapStyles>
@@ -455,6 +454,9 @@ export const query = graphql`
             id
           }
           ...ImageWithPreview
+        }
+        slug {
+          current
         }
       }
     }

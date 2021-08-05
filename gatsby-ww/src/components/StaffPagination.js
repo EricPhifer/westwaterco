@@ -8,10 +8,21 @@ const PaginationStyles = styled.div`
   align-content: center;
   align-items: center;
   justify-items: center;
-  border: 1px solid var(--grey);
-  margin: 2rem 0;
-  border-radius: 5px;
+  margin: auto;
   text-align: center;
+  background-color: var(--white);
+  .leftCaret {
+    color: black;
+    font-size: 3rem;
+    font-weight: bold;
+    float: left;
+  }
+  .rightCaret {
+    color: black;
+    font-size: 3rem;
+    font-weight: bold;
+    float: right;
+  }
   & > * {
     padding: 1rem;
     flex: 1;
@@ -47,6 +58,9 @@ export default function Pagination({
   const nextPage = currentPage + 1;
   const hasNextPage = nextPage <= totalPages;
   const hasPrevPage = prevPage >= 1;
+  console.log(
+    `The total count is ${totalCount}. Current page is ${currentPage} and page size is ${pageSize}.`
+  );
   return (
     <PaginationStyles>
       <Link

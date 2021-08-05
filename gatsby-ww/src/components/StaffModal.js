@@ -22,6 +22,7 @@ const PortalStyles = styled.div`
     z-index: 100;
     background-color: white;
     color: black;
+    background-color: var(--white);
     padding: 2rem;
   }
   button {

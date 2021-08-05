@@ -5,13 +5,13 @@ const GlobalStyles = createGlobalStyle`
     --red: #FF4949;
     --black: #2E2E2E;
     --yellow: #ffc600;
-    --white: #fff;
+    --white: rgba(247, 249, 251, 1);
     --grey: #efefef;
     --blue: rgba(56, 198, 247);
   }
 
   html {
-    background: rgba(247, 249, 251, 1);
+    background: var(--white);
     font-size: 10px;
   }
 
