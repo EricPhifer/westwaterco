@@ -11,6 +11,9 @@ const PaginationStyles = styled.div`
   margin: auto;
   text-align: center;
   background-color: var(--white);
+  a {
+    color: black;
+  }
   .leftCaret {
     color: black;
     font-size: 3rem;
@@ -38,9 +41,6 @@ const PaginationStyles = styled.div`
     }
   }
   @media (max-width: 800px) {
-    .leftCaret {
-      display: none;
-    }
     font-size: 1.4rem;
   }
 `;
@@ -58,9 +58,6 @@ export default function Pagination({
   const nextPage = currentPage + 1;
   const hasNextPage = nextPage <= totalPages;
   const hasPrevPage = prevPage >= 1;
-  console.log(
-    `The total count is ${totalCount}. Current page is ${currentPage} and page size is ${pageSize}.`
-  );
   return (
     <PaginationStyles>
       <Link
@@ -72,6 +69,15 @@ export default function Pagination({
           <AiFillCaretLeft />
         </span>
       </Link>
+      {Array.from({ length: totalPages }).map((_, i) => (
+        <Link
+          className={currentPage === 1 && i === 0 ? 'current' : ''}
+          to={`${base}/${i > 0 ? i + 1 : ''}`}
+          key={`page${i}`}
+        >
+          {i + 1}
+        </Link>
+      ))}
       <Link
         title="Next Page"
         disabled={!hasNextPage}

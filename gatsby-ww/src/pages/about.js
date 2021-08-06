@@ -226,6 +226,25 @@ const StaffStyles = styled.div`
   }
 `;
 
+const ContentStyles = styled.div`
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: black;
+  background-color: var(--white);
+  font-size: 1.5rem;
+  overflow: scroll;
+  h3 {
+    font-weight: bold;
+  }
+  .position {
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1rem;
+  }
+`;
+
 const MapStyles = styled.div`
   width: 100vw;
   background-image: url(${siteBG});
@@ -257,6 +276,7 @@ const MapStyles = styled.div`
 export default function About({ data, pageContext }) {
   // set graphql to start at nodes for mapping
   const about = data.about.nodes;
+  const staff = data.staff.nodes;
   // set modal reference
   const modalRef = useRef();
   // set form values on submission
@@ -379,17 +399,17 @@ export default function About({ data, pageContext }) {
           Meet Our Staff
         </h2>
         <div className="grid">
-          {about.map((staff) => (
+          {about.map((aboutStaff) => (
             <button
               type="button"
               onClick={() => modalRef.current.openStaffModal()}
-              key={staff.id}
+              key={aboutStaff.id}
               className="imgContainer"
             >
               <div className="image">
                 <SanityImage
-                  {...staff.image}
-                  alt={staff.name}
+                  {...aboutStaff.image}
+                  alt={aboutStaff.name}
                   style={{
                     width: '100%',
                     height: '300px',
@@ -398,17 +418,39 @@ export default function About({ data, pageContext }) {
                   }}
                 />
               </div>
-              <h4 className="staffName">{staff.name}</h4>
-              <p className="staffPosition">{staff.position}</p>
+              <h4 className="staffName">{aboutStaff.name}</h4>
+              <p className="staffPosition">{aboutStaff.position}</p>
               <div className="hoverOverlay" />
             </button>
           ))}
         </div>
         <StaffModal ref={modalRef}>
-          <StaffModalContent />
+          {staff.map((staffMember) => (
+            <ContentStyles key={staffMember.id}>
+              {console.log(staffMember)}
+              <Link to={`/staff/${staffMember.slug.current}`}>
+                <SanityImage
+                  {...staffMember.image}
+                  alt={staffMember.name}
+                  style={{
+                    height: '300px',
+                    objectFit: 'cover',
+                    auto: 'format',
+                  }}
+                />
+              </Link>
+              {staffMember.description.map((description) => (
+                <div className="descriptionContainer" key={description}>
+                  <p>{description}</p>
+                </div>
+              ))}
+              <h3 className="name">{staffMember.name}</h3>
+              <p className="position">{staffMember.position}</p>
+            </ContentStyles>
+          ))}
           <StaffPagination
             pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
-            totalCount={data.about.totalCount}
+            totalCount={data.staff.totalCount}
             currentPage={pageContext.currentPage || 1}
             skip={pageContext.skip}
             base="/staff"
@@ -441,8 +483,21 @@ export default function About({ data, pageContext }) {
 }
 
 export const query = graphql`
-  query {
+  query($skip: Int = 0, $pageSize: Int = 1) {
     about: allSanityAbout {
+      nodes {
+        id
+        name
+        position
+        image {
+          asset {
+            id
+          }
+          ...ImageWithPreview
+        }
+      }
+    }
+    staff: allSanityAbout(skip: $skip, limit: $pageSize) {
       totalCount
       nodes {
         id

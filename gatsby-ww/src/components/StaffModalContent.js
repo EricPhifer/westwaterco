@@ -24,8 +24,8 @@ const ContentStyles = styled.div`
 
 export default function StaffModalContent() {
   const { staff } = useStaticQuery(graphql`
-    query($skip: Int = 0, $pageSize: Int = 1) {
-      staff: allSanityAbout(limit: $pageSize, skip: $skip) {
+    query($skip: Int = 0) {
+      staff: allSanityAbout(skip: $skip) {
         totalCount
         nodes {
           id
@@ -50,6 +50,7 @@ export default function StaffModalContent() {
     <ContentStyles>
       {staff.nodes.map((staffMember) => (
         <div key={staffMember.id}>
+          {console.log(staffMember.id)}
           <Link to={`/staff/${staffMember.slug.current}`}>
             <SanityImage
               {...staffMember.image}

@@ -24,6 +24,9 @@ const PortalStyles = styled.div`
     color: black;
     background-color: var(--white);
     padding: 2rem;
+    height: 90vh;
+    width: auto;
+    overflow: scroll;
   }
   button {
     background-color: transparent;
