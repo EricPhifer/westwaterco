@@ -9,7 +9,6 @@ import Typography from '../styles/Typography';
 const SiteBorderStyles = styled.div`
   max-width: 100vw;
   max-height: 100vh;
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
 `;
 
 const ContentStyles = styled.div`

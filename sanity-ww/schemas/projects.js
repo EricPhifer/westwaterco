@@ -45,7 +45,7 @@ export default {
       },
     },
     {
-      name: 'Gallery',
+      name: 'gallery',
       title: 'Gallery',
       type: 'gallery',
     },

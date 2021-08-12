@@ -1,43 +1,56 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 
 const PaginationStyles = styled.div`
-  display: flex;
+  width: 100%;
+  height: 7vh;
+  display: grid;
+  grid-template-areas: '. aaron . amie . dean . stephen . leah . jeremy .';
   align-content: center;
-  align-items: center;
-  justify-items: center;
+  place-items: center;
   margin: auto;
   text-align: center;
-  background-color: var(--white);
+  #Aaron {
+    grid-area: aaron;
+  }
+  #Amie {
+    grid-area: amie;
+  }
+  #Dean {
+    grid-area: dean;
+  }
+  #Stephen {
+    grid-area: stephen;
+  }
+  #Leah {
+    grid-area: leah;
+  }
+  #Jeremy {
+    grid-area: jeremy;
+  }
+  .name {
+    font-size: 1.2rem;
+  }
+  .position {
+    font-size: 0.8rem;
+  }
   a {
-    color: black;
-  }
-  .leftCaret {
-    color: black;
-    font-size: 3rem;
-    font-weight: bold;
-    float: left;
-  }
-  .rightCaret {
-    color: black;
-    font-size: 3rem;
-    font-weight: bold;
-    float: right;
+    color: var(--white);
+    max-width: 64px;
+    text-align: right;
   }
   & > * {
-    padding: 1rem;
-    flex: 1;
-    border-right: 1px solid var(--grey);
+    border-right: 1px solid var(--white);
     text-decoration: none;
+    padding-right: 1rem;
+    &:hover {
+      color: rgb(253, 159, 0);
+      text-shadow: 0 0 3px var(--white);
+    }
     &[aria-current],
     &.current {
       color: var(--red);
-    }
-    &[disabled] {
-      pointer-events: none;
-      color: var(--grey);
     }
   }
   @media (max-width: 800px) {
@@ -45,48 +58,36 @@ const PaginationStyles = styled.div`
   }
 `;
 
-export default function Pagination({
-  pageSize,
-  totalCount,
-  currentPage,
-  skip,
-  base,
-}) {
-  // make some variables
-  const totalPages = Math.ceil(totalCount / pageSize);
-  const prevPage = currentPage - 1;
-  const nextPage = currentPage + 1;
-  const hasNextPage = nextPage <= totalPages;
-  const hasPrevPage = prevPage >= 1;
+export default function Pagination() {
+  const { staff } = useStaticQuery(graphql`
+    query {
+      staff: allSanityAbout {
+        totalCount
+        nodes {
+          id
+          name
+          position
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `);
+  const staffMember = staff.nodes;
   return (
     <PaginationStyles>
-      <Link
-        title="Prev Page"
-        disabled={!hasPrevPage}
-        to={`${base}/${prevPage}`}
-      >
-        <span className="leftCaret">
-          <AiFillCaretLeft />
-        </span>
-      </Link>
-      {Array.from({ length: totalPages }).map((_, i) => (
+      {staffMember.map((member) => (
         <Link
-          className={currentPage === 1 && i === 0 ? 'current' : ''}
-          to={`${base}/${i > 0 ? i + 1 : ''}`}
-          key={`page${i}`}
+          title="Member Name"
+          key={member.id}
+          to={`#${member.name.toLowerCase().split(' ', 1)}`}
+          id={member.name.split(' ', 1)}
         >
-          {i + 1}
+          <span className="name">{member.name.split(' ', 1)}</span>
+          <div className="position">{member.position.split(' / ', 1)}</div>
         </Link>
       ))}
-      <Link
-        title="Next Page"
-        disabled={!hasNextPage}
-        to={`${base}/${nextPage}`}
-      >
-        <span className="rightCaret">
-          <AiFillCaretRight />
-        </span>
-      </Link>
     </PaginationStyles>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import SanityImage from 'gatsby-plugin-sanity-image';
 import SEO from '../components/SEO';
 
 const ProjectStyles = styled.div`
@@ -64,7 +65,7 @@ const GridStyles = styled.div`
       opacity: 0.5;
     }
   }
-  .image {
+  img {
     display: block;
     width: 100%;
     height: auto;
@@ -113,86 +114,26 @@ export default function Projects({ data }) {
           </p>
         </div>
         <GridStyles>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
-          <div className="imgContainer">
-            <Link to="#">
-              <div className="image" />
-              <div className="hoverOverlay">
-                <span className="projectTitle">Project Title</span>
-              </div>
-            </Link>
-          </div>
+          {projects.map((project) => (
+            <div key={project.id} className="imgContainer">
+              {console.log({ project })}
+              <Link to={project.slug.current}>
+                <SanityImage
+                  {...project.image}
+                  alt={project.mainTitle}
+                  style={{
+                    width: '100%',
+                    height: '275px',
+                    objectFit: 'cover',
+                    auto: 'format',
+                  }}
+                />
+                <div className="hoverOverlay">
+                  <span className="projectTitle">{project.mainTitle}</span>
+                </div>
+              </Link>
+            </div>
+          ))}
         </GridStyles>
         <div className="bottomGap" />
       </ProjectStyles>
@@ -204,23 +145,10 @@ export const query = graphql`
   query {
     projects: allSanityProjects {
       nodes {
-        mainContent
-        mainTitle
         id
-        Gallery {
-          display
-          zoom
-          images {
-            asset {
-              _id
-            }
-            ...ImageWithPreview
-          }
-        }
+        mainTitle
+        isEngineering
         image {
-          asset {
-            _id
-          }
           ...ImageWithPreview
         }
         slug {

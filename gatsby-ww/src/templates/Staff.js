@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import SanityImage from 'gatsby-plugin-sanity-image';
-import StaffPagination from '../components/StaffPagination';
 
 const SingleStaffStyles = styled.div`
   max-width: 600px;
@@ -44,7 +43,6 @@ export default function SingleStaffPage({ data }) {
       ))}
       <h3 className="name">{about.name}</h3>
       <p className="position">{about.position}</p>
-      <StaffPagination />
     </SingleStaffStyles>
   );
 }

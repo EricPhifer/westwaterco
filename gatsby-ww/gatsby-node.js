@@ -43,7 +43,7 @@ async function turnStaffIntoPages({ graphql, actions }) {
     );
     actions.createPage({
       // What is the URL for the new page?
-      path: `/staff/${i + 1}`,
+      path: `/staffModal/${i + 1}`,
       component: path.resolve('./src/pages/about.js'),
       context: {
         skip: i * pageSize,

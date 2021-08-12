@@ -13,7 +13,6 @@ import useForm from '../utils/useForm';
 import useContact from '../utils/useContact';
 import StaffModal from '../components/StaffModal';
 import StaffPagination from '../components/StaffPagination';
-import StaffModalContent from '../components/StaffModalContent';
 
 const ContactStyles = styled.div`
   text-align: center;
@@ -113,6 +112,13 @@ const ContactStyles = styled.div`
       text-align: center;
       text-shadow: 2px 2px 10px black;
       font-size: 1.5rem;
+      .coName {
+        display: none;
+      }
+      a[href^='tel:'] {
+        text-decoration: none;
+        border-bottom: 1px solid orangered;
+      }
     }
     button {
       width: 100%;
@@ -170,6 +176,9 @@ const StaffStyles = styled.div`
   button {
     padding: 0;
   }
+  a {
+    text-decoration: none;
+  }
   h2 {
     color: rgba(83, 89, 95, 1);
     font-size: 3.5rem;
@@ -226,25 +235,6 @@ const StaffStyles = styled.div`
   }
 `;
 
-const ContentStyles = styled.div`
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  color: black;
-  background-color: var(--white);
-  font-size: 1.5rem;
-  overflow: scroll;
-  h3 {
-    font-weight: bold;
-  }
-  .position {
-    padding-top: 0;
-    margin-top: 0;
-    font-size: 1rem;
-  }
-`;
-
 const MapStyles = styled.div`
   width: 100vw;
   background-image: url(${siteBG});
@@ -276,7 +266,6 @@ const MapStyles = styled.div`
 export default function About({ data, pageContext }) {
   // set graphql to start at nodes for mapping
   const about = data.about.nodes;
-  const staff = data.staff.nodes;
   // set modal reference
   const modalRef = useRef();
   // set form values on submission
@@ -292,6 +281,8 @@ export default function About({ data, pageContext }) {
   if (errMessage) {
     return <p>{errMessage}</p>;
   }
+  // need to create a function to manage what content is returned based on the position of the Link in the Sanity array
+
   return (
     <>
       <SEO title="Contact Us / About Us" />
@@ -384,7 +375,21 @@ export default function About({ data, pageContext }) {
               </fieldset>
             </form>
             <div id="numberContact" className="numberContact">
-              <p>970-241-7076 | Fax: 970-241-7097</p>
+              <p itemScope itemType="https://westwaterco.com">
+                Phone:{' '}
+                <span className="coName" itemProp="name">
+                  WestWater Engineering
+                </span>
+                <span itemProp="telephone">
+                  <Link to="tel:9702417076" className="phoneNumber">
+                    970-241-7076
+                  </Link>{' '}
+                </span>
+                | Fax:{' '}
+                <Link to="fax:9702417097" className="faxNumber">
+                  970-241-7097
+                </Link>
+              </p>
             </div>
             <div id="icon" className="iconContainer">
               <div className="heroIcon">
@@ -400,11 +405,14 @@ export default function About({ data, pageContext }) {
         </h2>
         <div className="grid">
           {about.map((aboutStaff) => (
-            <button
+            <Link
               type="button"
+              value="Modal Button"
+              role="button"
               onClick={() => modalRef.current.openStaffModal()}
-              key={aboutStaff.id}
+              to={`#${aboutStaff.name.toLowerCase().split(' ', 1)}`}
               className="imgContainer"
+              key={aboutStaff.id}
             >
               <div className="image">
                 <SanityImage
@@ -421,47 +429,11 @@ export default function About({ data, pageContext }) {
               <h4 className="staffName">{aboutStaff.name}</h4>
               <p className="staffPosition">{aboutStaff.position}</p>
               <div className="hoverOverlay" />
-            </button>
+            </Link>
           ))}
         </div>
         <StaffModal ref={modalRef}>
-          {staff.map((staffMember) => (
-            <ContentStyles key={staffMember.id}>
-              {console.log(staffMember)}
-              <Link to={`/staff/${staffMember.slug.current}`}>
-                <SanityImage
-                  {...staffMember.image}
-                  alt={staffMember.name}
-                  style={{
-                    height: '300px',
-                    objectFit: 'cover',
-                    auto: 'format',
-                  }}
-                />
-              </Link>
-              {staffMember.description.map((description) => (
-                <div className="descriptionContainer" key={description}>
-                  <p>{description}</p>
-                </div>
-              ))}
-              <h3 className="name">{staffMember.name}</h3>
-              <p className="position">{staffMember.position}</p>
-            </ContentStyles>
-          ))}
-          <StaffPagination
-            pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
-            totalCount={data.staff.totalCount}
-            currentPage={pageContext.currentPage || 1}
-            skip={pageContext.skip}
-            base="/staff"
-          />
-          {console.log(
-            `The skip value for this page is ${
-              pageContext.skip
-            }. Total count is ${data.about.totalCount}. Page size is ${parseInt(
-              process.env.GATSBY_PAGE_SIZE
-            )}. Current page is ${pageContext.currentPage || 1}.`
-          )}
+          <StaffPagination />
         </StaffModal>
       </StaffStyles>
       <MapStyles>
@@ -505,9 +477,6 @@ export const query = graphql`
         position
         description
         image {
-          asset {
-            id
-          }
           ...ImageWithPreview
         }
         slug {
