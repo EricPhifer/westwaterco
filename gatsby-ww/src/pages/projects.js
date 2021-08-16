@@ -5,9 +5,11 @@ import SanityImage from 'gatsby-plugin-sanity-image';
 import SEO from '../components/SEO';
 
 const ProjectStyles = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
   padding-top: 75px;
-  background-color: white;
+  background-color: var(--white);
   h1 {
     margin-bottom: 2rem;
     color: rgba(83, 89, 95, 1);
@@ -20,11 +22,26 @@ const ProjectStyles = styled.div`
     display: grid;
     grid-template-areas: '. . . . all eng env . . . .';
     p {
-      place-self: center;
+      position: relative;
       color: black;
       font-size: 1.5rem;
+      text-decoration: none;
+      place-self: center;
       &:hover {
         cursor: pointer;
+      }
+      &:after {
+        content: '';
+        border-bottom: 2px solid orangered;
+        left: 50%;
+        position: absolute;
+        top: 110%;
+        transition: all 0.2s ease-in-out;
+        width: 0;
+      }
+      &:hover:after {
+        left: 0;
+        width: 100%;
       }
     }
     #allFilter {
@@ -56,11 +73,15 @@ const GridStyles = styled.div`
     text-decoration: none;
   }
   .imgContainer {
+    background-image: linear-gradient(darkgray, gray, lightgray);
     position: relative;
     place-self: center;
     height: 275px;
     width: 100%;
-    border: 1px black solid;
+    &:hover .projectTitle {
+      opacity: unset;
+      opacity: 1;
+    }
     &:hover .hoverOverlay {
       opacity: 0.5;
     }
@@ -83,7 +104,7 @@ const GridStyles = styled.div`
     background-color: blue;
   }
   .projectTitle {
-    color: white;
+    color: rgba(255, 255, 255, 1);
     font-size: 2rem;
     position: absolute;
     top: 50%;
@@ -116,20 +137,23 @@ export default function Projects({ data }) {
         <GridStyles>
           {projects.map((project) => (
             <div key={project.id} className="imgContainer">
-              {console.log({ project })}
               <Link to={project.slug.current}>
-                <SanityImage
-                  {...project.image}
-                  alt={project.mainTitle}
-                  style={{
-                    width: '100%',
-                    height: '275px',
-                    objectFit: 'cover',
-                    auto: 'format',
-                  }}
-                />
+                {project.image ? (
+                  <SanityImage
+                    {...project.image}
+                    alt={project.mainTitle}
+                    style={{
+                      width: '100%',
+                      height: '275px',
+                      objectFit: 'cover',
+                      auto: 'format',
+                    }}
+                  />
+                ) : (
+                  <span className="noImage" />
+                )}
                 <div className="hoverOverlay">
-                  <span className="projectTitle">{project.mainTitle}</span>
+                  <div className="projectTitle">{project.mainTitle}</div>
                 </div>
               </Link>
             </div>

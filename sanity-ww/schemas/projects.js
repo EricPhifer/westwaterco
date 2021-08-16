@@ -47,7 +47,7 @@ export default {
     {
       name: 'gallery',
       title: 'Gallery',
-      type: 'gallery',
+      type: 'Gallery',
     },
   ],
   preview: {
