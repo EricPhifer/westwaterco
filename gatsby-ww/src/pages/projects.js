@@ -17,16 +17,24 @@ const ProjectStyles = styled.div`
     text-align: center;
     text-transform: uppercase;
   }
+  .bottomGap {
+    padding: 0.5rem;
+    width: 100%;
+  }
   .filterContainer {
     text-align: center;
     display: grid;
     grid-template-areas: '. . . . all eng env . . . .';
-    p {
+    button {
+      background: inherit;
+      box-shadow: none;
+    }
+    .filterTitle {
       position: relative;
       color: black;
       font-size: 1.5rem;
-      text-decoration: none;
       place-self: center;
+      margin-bottom: 2rem;
       &:hover {
         cursor: pointer;
       }
@@ -53,10 +61,6 @@ const ProjectStyles = styled.div`
     #envFilter {
       grid-area: env;
     }
-  }
-  .bottomGap {
-    padding: 0.5rem;
-    width: 100%;
   }
 `;
 
@@ -114,29 +118,89 @@ const GridStyles = styled.div`
     transform: translate(-50%, -50%);
     text-align: center;
   }
+  .inactive {
+    display: none;
+  }
 `;
 
+function activateTrue() {
+  const boolParents = document.getElementsByTagName('div');
+  for (let i = 0; i < boolParents.length; i += 1) {
+    const parent = boolParents[i];
+    if (parent.className.match(/\bfalse\b/)) {
+      parent.classList.add('inactive');
+    }
+    if (parent.className.match(/\btrue\b/)) {
+      parent.classList.remove('inactive');
+    }
+  }
+}
+function activateFalse() {
+  const boolParents = document.getElementsByTagName('div');
+  for (let i = 0; i < boolParents.length; i += 1) {
+    const parent = boolParents[i];
+    if (parent.className.match(/\btrue\b/)) {
+      parent.classList.add('inactive');
+    }
+    if (parent.className.match(/\bfalse\b/)) {
+      parent.classList.remove('inactive');
+    }
+  }
+}
+function activateAll() {
+  const boolParents = document.getElementsByTagName('div');
+  for (let i = 0; i < boolParents.length; i += 1) {
+    const parent = boolParents[i];
+    if (parent.className.match(/\btrue\b/)) {
+      parent.classList.remove('inactive');
+    }
+    if (parent.className.match(/\bfalse\b/)) {
+      parent.classList.remove('inactive');
+    }
+  }
+}
 export default function Projects({ data }) {
   const projects = data.projects.nodes;
   return (
     <>
-      <SEO title="Projects" />
+      <SEO title="Projects Page" />
       <ProjectStyles>
         <h1>Projects</h1>
         <div className="filterContainer">
-          <p id="allFilter" className="filterTitle">
-            All
-          </p>
-          <p id="engFilter" className="filterTitle">
-            Engineering
-          </p>
-          <p id="envFilter" className="filterTitle">
-            Environmental
-          </p>
+          <button
+            type="button"
+            value="Filter Button"
+            onClick={activateAll}
+            id="allFilter"
+          >
+            {' '}
+            <div className="filterTitle">All</div>
+          </button>
+          <button
+            type="button"
+            value="Filter Button"
+            onClick={activateTrue}
+            id="engFilter"
+          >
+            {' '}
+            <div className="filterTitle">Engineering</div>
+          </button>
+          <button
+            type="button"
+            value="Filter Button"
+            onClick={activateFalse}
+            id="envFilter"
+          >
+            {' '}
+            <div className="filterTitle">Environmental</div>
+          </button>
         </div>
         <GridStyles>
           {projects.map((project) => (
-            <div key={project.id} className="imgContainer">
+            <div
+              key={project.id}
+              className={`imgContainer ${project.isEngineering}`}
+            >
               <Link to={project.slug.current}>
                 {project.image ? (
                   <SanityImage

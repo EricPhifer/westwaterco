@@ -64,6 +64,7 @@ async function turnProjectsIntoPages({ graphql, actions }) {
       projects: allSanityProjects {
         nodes {
           mainTitle
+          isEngineering
           slug {
             current
           }
@@ -80,6 +81,8 @@ async function turnProjectsIntoPages({ graphql, actions }) {
       component: projectsTemplate,
       context: {
         slug: project.slug.current,
+        project: project.mainTitle,
+        booleanValue: `/${project.isEngineering}`,
       },
     });
   });
