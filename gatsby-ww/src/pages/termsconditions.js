@@ -4,9 +4,22 @@ import styled from 'styled-components';
 import SEO from '../components/SEO';
 
 const TermStyles = styled.div`
-  word-wrap: break-word;
+  max-width: 750px;
+  margin: 80px auto 2rem auto;
   padding-left: 5rem;
   padding-right: 5rem;
+  color: black;
+  word-wrap: break-word;
+  h1,
+  h2 {
+    text-align: center;
+  }
+  a {
+    color: black;
+  }
+  p {
+    font-size: 1.2rem;
+  }
   .updateDate {
     text-align: center;
   }
@@ -38,30 +51,29 @@ export default function TermsConditions({ data }) {
       <SEO title="Terms &amp; Conditions" />
       <TermStyles>
         <h1>Terms and Conditions</h1>
-        <p className="updateDate">Last updated: April 30, 2021</p>
+        <p className="updateDate">Last updated: August 20, 2021</p>
         {order.map((term) => (
           <div key={term.id}>
             <br />
-            <h1>{term.title}</h1>
-            <br />
+            <h2>{term.title}</h2>
             <div>
               {term.contents.map((content) => (
                 <div>
-                  <div>{content}</div>
-                  <br />
+                  <p>{content}</p>
                 </div>
               ))}
             </div>
           </div>
         ))}
         <div>
-          <div>Eric Phifer LLC</div>
-          <div>Grand Junction, CO 81501 United States</div>
+          <div>Westwater Engineering</div>
+          <div>2516 E Foresight Cir #1</div>
+          <div>Grand Junction, CO 81505 United States</div>
           <div className="call">
-            <a href="tel:555-555-5555">Contact Us by Phone</a>
+            <a href="tel:970-241-7076">Contact Us by Phone</a>
           </div>
           <div>
-            <Link to="/#contactus">Contact Us by Email</Link>
+            <Link to="/about#about-us">Contact Us by Email</Link>
           </div>
         </div>
       </TermStyles>
@@ -71,7 +83,7 @@ export default function TermsConditions({ data }) {
 
 export const query = graphql`
   query {
-    terms: allSanityTermsConditions {
+    terms: allSanityTermsconditions {
       nodes {
         contents
         id

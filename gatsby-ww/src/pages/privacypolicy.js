@@ -4,9 +4,19 @@ import styled from 'styled-components';
 import SEO from '../components/SEO';
 
 const PolicyStyles = styled.div`
-  word-wrap: break-word;
+  max-width: 750px;
+  margin: 80px auto 2rem auto;
   padding-left: 5rem;
   padding-right: 5rem;
+  color: black;
+  word-wrap: break-word;
+  h1,
+  h2 {
+    text-align: center;
+  }
+  p {
+    font-size: 1.2rem;
+  }
   .updateDate {
     text-align: center;
   }
@@ -29,17 +39,16 @@ export default function PrivacyPolicy({ data }) {
     <>
       <SEO title="Privacy Policy" />
       <PolicyStyles>
-        <p className="updateDate">Last updated: May 15, 2021</p>
+        <h1>Privacy Policy</h1>
+        <p className="updateDate">Last updated: August 20, 2021</p>
         {order.map((policy) => (
           <div key={policy._id}>
             <br />
-            <h1>{policy.title}</h1>
-            <br />
+            <h2>{policy.title}</h2>
             <div>
               {policy.contents.map((content) => (
                 <div>
-                  <div>{content}</div>
-                  <br />
+                  <p>{content}</p>
                 </div>
               ))}
             </div>
@@ -52,7 +61,7 @@ export default function PrivacyPolicy({ data }) {
 
 export const query = graphql`
   query {
-    policies: allSanityPrivacyPolicy {
+    policies: allSanityPrivacypolicy {
       nodes {
         id
         order

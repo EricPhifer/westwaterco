@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import styled from 'styled-components';
+import logo from '../assets/images/logo.png';
 
 const SingleProjectStyles = styled.div`
   margin: 150px auto 25px auto;
@@ -22,7 +23,12 @@ const SingleProjectStyles = styled.div`
     height: 400px;
     color: white;
     text-align: center;
-    background-image: linear-gradient(darkgray, gray, lightgray);
+    background-image: url(${logo});
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+    background-origin: content-box;
   }
   .noImageGallery {
     width: 100%;
@@ -35,7 +41,6 @@ const SingleProjectStyles = styled.div`
     gap: 2rem;
     margin-left: auto;
     margin-right: auto;
-    overflow-y: scroll;
     .cPlaceholder {
       height: 200px;
     }
@@ -60,7 +65,7 @@ export default function SingleProjectsPage({ data }) {
               }}
             />
           ) : (
-            <div className="noImage">No image available.</div>
+            <div className="noImage" />
           )}
         </div>
         <h2>{projects.mainTitle}</h2>
@@ -88,7 +93,7 @@ export default function SingleProjectsPage({ data }) {
             ))}
           </div>
         ) : (
-          <div className="noImageGallery">No gallery images available.</div>
+          <div className="noImageGallery" />
         )}
       </div>
     </SingleProjectStyles>

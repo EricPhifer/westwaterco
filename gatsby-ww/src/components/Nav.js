@@ -86,15 +86,18 @@ const NavStyles = styled.nav`
   }
 
   @media (max-width: 900px) {
-    .logo {
-      width: 7rem;
-      height: 5rem;
-    }
     ul {
       gap: 0.5rem;
     }
     a {
       font-size: 1.75rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .navLink {
+      a {
+        font-size: 1.35rem;
+      }
     }
   }
   @media (max-width: 400px) {

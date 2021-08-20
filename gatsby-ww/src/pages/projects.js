@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import SEO from '../components/SEO';
+import logo from '../assets/images/logo.png';
 
 const ProjectStyles = styled.div`
   max-width: 1200px;
@@ -76,8 +77,16 @@ const GridStyles = styled.div`
   a {
     text-decoration: none;
   }
+  .noImage {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
   .imgContainer {
-    background-image: linear-gradient(darkgray, gray, lightgray);
+    background-image: url(${logo});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.4);
     position: relative;
     place-self: center;
     height: 275px;

@@ -1,7 +1,7 @@
 import { TiDocumentText as icon } from 'react-icons/ti';
 
 export default {
-  name: 'privacyPolicy',
+  name: 'privacypolicy',
   title: 'Privacy Policy',
   type: 'document',
   icon,

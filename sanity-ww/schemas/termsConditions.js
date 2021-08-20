@@ -1,7 +1,7 @@
 import { TiDocumentText as icon } from 'react-icons/ti';
 
 export default {
-  name: 'termsConditions',
+  name: 'termsconditions',
   title: 'Terms & Conditions',
   type: 'document',
   icon,

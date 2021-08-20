@@ -7,8 +7,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 
 import homepage from './homepage';
-import termsConditions from './termsConditions';
-import privacyPolicy from './privacyPolicy';
+import termsconditions from './termsconditions';
+import privacypolicy from './privacypolicy';
 import engineering from './engineering';
 import environmental from './environmental';
 import projects from './projects';
@@ -26,8 +26,8 @@ export default createSchema({
     engineering,
     environmental,
     homepage,
-    termsConditions,
-    privacyPolicy,
+    termsconditions,
+    privacypolicy,
     projects,
     about,
     Gallery,
