@@ -39,7 +39,6 @@ const NavStyles = styled.nav`
     }
   }
   .logo {
-    grid-area: logo;
     width: 15rem;
     height: 7rem;
     justify-self: center;
@@ -49,6 +48,9 @@ const NavStyles = styled.nav`
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+  }
+  #logo {
+    grid-area: logo;
   }
   .gsaContainer {
     place-self: start right;
@@ -63,7 +65,7 @@ const NavStyles = styled.nav`
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  .contract-num {
+  .contractNum {
     font-size: 1rem;
     font-weight: bold;
     text-align: right;
@@ -84,8 +86,113 @@ const NavStyles = styled.nav`
   #gsa {
     grid-area: gsa;
   }
+  /* setting the hamburger to not display by default */
+  .mobileHamburger {
+    width: 100%;
+    display: none;
+    position: relative;
+    text-align: center;
+    list-style: none;
+    overflow: hidden;
+    ul {
+      width: 100%;
+      max-height: 0;
+      margin: 7px 0 0 0;
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      clear: both;
+      transition: max-height 0.2s ease-out;
+      li a {
+        border-bottom: 1px dotted #ddd;
 
-  @media (max-width: 900px) {
+        text-decoration: none;
+        display: block;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+
+    li a:hover,
+    .menuBtn:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* menu icon */
+    .menuIcon {
+      display: inline-block;
+      padding: 28px 20px;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+    .menuIcon .navicon {
+      height: 2px;
+      width: 18px;
+      display: block;
+      position: relative;
+      background: #fff;
+      transition: background 0.2s ease-out;
+    }
+    .menuIcon .navicon:before,
+    .menuIcon .navicon:after {
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: absolute;
+      background: #fff;
+      content: '';
+      transition: all 0.2s ease-out;
+    }
+    .menuIcon .navicon:before {
+      top: 5px;
+    }
+    .menuIcon .navicon:after {
+      top: -5px;
+    }
+
+    /* menu btn */
+    .menuBtn {
+      display: none;
+    }
+    .menuBtn:checked ~ .menu {
+      max-height: 340px;
+    }
+    .menuBtn:checked ~ .menuIcon .navicon {
+      background: transparent;
+    }
+    .menuBtn:checked ~ .menuIcon .navicon:before {
+      transform: rotate(-45deg);
+    }
+    .menuBtn:checked ~ .menuIcon .navicon:after {
+      transform: rotate(45deg);
+    }
+    .menuBtn:checked ~ .menuIcon:not(.steps) .navicon:before,
+    .menuBtn:checked ~ .menuIcon:not(.steps) .navicon:after {
+      top: 0;
+    }
+
+    /* Responsive */
+    @media only screen and (min-width: 768px) {
+      .mobileHamburger {
+        background: rgba(0, 0, 0, 0.6);
+        height: 55px;
+        line-height: 55px;
+        width: 100%;
+      }
+      li a {
+        color: #fff;
+        padding: 0px 30px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .menu {
+        max-height: none;
+      }
+      .menuIcon {
+        display: none;
+      }
+    }
+  }
+  @media only screen and (max-width: 900px) {
     ul {
       gap: 0.5rem;
     }
@@ -93,17 +200,65 @@ const NavStyles = styled.nav`
       font-size: 1.75rem;
     }
   }
-  @media (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
+    .navContainer {
+      margin: 0 0.5rem;
+      padding: 0;
+      gap: 0;
+      grid-template-areas: 'logo burger gsa';
+    }
+    .mobileHamburger {
+      display: block;
+      text-align: center;
+      #burger {
+        grid-area: burger;
+      }
+      ul li a {
+        padding: 15px;
+      }
+    }
     .navLink {
-      a {
-        font-size: 1.35rem;
+      display: none;
+    }
+    .logo {
+      width: 9.8rem;
+      height: 5rem;
+    }
+    .gsaContainer {
+      .gsa {
+        width: 9.8rem;
+        text-align: right;
+      }
+      .contractNum {
+        font-size: 0.6rem;
       }
     }
   }
-  @media (max-width: 400px) {
+  @media only screen and (max-width: 400px) {
+    .navContainer {
+      margin: 0 0.5rem;
+      padding: 0;
+      gap: 0;
+      grid-template-areas: 'logo burger gsa';
+    }
+    /* displaying hamburger for screens 400px wide & smaller */
+    .mobileHamburger {
+      display: block;
+      text-align: center;
+      #burger {
+        grid-area: burger;
+      }
+      ul li a {
+        padding: 15px;
+      }
+    }
+    .gsaContainer {
+      margin: 0;
+    }
     .logo {
-      width: 7rem;
+      width: 9.8rem;
       height: 5rem;
+      margin: 0;
     }
     ul {
       gap: 0;
@@ -113,13 +268,14 @@ const NavStyles = styled.nav`
       font-size: 1.5rem;
     }
   }
-  @media (max-width: 374px) and (min-width: 320px) {
+  @media only screen and (max-width: 349px) {
     ul {
       gap: 0;
-      line-height: 0.7;
-    }
-    a {
-      font-size: 1.2rem;
+      li a {
+        padding: 10px;
+        font-size: 0.95rem;
+        word-break: break-all;
+      }
     }
   }
 `;
@@ -128,7 +284,7 @@ export default function Nav() {
   return (
     <NavStyles>
       <div className="navContainer">
-        <div>
+        <div id="logo">
           <Link to="/">
             <div className="logo" />
           </Link>
@@ -145,9 +301,29 @@ export default function Nav() {
         <div className="navLink" id="about">
           <Link to="/about#about-us">About Us</Link>
         </div>
+        <div className="mobileHamburger" id="burger">
+          <input className="menuBtn" type="checkbox" id="menuBtn" />
+          <label className="menuIcon" htmlFor="menuBtn">
+            <span className="navicon" />
+          </label>
+          <ul className="menu">
+            <li className="mobileNavLink" id="engineering">
+              <Link to="/engineering">Engineering</Link>
+            </li>
+            <li className="mobileNavLink" id="environmental">
+              <Link to="/environmental">Environmental</Link>
+            </li>
+            <li className="mobileNavLink" id="projects">
+              <Link to="/projects">Projects</Link>
+            </li>
+            <li className="mobileNavLink" id="about">
+              <Link to="/about#about-us">About Us</Link>
+            </li>
+          </ul>
+        </div>
         <div className="gsaContainer" id="gsa">
           <div className="gsa" />
-          <div className="contract-num">Contract#47QRAA20D002M</div>
+          <div className="contractNum">Contract#47QRAA20D002M</div>
         </div>
       </div>
     </NavStyles>
