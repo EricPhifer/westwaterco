@@ -42,19 +42,19 @@ const PortalStyles = styled.div`
     }
   }
   button {
+    position: relative;
     background-color: transparent;
-    font-size: 3rem;
     font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
     box-shadow: none;
     float: right;
-    margin-top: 5rem;
-    margin-right: 5rem;
+    z-index: 102;
   }
 
   @media only screen and (max-width: 400px) {
     .descriptionContainer {
       p {
-        margin: 0 0.5rem;
+        margin: 1rem 0.5rem;
         font-size: 1.2rem;
       }
     }

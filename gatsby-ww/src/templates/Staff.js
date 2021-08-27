@@ -32,7 +32,6 @@ const SingleStaffStyles = styled.div`
 
 export default function SingleStaffPage({ data }) {
   const { about } = data;
-  console.log({ about });
   return (
     <SingleStaffStyles>
       <SanityImage

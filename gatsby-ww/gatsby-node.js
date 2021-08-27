@@ -18,8 +18,6 @@ async function turnStaffIntoPages({ graphql, actions }) {
   `);
   // TODO: fix this
   data.staff.nodes.forEach((staffMember) => {
-    console.log(`${staffMember.slug.current} created for ${staffMember.name}`);
-
     actions.createPage({
       component: resolve('./src/templates/Staff.js'),
       path: `/staff/${staffMember.slug.current}`,
@@ -34,13 +32,6 @@ async function turnStaffIntoPages({ graphql, actions }) {
   const pageCount = Math.ceil(data.staff.totalCount / pageSize);
   // loop over staff and create a page for them
   Array.from({ length: pageCount }).forEach((_, i) => {
-    console.log(
-      `Out of ${
-        data.staff.totalCount
-      } total pages: Page ${i} created. This will skip ${
-        i * pageSize
-      } pages and is assigned to page ${i + 1}.`
-    );
     actions.createPage({
       // What is the URL for the new page?
       path: `/staffModal/${i + 1}`,
