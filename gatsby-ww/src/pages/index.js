@@ -118,23 +118,6 @@ const HomeStyles = styled.div`
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
-  @media (max-width: 400px) {
-    .heroBG {
-      h1 {
-        font-size: 2.22rem;
-      }
-    }
-    .homeContent {
-      font-size: 1.5rem;
-    }
-  }
-  @media (min-width: 401px) and (max-width: 600px) {
-    .heroBG {
-      h1 {
-        font-size: 2.6rem;
-      }
-    }
-  }
   .whiteOverlay {
     background-color: rgba(255, 255, 255, 0.7);
   }
@@ -200,6 +183,88 @@ const HomeStyles = styled.div`
           background-color: white;
           border-radius: 10px;
           border: 10px rgba(35, 113, 141, 1) double;
+        }
+      }
+    }
+  }
+  /* Responsive Design */
+  @media only screen and (min-width: 1200px) {
+    .pageSection {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .hero {
+      .heroTitle {
+        font-size: 3rem;
+      }
+    }
+    .mainSection {
+      .pageSection {
+        a {
+          font-size: 3rem;
+        }
+        .contentContainer {
+          p {
+            font-size: 1.35rem;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .hero {
+      .heroTitle {
+        font-size: 2.7rem;
+      }
+      .heroTagline {
+        font-size: 1.5rem;
+      }
+      .heroLinks {
+        .buttonesque {
+          padding: 7px 11px;
+        }
+      }
+    }
+    .mainSection {
+      .pageSection {
+        .contentContainer {
+          p {
+            font-size: 1.45rem;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    .hero {
+      .heroLogo {
+        width: 30rem;
+        height: 30rem;
+      }
+      .heroTitle {
+        font-size: 2.2rem;
+      }
+      .heroTagline {
+        font-size: 1.2rem;
+      }
+      .heroLinks {
+        .buttonesque {
+          font-size: 10px;
+          padding: 7px 10px;
+        }
+      }
+    }
+    .mainSection {
+      .pageSection {
+        a {
+          font-size: 2.6rem;
+        }
+        .contentContainer {
+          p {
+            font-size: 1.3rem;
+          }
         }
       }
     }

@@ -26,17 +26,16 @@ const PortalStyles = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
   }
   .modalContainer {
-    position: fixed;
+    width: 95vw;
+    height: auto;
+    max-height: 90vh;
     top: 50%;
     left: 50%;
+    position: fixed;
     transform: translate(-50%, -50%);
     z-index: 100;
     color: black;
     background-color: var(--white);
-    padding: 2rem;
-    height: auto;
-    max-height: 90vh;
-    width: auto;
     overflow: scroll;
     a {
       position: relative;
@@ -51,12 +50,19 @@ const PortalStyles = styled.div`
     margin-top: 5rem;
     margin-right: 5rem;
   }
+
+  @media only screen and (max-width: 400px) {
+    .descriptionContainer {
+      p {
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
 `;
 const ContentStyles = styled.div`
   max-width: 600px;
-  margin-top: 8vh;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 2vh auto 0 auto;
   text-align: center;
   color: black;
   background-color: var(--white);

@@ -130,6 +130,12 @@ const GridStyles = styled.div`
   .inactive {
     display: none;
   }
+  @media only screen and (max-width: 786px) {
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+  }
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(1, minmax(auto, 1fr));
+  }
 `;
 
 function activateTrue() {

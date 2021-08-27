@@ -20,6 +20,14 @@ const SingleStaffStyles = styled.div`
     margin-top: 0;
     font-size: 1rem;
   }
+  @media only screen and (max-width: 570px) {
+  }
+  @media only screen and (max-width: 400px) {
+    p {
+      margin: 1rem;
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 export default function SingleStaffPage({ data }) {

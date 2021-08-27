@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import logo from '../assets/images/logo.png';
 
 const SingleProjectStyles = styled.div`
-  margin: 150px auto 25px auto;
+  margin: 80px auto 25px auto;
   max-width: 60vw;
   color: black;
   background-color: var(--white);
@@ -17,6 +17,9 @@ const SingleProjectStyles = styled.div`
   }
   p {
     font-size: 1.5rem;
+  }
+  img {
+    height: auto;
   }
   .noImage {
     width: 100%;
@@ -45,6 +48,58 @@ const SingleProjectStyles = styled.div`
       height: 200px;
     }
   }
+  @media only screen and (max-width: 900px) {
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 0;
+    .contentContainer {
+      .image {
+        margin: 75px auto 0 auto;
+        max-width: 80%;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+      .carousel {
+        grid-template-columns: repeat(2, minmax(auto, 1fr));
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 0;
+    .contentContainer {
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+      .carousel {
+        grid-template-columns: repeat(2, minmax(auto, 1fr));
+      }
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 0;
+    .contentContainer {
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+      .carousel {
+        grid-template-columns: repeat(1, minmax(auto, 1fr));
+      }
+    }
+  }
 `;
 
 export default function SingleProjectsPage({ data }) {
@@ -58,7 +113,6 @@ export default function SingleProjectsPage({ data }) {
               {...projects.image}
               alt={projects.mainTitle}
               style={{
-                height: '400px',
                 width: '100%',
                 objectFit: 'cover',
                 auto: 'format',

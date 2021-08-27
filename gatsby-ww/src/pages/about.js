@@ -30,40 +30,35 @@ const ContactStyles = styled.div`
     width: 100vw;
   }
   .gridContainer {
-    margin: 0;
-    padding-top: 20%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 5vh;
     display: grid;
-    grid-template-areas:
-      '. . legend legend legend legend legend legend legend legend . .'
-      '. . form form form form form form form form . .'
-      '. . number number number number number number number number . .'
-      '. . icon icon icon icon icon icon icon icon . .';
+    grid-template-columns: repeat(12, minmax(auto, 1fr));
+    grid-template-rows: auto;
+    gap: 2rem;
     place-content: space-evenly;
     align-items: center;
-    #legend {
-      grid-area: legend;
-    }
     .header {
+      grid-column: 3 / span 8;
       place-self: center;
       text-align: center;
       font-size: 3.7rem;
       text-transform: uppercase;
       text-shadow: 2px 2px 10px black;
     }
-    #formContainer {
-      grid-area: form;
-    }
+
     form {
       display: grid;
-      grid-template-columns: subgrid;
-      grid-template-rows: subgrid;
-      place-content: space-evenly;
+      grid-column: 3 / span 8;
+      grid-template-rows: auto;
       align-items: center;
       padding: 1.5rem 0;
       gap: 0;
     }
     .container {
-      grid-column: 1 / span 8;
+      grid-column: 1 / span 6;
       border: none;
       display: grid;
       grid-template-columns: subgrid;
@@ -103,11 +98,11 @@ const ContactStyles = styled.div`
       }
     }
     #numberContact {
-      grid-area: number;
       place-self: center;
     }
     .numberContact {
       color: white;
+      grid-column: 3 / span 8;
       text-decoration: none;
       text-align: center;
       text-shadow: 2px 2px 10px black;
@@ -133,8 +128,8 @@ const ContactStyles = styled.div`
         color: gray;
       }
     }
-    #icon {
-      grid-area: icon;
+    .iconContainer {
+      grid-column: 3 / span 8;
     }
     @keyframes bounce {
       from {
@@ -149,20 +144,122 @@ const ContactStyles = styled.div`
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
-  @media (max-width: 400px) {
-    .heroBG {
-      h1 {
-        font-size: 2.22rem;
+  @media only screen and (max-width: 900px) {
+    .gridContainer {
+      grid-template-columns: repeat(12, minmax(auto, 1fr));
+      .header {
+        grid-column: 1 / span 12;
+      }
+      form {
+        grid-column: 1 / span 12;
+        max-width: 685px;
+        margin: 0 auto;
+      }
+      .numberContact {
+        grid-column: 1 / span 12;
+      }
+      .iconContainer {
+        grid-column: 1 / span 12;
+      }
+      .container {
+        padding: 0;
+        #nameContainer {
+          grid-column: 1;
+        }
+        #phoneContainer {
+          grid-column: 2 / end;
+        }
+        #emailContainer {
+          grid-column: 1 / span 12;
+        }
+        #messageContainer {
+          grid-column: 1 / span 12;
+        }
+        #submitContainer {
+          grid-column: 1 / span 12;
+          max-width: 400px;
+          width: 400px;
+          margin: 0 auto;
+          padding: 0;
+        }
       }
     }
-    .homeContent {
-      font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 500px) {
+    .gridContainer {
+      grid-template-columns: repeat(6, minmax(auto, 1fr));
+      .header {
+        grid-column: 1 / span 6;
+      }
+      form {
+        grid-column: 1 / span 6;
+      }
+      .numberContact {
+        grid-column: 1 / span 6;
+      }
+      .iconContainer {
+        grid-column: 1 / span 6;
+      }
+      .container {
+        padding: 0;
+        #nameContainer {
+          grid-column: 1 / span 6;
+        }
+        #phoneContainer {
+          grid-column: 1 / span 6;
+        }
+        #emailContainer {
+          grid-column: 1 / span 6;
+        }
+        #messageContainer {
+          grid-column: 1 / span 6;
+        }
+        #submitContainer {
+          grid-column: 1 / span 6;
+          max-width: 400px;
+          width: 400px;
+          margin: 0 auto;
+          padding: 0;
+        }
+      }
     }
   }
-  @media (min-width: 401px) and (max-width: 600px) {
-    .heroBG {
-      h1 {
-        font-size: 2.6rem;
+  @media only screen and (max-width: 400px) {
+    .gridContainer {
+      grid-template-columns: repeat(6, minmax(auto, 1fr));
+      .header {
+        grid-column: 1 / span 6;
+      }
+      form {
+        grid-column: 1 / span 6;
+      }
+      .numberContact {
+        grid-column: 1 / span 6;
+        font-size: 1.2rem;
+      }
+      .iconContainer {
+        grid-column: 1 / span 6;
+      }
+      .container {
+        padding: 0;
+        #nameContainer {
+          grid-column: 1 / span 6;
+        }
+        #phoneContainer {
+          grid-column: 1 / span 6;
+        }
+        #emailContainer {
+          grid-column: 1 / span 6;
+        }
+        #messageContainer {
+          grid-column: 1 / span 6;
+        }
+        #submitContainer {
+          grid-column: 1 / span 6;
+          width: 100vw;
+          margin: 0;
+          padding: 0;
+        }
       }
     }
   }
@@ -170,8 +267,7 @@ const ContactStyles = styled.div`
 
 const StaffStyles = styled.div`
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   background: rgba(247, 249, 251, 1);
   button {
     padding: 0;
@@ -233,6 +329,16 @@ const StaffStyles = styled.div`
       font-size: 1.2rem;
     }
   }
+  @media only screen and (min-width: 570px) and (max-width: 860px) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(auto, 1fr));
+    }
+  }
+  @media only screen and (max-width: 569px) {
+    .grid {
+      grid-template-columns: repeat(1, minmax(auto, 1fr));
+    }
+  }
 `;
 
 const MapStyles = styled.div`
@@ -254,6 +360,7 @@ const MapStyles = styled.div`
     text-shadow: 2px 2px 10px black;
   }
   .gmap {
+    max-width: 1200px;
     width: 80%;
     height: 600px;
     margin: 3.5rem;
@@ -261,9 +368,21 @@ const MapStyles = styled.div`
     text-align: center;
     background-color: rgba(255, 255, 255, 0.7);
   }
+  @media only screen and (max-width: 786px) {
+    .gmap {
+      width: 90%;
+      height: 350px;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .gmap {
+      width: 90%;
+      height: 350px;
+    }
+  }
 `;
 
-export default function About({ data, pageContext }) {
+export default function About({ data }) {
   // set graphql to start at nodes for mapping
   const about = data.about.nodes;
   // set modal reference

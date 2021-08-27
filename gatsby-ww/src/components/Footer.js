@@ -12,11 +12,12 @@ const FooterStyles = styled.div`
   background-color: rgba(200, 224, 247, 1);
   min-height: 5vh;
   ul {
+    padding: 0;
     display: grid;
     grid-template-areas:
-      '. . . . . copyright copyright . . . . .'
-      '. . . . . dev dev . . . . .'
-      '. . . . . priv priv . . . . .';
+      '. copyright copyright .'
+      '. dev dev .'
+      '. priv priv .';
     text-align: center;
     font-size: 1.4rem;
     color: gray;
@@ -41,9 +42,6 @@ const FooterStyles = styled.div`
   @media (max-width: 400px) {
     ul {
       font-size: 1rem;
-      margin: 0;
-      margin-top: 2rem;
-      margin-left: -3rem;
     }
   }
 `;

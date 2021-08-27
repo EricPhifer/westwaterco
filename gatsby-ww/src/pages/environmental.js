@@ -39,11 +39,13 @@ const EnvironmentalStyles = styled.div`
   .hero {
     display: grid;
     grid-template-areas:
-      '. . . . title title title title . . . .'
-      '. . . . tagline1 tagline1 tagline1 tagline1 . . . .'
-      '. . . . tagline2 tagline2 tagline2 tagline2 . . . .'
-      '. . . . . icon icon . . . . .';
-    padding-top: 30vh;
+      '. title title .'
+      '. tagline1 tagline1 .'
+      '. tagline2 tagline2 .'
+      '. icon icon .';
+    padding-top: 80px;
+    max-width: 600px;
+    margin: 0 auto;
     #title {
       grid-area: title;
     }
@@ -102,11 +104,9 @@ const EnvironmentalStyles = styled.div`
     }
     #tagline1 {
       grid-area: tagline1;
-      padding: 0 20vw;
     }
     #tagline2 {
       grid-area: tagline2;
-      padding: 0 20vw;
     }
     .heroTagline {
       font-size: 1.65rem;
@@ -124,24 +124,40 @@ const EnvironmentalStyles = styled.div`
       }
     }
     .heroIcon {
+      padding-top: 10vh;
       font-size: 5rem;
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
-  @media (max-width: 400px) {
-    .heroBG {
-      h1 {
+  @media only screen and (max-width: 786px) {
+    .hero {
+      .heroTitle {
+        font-size: 2.6rem;
+        padding-bottom: 5vh;
+      }
+      .heroTagline {
+        font-size: 1.5rem;
+        padding: 0 0.5rem 2vh 0.5rem;
+      }
+      .heroServices {
+        font-size: 2rem;
+      }
+      .homeContent {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .hero {
+      .heroTitle {
         font-size: 2.22rem;
       }
     }
-    .homeContent {
-      font-size: 1.5rem;
-    }
   }
-  @media (min-width: 401px) and (max-width: 600px) {
-    .heroBG {
-      h1 {
-        font-size: 2.6rem;
+  @media only screen and (max-width: 350px) {
+    .hero {
+      .heroTitle {
+        font-size: 2rem;
       }
     }
   }
@@ -187,6 +203,8 @@ const MainStyles = styled.div`
   }
   .serviceType {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
     .threeIconServiceSection {
       margin: 2rem 0;
@@ -203,7 +221,7 @@ const MainStyles = styled.div`
         grid-area: icon3;
       }
       .iconContainer {
-        width: 300px;
+        width: 259px;
         justify-self: center;
       }
       .icon {
@@ -249,6 +267,7 @@ const MainStyles = styled.div`
       }
       .icon {
         font-size: 10rem;
+        margin: 0 auto;
       }
     }
     hr {
@@ -490,6 +509,101 @@ const MainStyles = styled.div`
     font-size: 7rem;
     svg {
       vertical-align: middle;
+    }
+  }
+  @media only screen and (max-width: 786px) {
+    .mainSection {
+      padding: 2rem 0.5rem;
+      .mainTitle {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+    .serviceContainer {
+      .serviceType {
+        .serviceTitle {
+          font-size: 3rem;
+        }
+      }
+      .threeIconServiceSection {
+        grid-template-areas:
+          '. icon1 icon1 .'
+          '. icon2 icon2 .'
+          '. icon3 icon3 .';
+        row-gap: 2rem;
+      }
+      #FaFeatherAlt,
+      #FaSeedlingNoxInv,
+      #FaCrow,
+      #FaRegCompass,
+      #FaHardHat,
+      #FaWater {
+        margin-left: 33%;
+      }
+      .twoIconServiceSection {
+        grid-template-areas:
+          '. icon1 icon1 .'
+          '. icon2 icon2 .';
+        row-gap: 2rem;
+      }
+      .oneIconServiceSection {
+        grid-template-areas: '. . icon1 . .';
+        row-gap: 2rem;
+        margin: 2rem 0;
+      }
+      .icon {
+        .iconTitle {
+          font-size: 1.7rem;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .mainSection {
+      .mainTitle {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+    .serviceContainer {
+      .serviceType {
+        .serviceTitle {
+          padding: 0 0.5rem;
+          font-size: 2.5rem;
+        }
+        .icon {
+          .iconTitle {
+            font-size: 1.7rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    .mainSection {
+      .mainTitle {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+    .serviceContainer {
+      .serviceType {
+        .serviceTitle {
+          font-size: 2.5rem;
+        }
+        .icon {
+          .iconTitle {
+            font-size: 1.7rem;
+          }
+        }
+      }
     }
   }
 `;

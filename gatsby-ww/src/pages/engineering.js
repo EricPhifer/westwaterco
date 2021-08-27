@@ -8,7 +8,7 @@ import engBG from '../assets/images/engBG.jpg';
 
 const EngStyles = styled.div`
   text-align: center;
-  padding-top: 60px;
+  padding-top: 80px;
   height: 100vh;
   width: 100vw;
   background-image: url(${engBG});
@@ -17,19 +17,21 @@ const EngStyles = styled.div`
   background-attachment: fixed;
   background-size: cover;
   .overlay {
-    background-color: rgba(84, 89, 95, 0.3);
-    height: 100vh;
     width: 100vw;
+    height: 98vh;
+    margin-top: 15px;
+    background-color: rgba(84, 89, 95, 0.3);
   }
   .hero {
+    max-width: 600px;
+    margin: 0 auto;
     display: grid;
     grid-template-areas:
-      '. . . . title title title title . . . .'
-      '. . . . tagline1 tagline1 tagline1 tagline1 . . . .'
-      '. . . . services services services services . . . .'
-      '. . . . tagline2 tagline2 tagline2 tagline2 . . . .'
-      '. . . . . icon icon . . . . .';
-    padding-top: 30vh;
+      '. title title title title .'
+      '. tagline1 tagline1 tagline1 tagline1 .'
+      '. services services services services .'
+      '. tagline2 tagline2 tagline2 tagline2 .'
+      '. . icon icon . .';
     #title {
       grid-area: title;
     }
@@ -122,11 +124,9 @@ const EngStyles = styled.div`
     }
     #tagline2 {
       grid-area: tagline2;
-      padding: 0 20vw;
     }
     .heroTagline {
       font-size: 1.65rem;
-      padding: 0 2rem;
     }
     #icon {
       grid-area: icon;
@@ -140,24 +140,40 @@ const EngStyles = styled.div`
       }
     }
     .heroIcon {
+      padding-top: 10vh;
       font-size: 5rem;
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
-  @media (max-width: 400px) {
-    .heroBG {
-      h1 {
+  @media only screen and (max-width: 786px) {
+    .hero {
+      padding-top: 80px;
+      .heroTitle {
+        font-size: 2.6rem;
+      }
+      .heroTagline {
+        font-size: 1.5rem;
+        padding: 0 0.5rem;
+      }
+      .heroServices {
+        font-size: 2rem;
+      }
+      .homeContent {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .hero {
+      .heroTitle {
         font-size: 2.22rem;
       }
     }
-    .homeContent {
-      font-size: 1.5rem;
-    }
   }
-  @media (min-width: 401px) and (max-width: 600px) {
-    .heroBG {
-      h1 {
-        font-size: 2.6rem;
+  @media only screen and (max-width: 350px) {
+    .hero {
+      .heroTitle {
+        font-size: 2rem;
       }
     }
   }
@@ -190,6 +206,9 @@ const MainStyles = styled.div`
       '. admin admin admin admin admin other other other other other . '
       '. . . . . link link . . . . . ';
     gap: 2rem;
+    img {
+      height: 400px;
+    }
   }
   #main {
     grid-area: main;
@@ -255,6 +274,38 @@ const MainStyles = styled.div`
       }
     }
   }
+
+  @media only screen and (max-width: 786px) {
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: normal;
+    }
+    .serviceSection {
+      grid-template-areas:
+        'water water water water'
+        'wastewater wastewater wastewater wastewater'
+        'admin admin admin admin'
+        'other other other other'
+        '. link link .';
+      grid-template-rows: auto;
+      gap: 0;
+      img {
+        max-width: 450px;
+        height: auto;
+      }
+      span {
+        display: block;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .services {
+        padding-bottom: 2rem;
+      }
+    }
+  }
 `;
 
 export default function EngPage({ data }) {
@@ -265,15 +316,16 @@ export default function EngPage({ data }) {
       <EngStyles>
         <div className="overlay">
           <div className="hero">
-            <div id="title" className="heroTitle">
+            <h1 id="title" className="heroTitle">
               Professional Engineering Consulting
-            </div>
+            </h1>
             <p id="tagline1" className="heroTagline">
               Our engineers specialize in the drinking water and domestic
               wastewater utility services.
             </p>
             <p id="serviceScroll" className="heroServices">
-              Services Include: <span className="scrollList"> </span>
+              Services Include: <br />
+              <span className="scrollList"> </span>
             </p>
             <p id="tagline2" className="heroTagline">
               We can also assist in plant operations and preparation of
@@ -305,7 +357,6 @@ export default function EngPage({ data }) {
                         alt={service.serviceTitle}
                         style={{
                           width: '100%',
-                          height: '500px',
                           objectFit: 'cover',
                           auto: 'format',
                         }}

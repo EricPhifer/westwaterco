@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const PaginationStyles = styled.div`
   width: 100%;
+  max-width: 650px;
   height: 7vh;
   display: grid;
   grid-template-areas: '. aaron . amie . dean . stephen . leah . jeremy .';
@@ -53,8 +54,18 @@ const PaginationStyles = styled.div`
       color: var(--red);
     }
   }
-  @media (max-width: 800px) {
+  @media only screen and (max-width: 800px) {
     font-size: 1.4rem;
+  }
+  @media only screen and (max-width: 400px) {
+    grid-template-areas:
+      '. aaron . amie . dean .'
+      '. stephen . leah . jeremy .';
+    height: 12vh;
+    a {
+      min-width: 64px;
+      padding-bottom: 1rem;
+    }
   }
 `;
 
