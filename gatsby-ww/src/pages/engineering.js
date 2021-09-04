@@ -8,7 +8,7 @@ import engBG from '../assets/images/engBG.jpg';
 
 const EngStyles = styled.div`
   text-align: center;
-  padding-top: 80px;
+  padding-top: 60px;
   height: 100vh;
   width: 100vw;
   background-image: url(${engBG});

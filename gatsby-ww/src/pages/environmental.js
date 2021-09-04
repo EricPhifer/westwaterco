@@ -23,7 +23,7 @@ import envBG from '../assets/images/envBG.jpg';
 
 const EnvironmentalStyles = styled.div`
   text-align: center;
-  padding-top: 60px;
+  padding-top: 75px;
   height: 100vh;
   width: 100vw;
   background-image: url(${envBG});
