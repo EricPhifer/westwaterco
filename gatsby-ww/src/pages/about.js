@@ -412,11 +412,11 @@ export default function About({ data }) {
               Contact Us
             </h1>
             <form
+              name="contact"
               id="formContainer"
               method="post"
               netlify-honeypot="bot-field"
               data-netlify="true"
-              name="contact"
             >
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
@@ -480,7 +480,7 @@ export default function About({ data }) {
                 <div className="recaptchaContainer">
                   <div
                     className="g-recaptcha recaptcha"
-                    data-sitekey="6LeWwdoUAAAAAC9TSN9emL7w5knTBCgcNX-1ok7L"
+                    data-sitekey={process.env.SITE_RECAPTCHA_KEY}
                   />
                 </div>
                 <div id="submitContainer" className="submitBtn">
