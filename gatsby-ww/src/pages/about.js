@@ -501,12 +501,12 @@ export default function About({ data }) {
                   WestWater Engineering
                 </span>
                 <span itemProp="telephone">
-                  <a to="tel:9702417076" className="phoneNumber">
+                  <a href="tel:9702417076" className="phoneNumber">
                     970-241-7076
                   </a>{' '}
                 </span>
                 | Fax:{' '}
-                <a to="fax:9702417097" className="faxNumber">
+                <a href="fax:9702417097" className="faxNumber">
                   970-241-7097
                 </a>
               </p>
