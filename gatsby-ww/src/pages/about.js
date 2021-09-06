@@ -146,37 +146,37 @@ const ContactStyles = styled.div`
   }
   @media only screen and (max-width: 900px) {
     .gridContainer {
-      grid-template-columns: repeat(12, minmax(auto, 1fr));
+      grid-template-columns: repeat(6, minmax(auto, 1fr));
       .header {
-        grid-column: 1 / span 12;
+        grid-column: 1 / span 6;
       }
       form {
-        grid-column: 1 / span 12;
+        grid-column: 1 / span 6;
         max-width: 685px;
         margin: 0 auto;
       }
       .numberContact {
-        grid-column: 1 / span 12;
+        grid-column: 1 / span 6;
       }
       .iconContainer {
-        grid-column: 1 / span 12;
+        grid-column: 1 / span 6;
       }
       .container {
         padding: 0;
         #nameContainer {
-          grid-column: 1;
+          grid-column: 1 / span 3;
         }
         #phoneContainer {
-          grid-column: 2 / end;
+          grid-column: 3 / end;
         }
         #emailContainer {
-          grid-column: 1 / span 12;
+          grid-column: 1 / span 6;
         }
         #messageContainer {
-          grid-column: 1 / span 12;
+          grid-column: 1 / span 6;
         }
         #submitContainer {
-          grid-column: 1 / span 12;
+          grid-column: 1 / span 6;
           max-width: 400px;
           width: 400px;
           margin: 0 auto;
