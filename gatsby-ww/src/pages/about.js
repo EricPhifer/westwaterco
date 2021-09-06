@@ -187,35 +187,35 @@ const ContactStyles = styled.div`
   }
   @media only screen and (max-width: 500px) {
     .gridContainer {
-      grid-template-columns: repeat(6, minmax(auto, 1fr));
+      grid-template-columns: repeat(3, minmax(auto, 1fr));
       .header {
-        grid-column: 1 / span 6;
+        grid-column: 1 / span 3;
       }
       form {
-        grid-column: 1 / span 6;
+        grid-column: 1 / span 3;
       }
       .numberContact {
-        grid-column: 1 / span 6;
+        grid-column: 1 / span 3;
       }
       .iconContainer {
-        grid-column: 1 / span 6;
+        grid-column: 1 / span 3;
       }
       .container {
         padding: 0;
         #nameContainer {
-          grid-column: 1 / span 6;
+          grid-column: 1 / span 3;
         }
         #phoneContainer {
-          grid-column: 1 / span 6;
+          grid-column: 1 / span 3;
         }
         #emailContainer {
-          grid-column: 1 / span 6;
+          grid-column: 1 / span 3;
         }
         #messageContainer {
-          grid-column: 1 / span 6;
+          grid-column: 1 / span 3;
         }
         #submitContainer {
-          grid-column: 1 / span 6;
+          grid-column: 1 / span 3;
           max-width: 400px;
           width: 400px;
           margin: 0 auto;
