@@ -202,17 +202,22 @@ const ContactStyles = styled.div`
       }
       .container {
         padding: 0;
+        max-width: 100%;
         #nameContainer {
           grid-column: 1 / span 3;
+          max-width: 100%;
         }
         #phoneContainer {
           grid-column: 1 / span 3;
+          max-width: 100%;
         }
         #emailContainer {
           grid-column: 1 / span 3;
+          max-width: 100%;
         }
         #messageContainer {
           grid-column: 1 / span 3;
+          max-width: 100%;
         }
         #submitContainer {
           grid-column: 1 / span 3;
