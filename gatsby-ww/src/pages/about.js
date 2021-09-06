@@ -417,6 +417,7 @@ export default function About({ data }) {
               method="post"
               netlify-honeypot="bot-field"
               data-netlify="true"
+              data-netlify-recaptcha="true"
             >
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
