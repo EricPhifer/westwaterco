@@ -35,7 +35,7 @@ const ContactStyles = styled.div`
     margin: 0 auto;
     padding-top: 5vh;
     display: grid;
-    grid-template-columns: repeat(12, minmax(auto, 1fr));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-template-rows: auto;
     gap: 2rem;
     place-content: space-evenly;
@@ -146,7 +146,7 @@ const ContactStyles = styled.div`
   }
   @media only screen and (max-width: 900px) {
     .gridContainer {
-      grid-template-columns: repeat(6, minmax(auto, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       .header {
         grid-column: 1 / span 6;
       }
@@ -187,7 +187,7 @@ const ContactStyles = styled.div`
   }
   @media only screen and (max-width: 500px) {
     .gridContainer {
-      grid-template-columns: repeat(3, minmax(auto, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       .header {
         grid-column: 1 / span 3;
       }
@@ -217,7 +217,7 @@ const ContactStyles = styled.div`
         #submitContainer {
           grid-column: 1 / span 3;
           max-width: 400px;
-          width: 400px;
+          width: minmax(0, 400px);
           margin: 0 auto;
           padding: 0;
         }
@@ -226,7 +226,7 @@ const ContactStyles = styled.div`
   }
   @media only screen and (max-width: 400px) {
     .gridContainer {
-      grid-template-columns: repeat(6, minmax(auto, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       .header {
         grid-column: 1 / span 6;
       }
@@ -287,7 +287,7 @@ const StaffStyles = styled.div`
   .grid {
     margin: 2.5rem 0;
     display: grid;
-    grid-template-columns: repeat(3, minmax(auto, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem 5rem;
     justify-content: space-evenly;
     justify-items: center;
@@ -331,12 +331,12 @@ const StaffStyles = styled.div`
   }
   @media only screen and (min-width: 570px) and (max-width: 860px) {
     .grid {
-      grid-template-columns: repeat(2, minmax(auto, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   @media only screen and (max-width: 569px) {
     .grid {
-      grid-template-columns: repeat(1, minmax(auto, 1fr));
+      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
 `;
