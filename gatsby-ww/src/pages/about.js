@@ -202,22 +202,22 @@ const ContactStyles = styled.div`
       }
       .container {
         padding: 0;
-        max-width: 100%;
+        max-width: 95%;
         #nameContainer {
           grid-column: 1 / span 3;
-          max-width: 100%;
+          max-width: 95%;
         }
         #phoneContainer {
           grid-column: 1 / span 3;
-          max-width: 100%;
+          max-width: 95%;
         }
         #emailContainer {
           grid-column: 1 / span 3;
-          max-width: 100%;
+          max-width: 95%;
         }
         #messageContainer {
           grid-column: 1 / span 3;
-          max-width: 100%;
+          max-width: 95%;
         }
         #submitContainer {
           grid-column: 1 / span 3;
@@ -486,7 +486,7 @@ export default function About({ data }) {
                 <div className="recaptchaContainer">
                   <div
                     className="g-recaptcha recaptcha"
-                    data-sitekey=6LeWwdoUAAAAAC9TSN9emL7w5knTBCgcNX-1ok7L
+                    data-sitekey="6LeWwdoUAAAAAC9TSN9emL7w5knTBCgcNX-1ok7L"
                   />
                 </div>
                 <div id="submitContainer" className="submitBtn">
