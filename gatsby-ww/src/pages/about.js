@@ -486,7 +486,7 @@ export default function About({ data }) {
                 <div className="recaptchaContainer">
                   <div
                     className="g-recaptcha recaptcha"
-                    data-sitekey={process.env.SITE_RECAPTCHA_KEY}
+                    data-sitekey=6LeWwdoUAAAAAC9TSN9emL7w5knTBCgcNX-1ok7L
                   />
                 </div>
                 <div id="submitContainer" className="submitBtn">
