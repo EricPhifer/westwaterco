@@ -221,7 +221,7 @@ const ContactStyles = styled.div`
         }
         #submitContainer {
           grid-column: 1 / span 3;
-          max-width: 400px;
+          max-width: 95%;
           width: 400px;
           margin: 0 auto;
           padding: 0;
