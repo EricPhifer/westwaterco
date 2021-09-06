@@ -167,7 +167,7 @@ const ContactStyles = styled.div`
           grid-column: 1 / span 3;
         }
         #phoneContainer {
-          grid-column: 3 / end;
+          grid-column: 4 / end;
         }
         #emailContainer {
           grid-column: 1 / span 6;
@@ -414,7 +414,7 @@ export default function About({ data }) {
             <form
               name="contact"
               id="formContainer"
-              method="post"
+              method="POST"
               netlify-honeypot="bot-field"
               data-netlify="true"
               data-netlify-recaptcha="true"
