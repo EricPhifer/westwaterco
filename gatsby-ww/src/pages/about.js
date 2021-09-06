@@ -167,7 +167,7 @@ const ContactStyles = styled.div`
           grid-column: 1 / span 3;
         }
         #phoneContainer {
-          grid-column: 4 / end;
+          grid-column: 4 / span 3;
         }
         #emailContainer {
           grid-column: 1 / span 6;
@@ -178,7 +178,7 @@ const ContactStyles = styled.div`
         #submitContainer {
           grid-column: 1 / span 6;
           max-width: 400px;
-          width: 400px;
+          width: minmax(0, 400px);
           margin: 0 auto;
           padding: 0;
         }
