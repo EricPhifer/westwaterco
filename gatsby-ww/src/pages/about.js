@@ -501,14 +501,14 @@ export default function About({ data }) {
                   WestWater Engineering
                 </span>
                 <span itemProp="telephone">
-                  <Link to="tel:9702417076" className="phoneNumber">
+                  <a to="tel:9702417076" className="phoneNumber">
                     970-241-7076
-                  </Link>{' '}
+                  </a>{' '}
                 </span>
                 | Fax:{' '}
-                <Link to="fax:9702417097" className="faxNumber">
+                <a to="fax:9702417097" className="faxNumber">
                   970-241-7097
-                </Link>
+                </a>
               </p>
             </div>
             <div id="icon" className="iconContainer">
