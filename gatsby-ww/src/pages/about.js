@@ -178,7 +178,7 @@ const ContactStyles = styled.div`
         #submitContainer {
           grid-column: 1 / span 6;
           max-width: 400px;
-          width: minmax(0, 400px);
+          width: 400px;
           margin: 0 auto;
           padding: 0;
         }
@@ -217,7 +217,7 @@ const ContactStyles = styled.div`
         #submitContainer {
           grid-column: 1 / span 3;
           max-width: 400px;
-          width: minmax(0, 400px);
+          width: 400px;
           margin: 0 auto;
           padding: 0;
         }
