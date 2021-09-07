@@ -105,20 +105,20 @@ const HomeStyles = styled.div`
     #icon {
       grid-area: icon;
     }
-    @keyframes bounce {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(5px);
-      }
-    }
     @-webkit-keyframes bounce {
       from {
         -webkit-transform: translateY(0);
       }
       to {
         -webkit-transform: translateY(5px);
+      }
+    }
+    @keyframes bounce {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(5px);
       }
     }
     .heroIcon {

@@ -54,64 +54,6 @@ const EngStyles = styled.div`
         transition: opacity serviceScroll 0.5s;
       }
     }
-    @keyframes serviceScroll {
-      0% {
-        content: 'Long-Range Planning';
-        opacity: 1;
-      }
-      6% {
-        opacity: 0;
-      }
-      12% {
-        content: 'Preliminary Design';
-        opacity: 1;
-      }
-      18% {
-        opacity: 0;
-      }
-      24% {
-        content: 'Construction Inspection';
-        opacity: 1;
-      }
-      30% {
-        opacity: 0;
-      }
-      36% {
-        content: 'Data Collection';
-        opacity: 1;
-      }
-      42% {
-        opacity: 0;
-      }
-      48% {
-        content: 'Feasibility Studies';
-        opacity: 1;
-      }
-      54% {
-        opacity: 0;
-      }
-      60% {
-        content: 'Permitting';
-        opacity: 1;
-      }
-      66% {
-        opacity: 0;
-      }
-      72% {
-        content: 'Field Investigations';
-        opacity: 1;
-      }
-      78% {
-        opacity: 0;
-      }
-      84% {
-        content: 'Contract Administration';
-        opacity: 1;
-      }
-      90% {
-        opacity: 0;
-      }
-    }
     @-webkit-keyframes serviceScroll {
       0% {
         -webkit-content: 'Long-Range Planning';
@@ -170,12 +112,62 @@ const EngStyles = styled.div`
         -webkit-opacity: 0;
       }
     }
-    @keyframes flip {
-      from {
-        transform: rotate3d(0deg);
+    @keyframes serviceScroll {
+      0% {
+        content: 'Long-Range Planning';
+        opacity: 1;
       }
-      to {
-        transform: rotate3d(180deg);
+      6% {
+        opacity: 0;
+      }
+      12% {
+        content: 'Preliminary Design';
+        opacity: 1;
+      }
+      18% {
+        opacity: 0;
+      }
+      24% {
+        content: 'Construction Inspection';
+        opacity: 1;
+      }
+      30% {
+        opacity: 0;
+      }
+      36% {
+        content: 'Data Collection';
+        opacity: 1;
+      }
+      42% {
+        opacity: 0;
+      }
+      48% {
+        content: 'Feasibility Studies';
+        opacity: 1;
+      }
+      54% {
+        opacity: 0;
+      }
+      60% {
+        content: 'Permitting';
+        opacity: 1;
+      }
+      66% {
+        opacity: 0;
+      }
+      72% {
+        content: 'Field Investigations';
+        opacity: 1;
+      }
+      78% {
+        opacity: 0;
+      }
+      84% {
+        content: 'Contract Administration';
+        opacity: 1;
+      }
+      90% {
+        opacity: 0;
       }
     }
     @-webkit-keyframes flip {
@@ -184,6 +176,14 @@ const EngStyles = styled.div`
       }
       to {
         -webkit-transform: rotate3d(180deg);
+      }
+    }
+    @keyframes flip {
+      from {
+        transform: rotate3d(0deg);
+      }
+      to {
+        transform: rotate3d(180deg);
       }
     }
     .heroServices {
@@ -201,20 +201,20 @@ const EngStyles = styled.div`
     #icon {
       grid-area: icon;
     }
-    @keyframes bounce {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(5px);
-      }
-    }
     @-webkit-keyframes bounce {
       from {
         -webkit-transform: translateY(0);
       }
       to {
         -webkit-transform: translateY(5px);
+      }
+    }
+    @keyframes bounce {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(5px);
       }
     }
     .heroIcon {

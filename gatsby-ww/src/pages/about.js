@@ -131,20 +131,20 @@ const ContactStyles = styled.div`
     .iconContainer {
       grid-column: 3 / span 8;
     }
-    @keyframes bounce {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(5px);
-      }
-    }
     @-webkit-keyframes bounce {
       from {
         -webkit-transform: translateY(0);
       }
       to {
         -webkit-transform: translateY(5px);
+      }
+    }
+    @keyframes bounce {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(5px);
       }
     }
     .heroIcon {

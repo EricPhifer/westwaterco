@@ -69,43 +69,6 @@ const EnvironmentalStyles = styled.div`
         animation: staffScroll 15s ease-in-out 2s infinite;
       }
     }
-    @keyframes staffScroll {
-      0% {
-        content: 'biologists';
-        opacity: 1;
-      }
-      10% {
-        opacity: 0;
-      }
-      20% {
-        content: 'resource specialists';
-        opacity: 1;
-      }
-      30% {
-        opacity: 0;
-      }
-      40% {
-        content: 'GIS analysts';
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      60% {
-        content: 'hydrologists';
-        opacity: 1;
-      }
-      70% {
-        opacity: 0;
-      }
-      80% {
-        content: 'geologists';
-        opacity: 1;
-      }
-      90% {
-        opacity: 0;
-      }
-    }
     @-webkit-keyframes staffScroll {
       0% {
         -webkit-content: 'biologists';
@@ -156,6 +119,14 @@ const EnvironmentalStyles = styled.div`
     #icon {
       grid-area: icon;
     }
+    @-webkit-keyframes bounce {
+      from {
+        -webkit-transform: translateY(0);
+      }
+      to {
+        -webkit-transform: translateY(5px);
+      }
+    }
     @keyframes bounce {
       from {
         transform: translateY(0);
@@ -164,12 +135,41 @@ const EnvironmentalStyles = styled.div`
         transform: translateY(5px);
       }
     }
-    @-webkit-keyframes bounce {
-      from {
-        -webkit-transform: translateY(0);
+    @keyframes staffScroll {
+      0% {
+        content: 'biologists';
+        opacity: 1;
       }
-      to {
-        -webkit-transform: translateY(5px);
+      10% {
+        opacity: 0;
+      }
+      20% {
+        content: 'resource specialists';
+        opacity: 1;
+      }
+      30% {
+        opacity: 0;
+      }
+      40% {
+        content: 'GIS analysts';
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      60% {
+        content: 'hydrologists';
+        opacity: 1;
+      }
+      70% {
+        opacity: 0;
+      }
+      80% {
+        content: 'geologists';
+        opacity: 1;
+      }
+      90% {
+        opacity: 0;
       }
     }
     .heroIcon {
