@@ -81,12 +81,7 @@ const GridStyles = styled.div`
     background-color: rgba(255, 255, 255, 0.5);
   }
   .imgContainer {
-    background-image: url(${logo});
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: contain;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     position: relative;
     place-self: center;
     height: 275px;
