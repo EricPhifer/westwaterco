@@ -61,6 +61,10 @@ const EnvironmentalStyles = styled.div`
       &::before {
         content: '';
         opacity: 1;
+        -ms-transition: opacity staffScroll 0.5s;
+        -ms-animation: staffScroll 15s ease-in-out 2s infinite;
+        -webkit-transition: opacity staffScroll 0.5s;
+        -webkit-animation: staffScroll 15s ease-in-out 2s infinite;
         transition: opacity staffScroll 0.5s;
         animation: staffScroll 15s ease-in-out 2s infinite;
       }

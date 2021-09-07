@@ -46,6 +46,10 @@ const EngStyles = styled.div`
     .scrollList {
       &::before {
         content: '';
+        -ms-animation: serviceScroll 30s ease-in-out 1s infinite;
+        -ms-transition: opacity serviceScroll 0.5s;
+        -webkit-animation: serviceScroll 30s ease-in-out 1s infinite;
+        -webkit-transition: opacity serviceScroll 0.5s;
         animation: serviceScroll 30s ease-in-out 1s infinite;
         transition: opacity serviceScroll 0.5s;
       }
