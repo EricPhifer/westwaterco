@@ -84,39 +84,39 @@ const EnvironmentalStyles = styled.div`
     }
     @-webkit-keyframes staffScroll {
       0% {
-        -webkit-content: 'biologists';
-        -webkit-opacity: 1;
+        content: 'biologists';
+        opacity: 1;
       }
       10% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       20% {
-        -webkit-ontent: 'resource specialists';
-        -webkit-opacity: 1;
+        ontent: 'resource specialists';
+        opacity: 1;
       }
       30% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       40% {
-        -webkit-content: 'GIS analysts';
-        -webkit-opacity: 1;
+        content: 'GIS analysts';
+        opacity: 1;
       }
       50% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       60% {
-        -webkit-content: 'hydrologists';
-        -webkit-opacity: 1;
+        content: 'hydrologists';
+        opacity: 1;
       }
       70% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       80% {
-        -webkit-content: 'geologists';
-        -webkit-opacity: 1;
+        content: 'geologists';
+        opacity: 1;
       }
       90% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
     }
     @keyframes staffScroll {

@@ -56,60 +56,60 @@ const EngStyles = styled.div`
     }
     @-webkit-keyframes serviceScroll {
       0% {
-        -webkit-content: 'Long-Range Planning';
-        -webkit-opacity: 1;
+        content: 'Long-Range Planning';
+        opacity: 1;
       }
       6% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       12% {
-        -webkit-content: 'Preliminary Design';
-        -webkit-opacity: 1;
+        content: 'Preliminary Design';
+        opacity: 1;
       }
       18% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       24% {
-        -webkit-content: 'Construction Inspection';
-        -webkit-opacity: 1;
+        content: 'Construction Inspection';
+        opacity: 1;
       }
       30% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       36% {
-        -webkit-content: 'Data Collection';
-        -webkit-opacity: 1;
+        content: 'Data Collection';
+        opacity: 1;
       }
       42% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       48% {
-        -webkit-content: 'Feasibility Studies';
-        -webkit-opacity: 1;
+        content: 'Feasibility Studies';
+        opacity: 1;
       }
       54% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       60% {
-        -webkit-content: 'Permitting';
-        -webkit-opacity: 1;
+        content: 'Permitting';
+        opacity: 1;
       }
       66% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       72% {
-        -webkit-content: 'Field Investigations';
-        -webkit-opacity: 1;
+        content: 'Field Investigations';
+        opacity: 1;
       }
       78% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
       84% {
-        -webkit-content: 'Contract Administration';
-        -webkit-opacity: 1;
+        content: 'Contract Administration';
+        opacity: 1;
       }
       90% {
-        -webkit-opacity: 0;
+        opacity: 0;
       }
     }
     @keyframes serviceScroll {
