@@ -69,6 +69,19 @@ const EnvironmentalStyles = styled.div`
         animation: staffScroll 15s ease-in-out 2s infinite;
       }
     }
+    #tagline1 {
+      grid-area: tagline1;
+    }
+    #tagline2 {
+      grid-area: tagline2;
+    }
+    .heroTagline {
+      font-size: 1.65rem;
+      padding: 0 2rem;
+    }
+    #icon {
+      grid-area: icon;
+    }
     @-webkit-keyframes staffScroll {
       0% {
         -webkit-content: 'biologists';
@@ -106,35 +119,6 @@ const EnvironmentalStyles = styled.div`
         -webkit-opacity: 0;
       }
     }
-    #tagline1 {
-      grid-area: tagline1;
-    }
-    #tagline2 {
-      grid-area: tagline2;
-    }
-    .heroTagline {
-      font-size: 1.65rem;
-      padding: 0 2rem;
-    }
-    #icon {
-      grid-area: icon;
-    }
-    @-webkit-keyframes bounce {
-      from {
-        -webkit-transform: translateY(0);
-      }
-      to {
-        -webkit-transform: translateY(5px);
-      }
-    }
-    @keyframes bounce {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(5px);
-      }
-    }
     @keyframes staffScroll {
       0% {
         content: 'biologists';
@@ -170,6 +154,22 @@ const EnvironmentalStyles = styled.div`
       }
       90% {
         opacity: 0;
+      }
+    }
+    @-webkit-keyframes bounce {
+      from {
+        -webkit-transform: translateY(0);
+      }
+      to {
+        -webkit-transform: translateY(5px);
+      }
+    }
+    @keyframes bounce {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(5px);
       }
     }
     .heroIcon {
