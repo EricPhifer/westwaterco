@@ -112,12 +112,78 @@ const EngStyles = styled.div`
         opacity: 0;
       }
     }
+    @-webkit-keyframes serviceScroll {
+      0% {
+        -webkit-content: 'Long-Range Planning';
+        -webkit-opacity: 1;
+      }
+      6% {
+        -webkit-opacity: 0;
+      }
+      12% {
+        -webkit-content: 'Preliminary Design';
+        -webkit-opacity: 1;
+      }
+      18% {
+        -webkit-opacity: 0;
+      }
+      24% {
+        -webkit-content: 'Construction Inspection';
+        -webkit-opacity: 1;
+      }
+      30% {
+        -webkit-opacity: 0;
+      }
+      36% {
+        -webkit-content: 'Data Collection';
+        -webkit-opacity: 1;
+      }
+      42% {
+        -webkit-opacity: 0;
+      }
+      48% {
+        -webkit-content: 'Feasibility Studies';
+        -webkit-opacity: 1;
+      }
+      54% {
+        -webkit-opacity: 0;
+      }
+      60% {
+        -webkit-content: 'Permitting';
+        -webkit-opacity: 1;
+      }
+      66% {
+        -webkit-opacity: 0;
+      }
+      72% {
+        -webkit-content: 'Field Investigations';
+        -webkit-opacity: 1;
+      }
+      78% {
+        -webkit-opacity: 0;
+      }
+      84% {
+        -webkit-content: 'Contract Administration';
+        -webkit-opacity: 1;
+      }
+      90% {
+        -webkit-opacity: 0;
+      }
+    }
     @keyframes flip {
       from {
         transform: rotate3d(0deg);
       }
       to {
         transform: rotate3d(180deg);
+      }
+    }
+    @-webkit-keyframes flip {
+      from {
+        -webkit-transform: rotate3d(0deg);
+      }
+      to {
+        -webkit-transform: rotate3d(180deg);
       }
     }
     .heroServices {
@@ -141,6 +207,14 @@ const EngStyles = styled.div`
       }
       to {
         transform: translateY(5px);
+      }
+    }
+    @-webkit-keyframes bounce {
+      from {
+        -webkit-transform: translateY(0);
+      }
+      to {
+        -webkit-transform: translateY(5px);
       }
     }
     .heroIcon {
