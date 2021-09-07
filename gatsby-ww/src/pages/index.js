@@ -113,6 +113,14 @@ const HomeStyles = styled.div`
         transform: translateY(5px);
       }
     }
+    @-webkit-keyframes bounce {
+      from {
+        -webkit-transform: translateY(0);
+      }
+      to {
+        -webkit-transform: translateY(5px);
+      }
+    }
     .heroIcon {
       font-size: 5rem;
       animation: bounce 0.7s ease-in-out infinite alternate;
