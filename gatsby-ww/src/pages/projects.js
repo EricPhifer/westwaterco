@@ -86,12 +86,12 @@ const GridStyles = styled.div`
     place-self: center;
     height: 275px;
     width: 100%;
-    &:hover .projectTitle {
+    .projectTitle {
       opacity: unset;
       opacity: 1;
     }
-    &:hover .hoverOverlay {
-      opacity: 0.5;
+    .hoverOverlay {
+      opacity: 0.4;
     }
   }
   img {
