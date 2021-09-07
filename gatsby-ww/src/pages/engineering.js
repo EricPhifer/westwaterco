@@ -57,59 +57,59 @@ const EngStyles = styled.div`
     @-webkit-keyframes serviceScroll {
       0% {
         content: 'Long-Range Planning';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       6% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       12% {
         content: 'Preliminary Design';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       18% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       24% {
         content: 'Construction Inspection';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       30% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       36% {
         content: 'Data Collection';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       42% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       48% {
         content: 'Feasibility Studies';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       54% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       60% {
         content: 'Permitting';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       66% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       72% {
         content: 'Field Investigations';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       78% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       84% {
         content: 'Contract Administration';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       90% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
     }
     @keyframes serviceScroll {

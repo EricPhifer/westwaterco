@@ -85,38 +85,38 @@ const EnvironmentalStyles = styled.div`
     @-webkit-keyframes staffScroll {
       0% {
         content: 'biologists';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       10% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       20% {
-        ontent: 'resource specialists';
-        opacity: 1;
+        content: 'resource specialists';
+        -webkit-opacity: 1;
       }
       30% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       40% {
         content: 'GIS analysts';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       50% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       60% {
         content: 'hydrologists';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       70% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
       80% {
         content: 'geologists';
-        opacity: 1;
+        -webkit-opacity: 1;
       }
       90% {
-        opacity: 0;
+        -webkit-opacity: 0;
       }
     }
     @keyframes staffScroll {
