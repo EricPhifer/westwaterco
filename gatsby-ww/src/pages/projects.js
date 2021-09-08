@@ -91,7 +91,7 @@ const GridStyles = styled.div`
       opacity: 1;
     }
     .hoverOverlay {
-      opacity: 0.4;
+      opacity: 0.6;
     }
   }
   img {
