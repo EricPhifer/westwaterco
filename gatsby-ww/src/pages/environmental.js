@@ -22,6 +22,13 @@ import SEO from '../components/SEO';
 import envBG from '../assets/images/envBG.jpg';
 
 const EnvironmentalStyles = styled.div`
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
   text-align: center;
   padding-top: 75px;
   height: 100vh;
@@ -37,6 +44,7 @@ const EnvironmentalStyles = styled.div`
     width: 100vw;
   }
   .hero {
+    display: -ms-grid;
     display: grid;
     grid-template-areas:
       '. title title .'
@@ -47,6 +55,9 @@ const EnvironmentalStyles = styled.div`
     max-width: 600px;
     margin: 0 auto;
     #title {
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 2;
       grid-area: title;
     }
     .heroTitle {
@@ -65,14 +76,22 @@ const EnvironmentalStyles = styled.div`
         -ms-animation: staffScroll 15s ease-in-out 2s infinite;
         -webkit-transition: -webkit-opacity staffScroll 0.5s;
         -webkit-animation: staffScroll 15s ease-in-out 2s infinite;
+        -webkit-transition: opacity staffScroll 0.5s;
+        -o-transition: opacity staffScroll 0.5s;
         transition: opacity staffScroll 0.5s;
         animation: staffScroll 15s ease-in-out 2s infinite;
       }
     }
     #tagline1 {
+      -ms-grid-row: 2;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 2;
       grid-area: tagline1;
     }
     #tagline2 {
+      -ms-grid-row: 3;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 2;
       grid-area: tagline2;
     }
     .heroTagline {
@@ -80,6 +99,9 @@ const EnvironmentalStyles = styled.div`
       padding: 0 2rem;
     }
     #icon {
+      -ms-grid-row: 4;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 2;
       grid-area: icon;
     }
     @-webkit-keyframes staffScroll {
@@ -166,15 +188,18 @@ const EnvironmentalStyles = styled.div`
     }
     @keyframes bounce {
       from {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
       }
       to {
+        -webkit-transform: translateY(5px);
         transform: translateY(5px);
       }
     }
     .heroIcon {
       padding-top: 10vh;
       font-size: 5rem;
+      -webkit-animation: bounce 0.7s ease-in-out infinite alternate;
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
