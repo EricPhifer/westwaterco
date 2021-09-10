@@ -1,7 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  :root {
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+ :root {
     --red: #FF4949;
     --black: #2E2E2E;
     --yellow: #ffc600;
@@ -34,8 +41,11 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 2px;
     cursor: pointer;
     --cast: 2px;
-    box-shadow: var(--cast) var(--cast) 0 var(--grey);
+    -webkit-box-shadow: var(--cast) var(--cast) 0 var(--grey);
+            box-shadow: var(--cast) var(--cast) 0 var(--grey);
     text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
     transition: all 0.2s;
     &:hover {
       --cast: 4px;
@@ -55,7 +65,7 @@ const GlobalStyles = createGlobalStyle`
   body::-webkit-scrollbar-track {
     background: var(--white);
   }
-  
+
   body::-webkit-scrollbar-thumb {
     background-color: var(--blue) ;
     border-radius: 6px;
@@ -66,7 +76,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .tilt {
-    transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+        -ms-transform: rotate(-2deg);
+            transform: rotate(-2deg);
     position: relative;
     display: inline-block;
   }

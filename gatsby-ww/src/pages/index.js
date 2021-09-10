@@ -16,10 +16,18 @@ const BGStyles = styled.div`
 `;
 
 const HomeStyles = styled.div`
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
   text-align: center;
   .hero {
     width: 100vw;
     height: 100vh;
+    display: -ms-grid;
     display: grid;
     grid-template-areas:
       '. . . . logo logo logo logo . . . .'
@@ -28,9 +36,14 @@ const HomeStyles = styled.div`
       '. . . . links links links links . . . .'
       '. . . . . icon icon . . . . .';
     #logo {
+      -ms-grid-row: 1;
+      -ms-grid-column: 5;
+      -ms-grid-column-span: 4;
       grid-area: logo;
     }
     .logoContainer {
+      -ms-grid-row-align: center;
+      -ms-grid-column-align: center;
       place-self: center center;
     }
     .heroLogo {
@@ -42,6 +55,9 @@ const HomeStyles = styled.div`
       background-position: center center;
     }
     #title {
+      -ms-grid-row: 2;
+      -ms-grid-column: 5;
+      -ms-grid-column-span: 4;
       grid-area: title;
     }
     .heroTitle {
@@ -50,12 +66,18 @@ const HomeStyles = styled.div`
       font-weight: 450;
     }
     #tagline {
+      -ms-grid-row: 3;
+      -ms-grid-column: 5;
+      -ms-grid-column-span: 4;
       grid-area: tagline;
     }
     .heroTagline {
       font-size: 1.65rem;
     }
     #links {
+      -ms-grid-row: 4;
+      -ms-grid-column: 5;
+      -ms-grid-column-span: 4;
       grid-area: links;
     }
     .heroLinks {
@@ -72,6 +94,8 @@ const HomeStyles = styled.div`
         -o-transition: all 0.3s;
         transition: all 0.3s;
         &:hover {
+          -webkit-transform: scale(1.1);
+          -ms-transform: scale(1.1);
           transform: scale(1.1);
         }
       }
@@ -82,6 +106,7 @@ const HomeStyles = styled.div`
         border-width: 1px;
         border-color: #7a7a7a;
         border-radius: 0;
+        -webkit-box-shadow: 8px 5px 10px 0px rgba(0, 0, 0, 0.5);
         box-shadow: 8px 5px 10px 0px rgba(0, 0, 0, 0.5);
         font-size: 13px;
         padding: 10px 20px;
@@ -103,6 +128,9 @@ const HomeStyles = styled.div`
       }
     }
     #icon {
+      -ms-grid-row: 5;
+      -ms-grid-column: 6;
+      -ms-grid-column-span: 2;
       grid-area: icon;
     }
     @-webkit-keyframes bounce {
@@ -115,14 +143,17 @@ const HomeStyles = styled.div`
     }
     @keyframes bounce {
       from {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
       }
       to {
+        -webkit-transform: translateY(5px);
         transform: translateY(5px);
       }
     }
     .heroIcon {
       font-size: 5rem;
+      -webkit-animation: bounce 0.7s ease-in-out infinite alternate;
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }

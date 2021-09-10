@@ -7,6 +7,13 @@ import SEO from '../components/SEO';
 import engBG from '../assets/images/engBG.jpg';
 
 const EngStyles = styled.div`
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
   text-align: center;
   padding-top: 60px;
   height: 100vh;
@@ -25,6 +32,7 @@ const EngStyles = styled.div`
   .hero {
     max-width: 600px;
     margin: 0 auto;
+    display: -ms-grid;
     display: grid;
     grid-template-areas:
       '. title title title title .'
@@ -33,6 +41,9 @@ const EngStyles = styled.div`
       '. tagline2 tagline2 tagline2 tagline2 .'
       '. . icon icon . .';
     #title {
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 4;
       grid-area: title;
     }
     .heroTitle {
@@ -41,6 +52,9 @@ const EngStyles = styled.div`
       font-weight: 450;
     }
     #serviceScroll {
+      -ms-grid-row: 3;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 4;
       grid-area: services;
     }
     .scrollList {
@@ -51,6 +65,8 @@ const EngStyles = styled.div`
         -ms-animation: serviceScroll 30s ease-in-out 1s infinite;
         -ms-transition: -ms-opacity serviceScroll 0.5s;
         animation: serviceScroll 30s ease-in-out 1s infinite;
+        -webkit-transition: opacity serviceScroll 0.5s;
+        -o-transition: opacity serviceScroll 0.5s;
         transition: opacity serviceScroll 0.5s;
       }
     }
@@ -180,9 +196,11 @@ const EngStyles = styled.div`
     }
     @keyframes flip {
       from {
+        -webkit-transform: rotate3d(0deg);
         transform: rotate3d(0deg);
       }
       to {
+        -webkit-transform: rotate3d(180deg);
         transform: rotate3d(180deg);
       }
     }
@@ -190,15 +208,24 @@ const EngStyles = styled.div`
       font-size: 2.5rem;
     }
     #tagline1 {
+      -ms-grid-row: 2;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 4;
       grid-area: tagline1;
     }
     #tagline2 {
+      -ms-grid-row: 4;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 4;
       grid-area: tagline2;
     }
     .heroTagline {
       font-size: 1.65rem;
     }
     #icon {
+      -ms-grid-row: 5;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 2;
       grid-area: icon;
     }
     @-webkit-keyframes bounce {
@@ -211,15 +238,18 @@ const EngStyles = styled.div`
     }
     @keyframes bounce {
       from {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
       }
       to {
+        -webkit-transform: translateY(5px);
         transform: translateY(5px);
       }
     }
     .heroIcon {
       padding-top: 10vh;
       font-size: 5rem;
+      -webkit-animation: bounce 0.7s ease-in-out infinite alternate;
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
@@ -258,6 +288,13 @@ const EngStyles = styled.div`
 `;
 
 const MainStyles = styled.div`
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -278,6 +315,7 @@ const MainStyles = styled.div`
   }
   .serviceSection {
     padding-top: 2%;
+    display: -ms-grid;
     display: grid;
     grid-template-areas:
       '. water water water water water wastewater wastewater wastewater wastewater wastewater . '
@@ -295,18 +333,33 @@ const MainStyles = styled.div`
     padding: 0 0 2rem 0;
   }
   #Water {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 9;
     grid-area: water;
   }
   #Wastewater {
+    -ms-grid-row: 1;
+    -ms-grid-column: 13;
+    -ms-grid-column-span: 9;
     grid-area: wastewater;
   }
   #Contract {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 9;
     grid-area: admin;
   }
   #Other {
+    -ms-grid-row: 3;
+    -ms-grid-column: 13;
+    -ms-grid-column-span: 9;
     grid-area: other;
   }
   #links {
+    -ms-grid-row: 5;
+    -ms-grid-column: 11;
+    -ms-grid-column-span: 3;
     grid-area: link;
   }
   .serviceLinks {
@@ -322,6 +375,8 @@ const MainStyles = styled.div`
       -o-transition: all 0.3s;
       transition: all 0.3s;
       &:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
         transform: scale(1.1);
       }
     }
@@ -332,6 +387,7 @@ const MainStyles = styled.div`
       border-width: 1px;
       border-color: #7a7a7a;
       border-radius: 10px;
+      -webkit-box-shadow: 8px 5px 10px 0px rgba(0, 0, 0, 0.5);
       box-shadow: 8px 5px 10px 0px rgba(0, 0, 0, 0.5);
       font-size: 13px;
       padding: 10px 20px;
@@ -368,6 +424,7 @@ const MainStyles = styled.div`
         'admin admin admin admin'
         'other other other other'
         '. link link .';
+      -ms-grid-rows: auto;
       grid-template-rows: auto;
       gap: 0;
       img {
@@ -382,6 +439,31 @@ const MainStyles = styled.div`
       .services {
         padding-bottom: 2rem;
       }
+    }
+    #Water {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 7;
+    }
+    #Wastewater {
+      -ms-grid-row: 3;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 7;
+    }
+    #Contract {
+      -ms-grid-row: 5;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 7;
+    }
+    #Other {
+      -ms-grid-row: 7;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 7;
+    }
+    #links {
+      -ms-grid-row: 9;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 3;
     }
   }
 `;

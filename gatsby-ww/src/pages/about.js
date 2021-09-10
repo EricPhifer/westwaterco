@@ -15,6 +15,13 @@ import StaffModal from '../components/StaffModal';
 import StaffPagination from '../components/StaffPagination';
 
 const ContactStyles = styled.div`
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
   text-align: center;
   padding-top: 75px;
   height: 100vh;
@@ -34,14 +41,26 @@ const ContactStyles = styled.div`
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 5vh;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr)
+      1rem minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem
+      minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr)
+      1rem minmax(0, 1fr) 1rem minmax(0, 1fr);
     grid-template-columns: repeat(12, minmax(0, 1fr));
+    -ms-grid-rows: auto;
     grid-template-rows: auto;
     gap: 2rem;
     place-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     .header {
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
       grid-column: 3 / span 8;
+      -ms-grid-row-align: center;
+      -ms-grid-column-align: center;
       place-self: center;
       text-align: center;
       font-size: 3.7rem;
@@ -50,19 +69,32 @@ const ContactStyles = styled.div`
     }
 
     form {
+      display: -ms-grid;
       display: grid;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
       grid-column: 3 / span 8;
+      -ms-grid-rows: auto;
       grid-template-rows: auto;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       padding: 1.5rem 0;
       gap: 0;
     }
     .container {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 6;
       grid-column: 1 / span 6;
       border: none;
+      display: -ms-grid;
       display: grid;
+      -ms-grid-columns: subgrid;
       grid-template-columns: subgrid;
+      -ms-grid-rows: auto;
       grid-template-rows: auto;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       gap: 1rem;
       input {
@@ -78,30 +110,50 @@ const ContactStyles = styled.div`
         display: none;
       }
       #nameContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 4;
         grid-column: 1 / span 4;
       }
       #phoneContainer {
+        -ms-grid-column: 5;
+        -ms-grid-column-span: 4;
         grid-column: 5 / span 4;
       }
       #emailContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
         grid-column: 1 / span 8;
       }
       #messageContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
         grid-column: 1 / span 8;
       }
       #recaptchaContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
         grid-column: 1 / span 8;
       }
       #submitContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
         grid-column: 1 / span 8;
         margin-left: 1rem;
       }
     }
+    .container > *:nth-child(1) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+    }
     #numberContact {
+      -ms-grid-row-align: center;
+      -ms-grid-column-align: center;
       place-self: center;
     }
     .numberContact {
       color: white;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
       grid-column: 3 / span 8;
       text-decoration: none;
       text-align: center;
@@ -118,6 +170,7 @@ const ContactStyles = styled.div`
     button {
       width: 100%;
       font-size: 1.4rem;
+      -webkit-box-shadow: none;
       box-shadow: none;
       background-color: rgba(71, 134, 163, 1);
       span {
@@ -129,6 +182,8 @@ const ContactStyles = styled.div`
       }
     }
     .iconContainer {
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
       grid-column: 3 / span 8;
     }
     @-webkit-keyframes bounce {
@@ -141,49 +196,120 @@ const ContactStyles = styled.div`
     }
     @keyframes bounce {
       from {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
       }
       to {
+        -webkit-transform: translateY(5px);
         transform: translateY(5px);
       }
     }
     .heroIcon {
       font-size: 5rem;
+      -webkit-animation: bounce 0.7s ease-in-out infinite alternate;
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
+  .gridContainer > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .gridContainer > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  .gridContainer > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+  }
+  .gridContainer > *:nth-child(4) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+  }
+  .gridContainer > *:nth-child(5) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 9;
+  }
+  .gridContainer > *:nth-child(6) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 11;
+  }
+  .gridContainer > *:nth-child(7) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 13;
+  }
+  .gridContainer > *:nth-child(8) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 15;
+  }
+  .gridContainer > *:nth-child(9) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 17;
+  }
+  .gridContainer > *:nth-child(10) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 19;
+  }
+  .gridContainer > *:nth-child(11) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 21;
+  }
+  .gridContainer > *:nth-child(12) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 23;
+  }
   @media only screen and (max-width: 900px) {
     .gridContainer {
+      -ms-grid-columns: (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr))
+        (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr));
       grid-template-columns: repeat(6, minmax(0, 1fr));
       .header {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
       }
       form {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
         max-width: 685px;
         margin: 0 auto;
       }
       .numberContact {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
       }
       .iconContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
       }
       .container {
         padding: 0;
         #nameContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
           grid-column: 1 / span 3;
         }
         #phoneContainer {
+          -ms-grid-column: 4;
+          -ms-grid-column-span: 3;
           grid-column: 4 / span 3;
         }
         #emailContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
         }
         #messageContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
         }
         #submitContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
           max-width: 400px;
           width: 400px;
@@ -195,39 +321,58 @@ const ContactStyles = styled.div`
   }
   @media only screen and (max-width: 500px) {
     .gridContainer {
+      -ms-grid-columns: (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr));
       grid-template-columns: repeat(3, minmax(0, 1fr));
       .header {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
         grid-column: 1 / span 3;
       }
       form {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
         grid-column: 1 / span 3;
       }
       .numberContact {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
         grid-column: 1 / span 3;
       }
       .iconContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
         grid-column: 1 / span 3;
       }
       .container {
         padding: 0;
         max-width: 95%;
         #nameContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
           grid-column: 1 / span 3;
           max-width: 95%;
         }
         #phoneContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
           grid-column: 1 / span 3;
           max-width: 95%;
         }
         #emailContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
           grid-column: 1 / span 3;
           max-width: 95%;
         }
         #messageContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
           grid-column: 1 / span 3;
           max-width: 95%;
         }
         #submitContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
           grid-column: 1 / span 3;
           max-width: 95%;
           width: 400px;
@@ -239,35 +384,55 @@ const ContactStyles = styled.div`
   }
   @media only screen and (max-width: 400px) {
     .gridContainer {
+      -ms-grid-columns: (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr))
+        (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr));
       grid-template-columns: repeat(6, minmax(0, 1fr));
       .header {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
       }
       form {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
       }
       .numberContact {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
         font-size: 1.2rem;
       }
       .iconContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
         grid-column: 1 / span 6;
       }
       .container {
         padding: 0;
         #nameContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
         }
         #phoneContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
         }
         #emailContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
         }
         #messageContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
         }
         #submitContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
           grid-column: 1 / span 6;
           width: 100vw;
           margin: 0;
@@ -279,77 +444,430 @@ const ContactStyles = styled.div`
 `;
 
 const StaffStyles = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  background: rgba(247, 249, 251, 1);
-  button {
-    padding: 0;
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+  text-align: center;
+  padding-top: 75px;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(${aboutBG});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  .overlay {
+    background-color: rgba(84, 89, 95, 0.3);
+    height: 100vh;
+    width: 100vw;
   }
-  a {
-    text-decoration: none;
-  }
-  h2 {
-    color: rgba(83, 89, 95, 1);
-    font-size: 3.5rem;
-    text-align: center;
-    text-decoration: none;
-  }
-  .sectionTitle {
+  .gridContainer {
     width: 100%;
-  }
-  .grid {
-    margin: 2.5rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 5vh;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem 5rem;
-    justify-content: space-evenly;
-    justify-items: center;
-    text-align: center;
-    .imgContainer {
-      position: relative;
-      width: 250px;
-      height: 300px;
-      margin-bottom: 10%;
-      &:hover .hoverOverlay {
-        opacity: 0.5;
+    -ms-grid-columns: minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr)
+      1rem minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem
+      minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr) 1rem minmax(0, 1fr)
+      1rem minmax(0, 1fr) 1rem minmax(0, 1fr);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+    gap: 2rem;
+    place-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    .header {
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
+      grid-column: 3 / span 8;
+      -ms-grid-row-align: center;
+      -ms-grid-column-align: center;
+      place-self: center;
+      text-align: center;
+      font-size: 3.7rem;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 10px black;
+    }
+
+    form {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
+      grid-column: 3 / span 8;
+      -ms-grid-rows: auto;
+      grid-template-rows: auto;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 1.5rem 0;
+      gap: 0;
+    }
+    .container {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 6;
+      grid-column: 1 / span 6;
+      border: none;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: subgrid;
+      grid-template-columns: subgrid;
+      -ms-grid-rows: auto;
+      grid-template-rows: auto;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      gap: 1rem;
+      input {
+        height: 30px;
+      }
+      input,
+      textarea {
+        font-size: 1.4rem;
+        width: 100%;
+        color: gray;
+      }
+      label {
+        display: none;
+      }
+      #nameContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 4;
+        grid-column: 1 / span 4;
+      }
+      #phoneContainer {
+        -ms-grid-column: 5;
+        -ms-grid-column-span: 4;
+        grid-column: 5 / span 4;
+      }
+      #emailContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
+        grid-column: 1 / span 8;
+      }
+      #messageContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
+        grid-column: 1 / span 8;
+      }
+      #recaptchaContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
+        grid-column: 1 / span 8;
+      }
+      #submitContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 8;
+        grid-column: 1 / span 8;
+        margin-left: 1rem;
       }
     }
-    .hoverOverlay {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
+    .container > *:nth-child(1) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+    }
+    #numberContact {
+      -ms-grid-row-align: center;
+      -ms-grid-column-align: center;
+      place-self: center;
+    }
+    .numberContact {
+      color: white;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
+      grid-column: 3 / span 8;
+      text-decoration: none;
+      text-align: center;
+      text-shadow: 2px 2px 10px black;
+      font-size: 1.5rem;
+      .coName {
+        display: none;
+      }
+      a[href^='tel:'] {
+        text-decoration: none;
+        border-bottom: 1px solid orangered;
+      }
+    }
+    button {
       width: 100%;
-      opacity: 0;
-      transition: all 0.5s ease-in-out;
-      background-color: white;
-      cursor: pointer;
+      font-size: 1.4rem;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background-color: rgba(71, 134, 163, 1);
+      span {
+        vertical-align: middle;
+      }
+      &:hover {
+        background-color: white;
+        color: gray;
+      }
     }
-    .image {
-      width: 100%;
-      height: 300px;
+    .iconContainer {
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 8;
+      grid-column: 3 / span 8;
     }
-    h4 {
-      color: black;
-      font-size: 2rem;
+    @-webkit-keyframes bounce {
+      from {
+        -webkit-transform: translateY(0);
+      }
+      to {
+        -webkit-transform: translateY(5px);
+      }
     }
-    p {
-      padding-top: 0;
-      margin-top: 0;
-      color: black;
-      font-size: 1.2rem;
+    @keyframes bounce {
+      from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      to {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+      }
+    }
+    .heroIcon {
+      font-size: 5rem;
+      -webkit-animation: bounce 0.7s ease-in-out infinite alternate;
+      animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
-  @media only screen and (min-width: 570px) and (max-width: 860px) {
-    .grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  .gridContainer > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .gridContainer > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  .gridContainer > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+  }
+  .gridContainer > *:nth-child(4) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+  }
+  .gridContainer > *:nth-child(5) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 9;
+  }
+  .gridContainer > *:nth-child(6) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 11;
+  }
+  .gridContainer > *:nth-child(7) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 13;
+  }
+  .gridContainer > *:nth-child(8) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 15;
+  }
+  .gridContainer > *:nth-child(9) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 17;
+  }
+  .gridContainer > *:nth-child(10) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 19;
+  }
+  .gridContainer > *:nth-child(11) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 21;
+  }
+  .gridContainer > *:nth-child(12) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 23;
+  }
+  @media only screen and (max-width: 900px) {
+    .gridContainer {
+      -ms-grid-columns: (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr))
+        (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      .header {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+      }
+      form {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+        max-width: 685px;
+        margin: 0 auto;
+      }
+      .numberContact {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+      }
+      .iconContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+      }
+      .container {
+        padding: 0;
+        #nameContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+          grid-column: 1 / span 3;
+        }
+        #phoneContainer {
+          -ms-grid-column: 4;
+          -ms-grid-column-span: 3;
+          grid-column: 4 / span 3;
+        }
+        #emailContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+        }
+        #messageContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+        }
+        #submitContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+          max-width: 400px;
+          width: 400px;
+          margin: 0 auto;
+          padding: 0;
+        }
+      }
     }
   }
-  @media only screen and (max-width: 569px) {
-    .grid {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
+  @media only screen and (max-width: 500px) {
+    .gridContainer {
+      -ms-grid-columns: (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      .header {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
+        grid-column: 1 / span 3;
+      }
+      form {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
+        grid-column: 1 / span 3;
+      }
+      .numberContact {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
+        grid-column: 1 / span 3;
+      }
+      .iconContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 3;
+        grid-column: 1 / span 3;
+      }
+      .container {
+        padding: 0;
+        max-width: 95%;
+        #nameContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+          grid-column: 1 / span 3;
+          max-width: 95%;
+        }
+        #phoneContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+          grid-column: 1 / span 3;
+          max-width: 95%;
+        }
+        #emailContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+          grid-column: 1 / span 3;
+          max-width: 95%;
+        }
+        #messageContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+          grid-column: 1 / span 3;
+          max-width: 95%;
+        }
+        #submitContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+          grid-column: 1 / span 3;
+          max-width: 95%;
+          width: 400px;
+          margin: 0 auto;
+          padding: 0;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .gridContainer {
+      -ms-grid-columns: (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr))
+        (minmax(0, 1fr)) (minmax(0, 1fr)) (minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      .header {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+      }
+      form {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+      }
+      .numberContact {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+        font-size: 1.2rem;
+      }
+      .iconContainer {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 6;
+        grid-column: 1 / span 6;
+      }
+      .container {
+        padding: 0;
+        #nameContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+        }
+        #phoneContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+        }
+        #emailContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+        }
+        #messageContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+        }
+        #submitContainer {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 6;
+          grid-column: 1 / span 6;
+          width: 100vw;
+          margin: 0;
+          padding: 0;
+        }
+      }
     }
   }
 `;

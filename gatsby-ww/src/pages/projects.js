@@ -3,9 +3,15 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import SEO from '../components/SEO';
-import logo from '../assets/images/logo.png';
 
 const ProjectStyles = styled.div`
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -24,16 +30,20 @@ const ProjectStyles = styled.div`
   }
   .filterContainer {
     text-align: center;
+    display: -ms-grid;
     display: grid;
     grid-template-areas: '. . . . all eng env . . . .';
     button {
       background: inherit;
+      -webkit-box-shadow: none;
       box-shadow: none;
     }
     .filterTitle {
       position: relative;
       color: black;
       font-size: 1.5rem;
+      -ms-grid-row-align: center;
+      -ms-grid-column-align: center;
       place-self: center;
       margin-bottom: 2rem;
       &:hover {
@@ -45,6 +55,8 @@ const ProjectStyles = styled.div`
         left: 50%;
         position: absolute;
         top: 110%;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
         width: 0;
       }
@@ -54,12 +66,18 @@ const ProjectStyles = styled.div`
       }
     }
     #allFilter {
+      -ms-grid-row: 1;
+      -ms-grid-column: 5;
       grid-area: all;
     }
     #engFilter {
+      -ms-grid-row: 1;
+      -ms-grid-column: 6;
       grid-area: eng;
     }
     #envFilter {
+      -ms-grid-row: 1;
+      -ms-grid-column: 7;
       grid-area: env;
     }
   }
@@ -68,7 +86,10 @@ const ProjectStyles = styled.div`
 const GridStyles = styled.div`
   text-align: center;
   background-color: white;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-template-columns: (minmax(auto, 1fr)) (minmax(auto, 1fr))
+    (minmax(auto, 1fr));
   grid-template-columns: repeat(3, minmax(auto, 1fr));
   grid-template-rows: auto;
   gap: 1rem;
@@ -83,6 +104,8 @@ const GridStyles = styled.div`
   .imgContainer {
     background-color: rgba(255, 255, 255, 0.4);
     position: relative;
+    -ms-grid-row-align: center;
+    -ms-grid-column-align: center;
     place-self: center;
     height: 275px;
     width: 100%;
@@ -108,6 +131,8 @@ const GridStyles = styled.div`
     height: 100%;
     width: 100%;
     opacity: 0;
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
     background-color: blue;
   }
@@ -126,9 +151,11 @@ const GridStyles = styled.div`
     display: none;
   }
   @media only screen and (max-width: 786px) {
+    -ms-grid-template-columns: (minmax(auto, 1fr)) (minmax(auto, 1fr));
     grid-template-columns: repeat(2, minmax(auto, 1fr));
   }
   @media only screen and (max-width: 600px) {
+    -ms-grid-template-columns: (minmax(auto, 1fr));
     grid-template-columns: repeat(1, minmax(auto, 1fr));
   }
 `;

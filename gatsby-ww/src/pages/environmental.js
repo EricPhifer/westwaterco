@@ -238,13 +238,21 @@ const EnvironmentalStyles = styled.div`
 `;
 
 const MainStyles = styled.div`
+  /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
   background: rgba(247, 249, 251, 1);
   color: rgba(83, 89, 95, 1);
+  display: -ms-grid;
   display: grid;
   grid-template-areas:
-    'main main main main main main main main main main main main '
-    'container container container container container container container container container container container container '
-    '. . . . . link link . . . . . ';
+    'main main main main main main main main main main main main'
+    'container container container container container container container container container container container container'
+    '. . . . . link link . . . . .';
   h2 {
     text-align: center;
     text-decoration: none;
@@ -270,6 +278,8 @@ const MainStyles = styled.div`
   .serviceContainer {
     padding: 1rem 0 2.5rem 0;
     margin: 0;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
     text-align: center;
     width: 100vw;
@@ -282,20 +292,46 @@ const MainStyles = styled.div`
     text-align: center;
     .threeIconServiceSection {
       margin: 2rem 0;
+      display: -ms-grid;
       display: grid;
       grid-template: subgrid;
       grid-template-areas: '. icon1 icon1 . . icon2 icon2 . . icon3 icon3 .';
       #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 2;
         grid-area: icon1;
       }
+      .twoIconServiceSection > #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 4;
+        -ms-grid-column-span: 2;
+      }
+      .oneIconServiceSection > #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 6;
+        -ms-grid-column-span: 2;
+      }
       #icon2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 6;
+        -ms-grid-column-span: 2;
         grid-area: icon2;
       }
+      .twoIconServiceSection > #icon2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 8;
+        -ms-grid-column-span: 2;
+      }
       #icon3 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 10;
+        -ms-grid-column-span: 2;
         grid-area: icon3;
       }
       .iconContainer {
         width: 259px;
+        -ms-grid-column-align: center;
         justify-self: center;
       }
       .icon {
@@ -307,17 +343,40 @@ const MainStyles = styled.div`
     }
     .twoIconServiceSection {
       margin: 2rem 0;
+      display: -ms-grid;
       display: grid;
       grid-template: subgrid;
       grid-template-areas: '. . . icon1 icon1 . . icon2 icon2 . . .';
       #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 2;
         grid-area: icon1;
       }
+      .twoIconServiceSection > #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 4;
+        -ms-grid-column-span: 2;
+      }
+      .oneIconServiceSection > #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 6;
+        -ms-grid-column-span: 2;
+      }
       #icon2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 6;
+        -ms-grid-column-span: 2;
         grid-area: icon2;
+      }
+      .twoIconServiceSection > #icon2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 8;
+        -ms-grid-column-span: 2;
       }
       .iconContainer {
         width: 250px;
+        -ms-grid-column-align: center;
         justify-self: center;
       }
       .icon {
@@ -329,14 +388,101 @@ const MainStyles = styled.div`
     }
     .oneIconServiceSection {
       margin: 2rem 0;
+      display: -ms-grid;
       display: grid;
       grid-template: subgrid;
       grid-template-areas: '. . . . . icon1 icon1 . . . . .';
       #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 2;
         grid-area: icon1;
+      }
+      .twoIconServiceSection > #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 4;
+        -ms-grid-column-span: 2;
+      }
+      .oneIconServiceSection > #icon1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 6;
+        -ms-grid-column-span: 2;
+      }
+      @media only screen and (max-width: 786px) {
+        #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .twoIconServiceSection > #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .oneIconServiceSection > #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 3;
+          -ms-grid-column-span: 1;
+        }
+        #icon2 {
+          -ms-grid-row: 3;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .twoIconServiceSection > #icon2 {
+          -ms-grid-row: 3;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        #icon3 {
+          -ms-grid-row: 5;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .twoIconServiceSection > #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .oneIconServiceSection > #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 3;
+          -ms-grid-column-span: 1;
+        }
+        #icon2 {
+          -ms-grid-row: 3;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .twoIconServiceSection > #icon2 {
+          -ms-grid-row: 3;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .twoIconServiceSection > #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 2;
+        }
+        .oneIconServiceSection > #icon1 {
+          -ms-grid-row: 1;
+          -ms-grid-column: 3;
+          -ms-grid-column-span: 1;
+        }
       }
       .iconContainer {
         width: 250px;
+        -ms-grid-column-align: center;
         justify-self: center;
       }
       .icon {
@@ -361,6 +507,8 @@ const MainStyles = styled.div`
       -o-transition: all 0.3s;
       transition: all 0.3s;
       &:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
         transform: scale(1.1);
       }
     }
@@ -371,6 +519,7 @@ const MainStyles = styled.div`
       border-width: 1px;
       border-color: #7a7a7a;
       border-radius: 10px;
+      -webkit-box-shadow: 8px 5px 10px 0px rgba(0, 0, 0, 0.5);
       box-shadow: 8px 5px 10px 0px rgba(0, 0, 0, 0.5);
       font-size: 13px;
       padding: 10px 20px;
