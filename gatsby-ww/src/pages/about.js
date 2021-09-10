@@ -210,53 +210,55 @@ const ContactStyles = styled.div`
       animation: bounce 0.7s ease-in-out infinite alternate;
     }
   }
-  .gridContainer > *:nth-child(1) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-  .gridContainer > *:nth-child(2) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-  }
-  .gridContainer > *:nth-child(3) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 5;
-  }
-  .gridContainer > *:nth-child(4) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 7;
-  }
-  .gridContainer > *:nth-child(5) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 9;
-  }
-  .gridContainer > *:nth-child(6) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 11;
-  }
-  .gridContainer > *:nth-child(7) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 13;
-  }
-  .gridContainer > *:nth-child(8) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 15;
-  }
-  .gridContainer > *:nth-child(9) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 17;
-  }
-  .gridContainer > *:nth-child(10) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 19;
-  }
-  .gridContainer > *:nth-child(11) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 21;
-  }
-  .gridContainer > *:nth-child(12) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 23;
+  @supports (--ms-ime-align: auto) {
+    .gridContainer > *:nth-child(1) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+    }
+    .gridContainer > *:nth-child(2) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 3;
+    }
+    .gridContainer > *:nth-child(3) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 5;
+    }
+    .gridContainer > *:nth-child(4) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 7;
+    }
+    .gridContainer > *:nth-child(5) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 9;
+    }
+    .gridContainer > *:nth-child(6) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 11;
+    }
+    .gridContainer > *:nth-child(7) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 13;
+    }
+    .gridContainer > *:nth-child(8) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 15;
+    }
+    .gridContainer > *:nth-child(9) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 17;
+    }
+    .gridContainer > *:nth-child(10) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 19;
+    }
+    .gridContainer > *:nth-child(11) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 21;
+    }
+    .gridContainer > *:nth-child(12) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 23;
+    }
   }
   @media only screen and (max-width: 900px) {
     .gridContainer {
