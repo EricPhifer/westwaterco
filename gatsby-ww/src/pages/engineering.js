@@ -60,14 +60,19 @@ const EngStyles = styled.div`
     .scrollList {
       &::before {
         content: '';
-        -webkit-animation: serviceScroll 30s ease-in-out 1s infinite;
-        -webkit-transition: -webkit-opacity serviceScroll 0.5s;
-        -ms-animation: serviceScroll 30s ease-in-out 1s infinite;
-        -ms-transition: -ms-opacity serviceScroll 0.5s;
+        -webkit-animation-name: serviceScroll;
+        -ms-animation-name: serviceScroll;
+        -webkit-animation-duration: 30s;
+        -ms-animation-duration: 30s;
+        -webkit-animation-timing-function: ease-in-out;
+        -ms-animation-timing-function: ease-in-out;
+        -webkit-animation-delay: 1s;
+        -ms-animation-delay: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -ms-animation-iteration-count: infinite;
+        -webkit-animation-play-state: running;
+        -ms-animation-play-state: running;
         animation: serviceScroll 30s ease-in-out 1s infinite;
-        -webkit-transition: opacity serviceScroll 0.5s;
-        -o-transition: opacity serviceScroll 0.5s;
-        transition: opacity serviceScroll 0.5s;
       }
     }
     @-webkit-keyframes serviceScroll {
