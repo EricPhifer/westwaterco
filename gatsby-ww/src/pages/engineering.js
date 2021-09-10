@@ -124,6 +124,9 @@ const EngStyles = styled.div`
         content: 'Contract Administration';
         -webkit-opacity: 1;
       }
+      90% {
+        -webkit-opacity: 0;
+      }
       100% {
         -webkit-opacity: 0;
       }
@@ -183,6 +186,9 @@ const EngStyles = styled.div`
         opacity: 1;
       }
       90% {
+        opacity: 0;
+      }
+      100% {
         opacity: 0;
       }
     }

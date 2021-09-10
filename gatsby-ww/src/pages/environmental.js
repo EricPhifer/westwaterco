@@ -137,6 +137,9 @@ const EnvironmentalStyles = styled.div`
         content: 'geologists';
         -webkit-opacity: 1;
       }
+      90% {
+        -webkit-opacity: 0;
+      }
       100% {
         -webkit-opacity: 0;
       }
@@ -175,6 +178,9 @@ const EnvironmentalStyles = styled.div`
         opacity: 1;
       }
       90% {
+        opacity: 0;
+      }
+      100% {
         opacity: 0;
       }
     }
