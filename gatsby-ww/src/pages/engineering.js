@@ -73,67 +73,85 @@ const EngStyles = styled.div`
         -webkit-animation-play-state: running;
         -ms-animation-play-state: running;
         animation: serviceScroll 30s ease-in-out 1s infinite;
+        animation-play-state: running;
       }
     }
     @-webkit-keyframes serviceScroll {
       0% {
         content: 'Long-Range Planning';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       6% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
       12% {
         content: 'Preliminary Design';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       18% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
       24% {
         content: 'Construction Inspection';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       30% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
       36% {
         content: 'Data Collection';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       42% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
       48% {
         content: 'Feasibility Studies';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       54% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
       60% {
         content: 'Permitting';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       66% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
       72% {
         content: 'Field Investigations';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       78% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
       84% {
         content: 'Contract Administration';
         -webkit-opacity: 1;
+        opacity: 1;
       }
       90% {
-        -webkit-opacity: 0;
+        -webkit-opacity: 0.5;
+        opacity: 0.5;
       }
       100% {
         -webkit-opacity: 0;
+        opacity: 0;
       }
     }
     @keyframes serviceScroll {
@@ -191,7 +209,7 @@ const EngStyles = styled.div`
         opacity: 1;
       }
       90% {
-        opacity: 0;
+        opacity: 0.5;
       }
       100% {
         opacity: 0;
