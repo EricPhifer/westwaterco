@@ -68,6 +68,10 @@ const EngStyles = styled.div`
         -ms-animation-timing-function: ease-in-out;
         -webkit-animation-delay: 1s;
         -ms-animation-delay: 1s;
+        -webkit-animation-direction: normal;
+        -ms-animation-direction: normal;
+        -webkit-animation-fill-mode: both;
+        -ms-animation-fill-mode: both;
         -webkit-animation-iteration-count: infinite;
         -ms-animation-iteration-count: infinite;
         -webkit-animation-play-state: running;
