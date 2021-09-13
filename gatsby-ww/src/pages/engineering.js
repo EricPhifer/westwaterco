@@ -62,24 +62,31 @@ const EngStyles = styled.div`
         content: '';
         -webkit-animation-name: serviceScroll;
         -ms-animation-name: serviceScroll;
+        animation-name: serviceScroll;
         -webkit-animation-duration: 30s;
         -ms-animation-duration: 30s;
+        animation-duration: 30s;
         -webkit-animation-timing-function: ease-in-out;
         -ms-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
         -webkit-animation-delay: 1s;
         -ms-animation-delay: 1s;
+        animation-delay: 1s;
         -webkit-animation-direction: normal;
         -ms-animation-direction: normal;
+        animation-direction: normal;
         -webkit-animation-fill-mode: both;
         -ms-animation-fill-mode: both;
+        animation-fill-mode: both;
         -webkit-animation-iteration-count: infinite;
         -ms-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
         -webkit-animation-play-state: running;
         -ms-animation-play-state: running;
+        animation-play-state: running;
         -webkit-animation: serviceScroll 30s ease-in-out 1s infinite;
         -ms-animation: serviceScroll 30s ease-in-out 1s infinite;
         animation: serviceScroll 30s ease-in-out 1s infinite;
-        animation-play-state: running;
       }
     }
     @-webkit-keyframes serviceScroll {
