@@ -72,12 +72,14 @@ const EngStyles = styled.div`
         -ms-animation-iteration-count: infinite;
         -webkit-animation-play-state: running;
         -ms-animation-play-state: running;
+        -webkit-animation: serviceScroll 30s ease-in-out 1s infinite;
+        -ms-animation: serviceScroll 30s ease-in-out 1s infinite;
         animation: serviceScroll 30s ease-in-out 1s infinite;
         animation-play-state: running;
       }
     }
     @-webkit-keyframes serviceScroll {
-      0% {
+      from {
         content: 'Long-Range Planning';
         -webkit-opacity: 1;
         opacity: 1;
@@ -149,7 +151,7 @@ const EngStyles = styled.div`
         -webkit-opacity: 0.5;
         opacity: 0.5;
       }
-      100% {
+      to {
         -webkit-opacity: 0;
         opacity: 0;
       }
