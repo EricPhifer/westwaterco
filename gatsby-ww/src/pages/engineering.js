@@ -84,9 +84,11 @@ const EngStyles = styled.div`
         -webkit-animation-play-state: running;
         -ms-animation-play-state: running;
         animation-play-state: running;
-        -webkit-animation: serviceScroll 30s ease-in-out 1s infinite;
-        -ms-animation: serviceScroll 30s ease-in-out 1s infinite;
-        animation: serviceScroll 30s ease-in-out 1s infinite;
+        -webkit-animation: serviceScroll 30s ease-in-out 1s infinite normal none
+          running;
+        -ms-animation: serviceScroll 30s ease-in-out 1s infinite normal none
+          running;
+        animation: serviceScroll 30s ease-in-out 1s infinite normal none running;
       }
     }
     @-webkit-keyframes serviceScroll {

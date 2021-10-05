@@ -113,8 +113,11 @@ const GridStyles = styled.div`
       opacity: unset;
       opacity: 1;
     }
-    .hoverOverlay {
-      opacity: 0.6;
+    .noImgOverlay {
+      opacity: 0.5;
+    }
+    .imgOverlay {
+      opacity: 0.5;
     }
   }
   img {
@@ -240,22 +243,29 @@ export default function Projects({ data }) {
             >
               <Link to={project.slug.current}>
                 {project.image ? (
-                  <SanityImage
-                    {...project.image}
-                    alt={project.mainTitle}
-                    style={{
-                      width: '100%',
-                      height: '275px',
-                      objectFit: 'cover',
-                      auto: 'format',
-                    }}
-                  />
+                  <div>
+                    <SanityImage
+                      {...project.image}
+                      alt={project.mainTitle}
+                      style={{
+                        width: '100%',
+                        height: '275px',
+                        objectFit: 'cover',
+                        auto: 'format',
+                      }}
+                    />
+                    <div className="imgOverlay">
+                      <div className="projectTitle">{project.mainTitle}</div>
+                    </div>
+                  </div>
                 ) : (
-                  <span className="noImage" />
+                  <div>
+                    <span className="noImage" />
+                    <div className="noImgOverlay">
+                      <div className="projectTitle">{project.mainTitle}</div>
+                    </div>
+                  </div>
                 )}
-                <div className="hoverOverlay">
-                  <div className="projectTitle">{project.mainTitle}</div>
-                </div>
               </Link>
             </div>
           ))}
