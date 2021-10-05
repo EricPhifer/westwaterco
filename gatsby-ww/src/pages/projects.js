@@ -133,6 +133,9 @@ const GridStyles = styled.div`
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
+      @media only screen and (max-width: 810px) {
+        display: block;
+      }
     }
     &:hover .imgOverlay {
       display: block;
