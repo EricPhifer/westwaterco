@@ -113,11 +113,19 @@ const GridStyles = styled.div`
       opacity: unset;
       opacity: 1;
     }
+    .noImgContainer {
+      height: 100%;
+    }
     .noImgOverlay {
+      background-color: black;
       opacity: 0.5;
     }
     .imgOverlay {
-      opacity: 0.5;
+      display: none;
+      &:hover {
+        background-color: black;
+        opacity: 0.5;
+      }
     }
   }
   img {
@@ -259,7 +267,7 @@ export default function Projects({ data }) {
                     </div>
                   </div>
                 ) : (
-                  <div>
+                  <div className="noImgContainer">
                     <span className="noImage" />
                     <div className="noImgOverlay">
                       <div className="projectTitle">{project.mainTitle}</div>
