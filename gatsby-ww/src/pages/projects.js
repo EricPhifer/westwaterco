@@ -123,19 +123,18 @@ const GridStyles = styled.div`
     }
     .imgOverlay {
       display: none;
+      position: absolute;
+      background-color: black;
+      opacity: 0.5;
       height: 100%;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       &:hover {
         display: block;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: black;
-        opacity: 0.5;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
       }
     }
   }
