@@ -67,7 +67,6 @@ const ContentStyles = styled.div`
   color: black;
   background-color: var(--white);
   font-size: 1.5rem;
-  overflow: scroll;
   h3 {
     font-weight: bold;
   }
