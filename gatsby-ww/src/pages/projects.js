@@ -122,7 +122,6 @@ const GridStyles = styled.div`
       opacity: 0.5;
     }
     .imgOverlay {
-      display: none;
       position: absolute;
       background-color: black;
       opacity: 0.5;
@@ -133,12 +132,6 @@ const GridStyles = styled.div`
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      @media only screen and (max-width: 810px) {
-        display: block;
-      }
-    }
-    &:hover .imgOverlay {
-      display: block;
     }
   }
   img {
